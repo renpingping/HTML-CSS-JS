@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2018 by anonymous (http://jsbin.com/vusamacoge/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+
+<html>
+
+<head>
+  
+<meta charset="utf-8">
+  
+<meta name="viewport" content="width=device-width">
+  
+<title>JS Bin</title>
+
+</head>
+
+<body>
+  
+运动<input type="checkbox" name="interest" value="sport"/><br>
+  
+音乐<input type="checkbox" name="interest" value="music"/><br>
+  
+美食<input type="checkbox" name="interest" value="food"/><br>
+  
+睡觉<input type="checkbox" name="interest" value="sleep"/><br>
+  
+跳舞<input type="checkbox" name="interest" value="dance"/>
+  
+<br><br>
+
+<input type ="button" value ="提交" onclick="getAllCheckboxValues();"/>
+
+
+<script id="jsbin-javascript">
+
+//获取复选框中的value
+
+function getAllCheckboxValues(){
+  //以下编程属于DOM编程
+  
+  //alert("This is a test.")
+  //1、获取所有的复选框
+  //通过name获取所有的控件，name在同一个html页面中可以重名，获取的是一个数组
+  
+  var allcheckboxes = document.getElementsByName("interest");
+  
+  //2、遍历数组，获取每一个复选框节点，再获取复选框节点的value
+  //alert(allcheckboxes.length);
+  
+  for(var i=0;i<allcheckboxes.length;i++){
+    var checkboxobj = allcheckboxes[i];
+    //alert(checkboxobj.value);
+    console.log(checkboxobj.value);
+  }
+  
+  //通过标签名称获取元素，获取的是一个数组
+  alert(document.getElementsByTagName("input").length);//6
+  
+}
+
+</script>
+
+</body>
+</html>

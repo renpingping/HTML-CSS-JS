@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2018 by anonymous (http://jsbin.com/fuhimeqese/2/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+
+<meta name="robots" content="noindex">
+
+<html>
+
+<head>
+  
+<meta charset="utf-8">
+  
+<meta name="viewport" content="width=device-width">
+  
+<title>checkbox的全选和取消全选</title>
+
+</head>
+
+
+<body>
+  
+<input type="checkbox" id = "chkElt" onclick="checkOrCancelAll();" />
+  
+<span id = "mySpan">全选</span>
+  <br><br>
+  
+  
+运动<input type="checkbox" name="interest" value="sport"/><br>
+  
+旅游<input type="checkbox" name="interest" value="travel"/><br>
+  
+美食<input type="checkbox" name="interest" value="food"/><br>
+  
+跳舞<input type="checkbox" name="interest" value="dance"/><br>
+  
+音乐<input type="checkbox" name="interest" value="music"/><br>
+  
+喝酒<input type="checkbox" name="interest" value="drink"/><br><br>
+  
+
+
+<script id="jsbin-javascript">
+
+function checkOrCancelAll(){
+  //1、获取checkbox的选中状态
+  //1.1、获取checkbox元素
+  var chkElt = document.getElementById("chkElt");
+  
+  //1.2、获取选中状态   
+  var checked = chkElt.checked;
+  //checked属性既可以获取复选框的选中状态，又可以设置选中状态
+  //alert(checked);
+  //2、若checked=true，将所有的复选框选中，若checked=false，将所有的复选框取消选中
+  //2.1获取所有的复选框
+  
+  var allInterests = document.getElementsByName("interest");
+  
+  //2.2、循环遍历取出每个复选框对象
+  var mySpan = document.getElementById("mySpan");
+  if(checked){
+    //全选
+     mySpan.innerHTML = "取消全选";
+    for(var i = 0;i<allInterests.length;i++){
+      allInterests[i].checked=true;//设置复选框的选中状态
+    }
+  }else{
+    //取消全选
+    mySpan.innerHTML = "全选";
+   for(var j = 0;j < allInterests.length;j++){
+      allInterests[j].checked=false;
+    }
+  }
+
+}
+</script>
+</body>
+</html>
