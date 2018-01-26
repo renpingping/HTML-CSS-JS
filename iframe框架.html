@@ -1,0 +1,38 @@
+﻿<!doctype html>
+<html>
+	<head> 
+		<meta charset="utf-8">
+		<title>iframe框架 and form表单</title>
+	</head>
+	<body>
+		<ul>
+			<li><a href="https://www.baidu.com" target="myFrame">百度</a></li>
+			<li><a href="https://www.sohu.com" target="myFrame">搜狐</a></li>
+			<li><a href="https://www.jd.com" target="myFrame">京东</a></li>
+			<li><a href="https://www.taobao.com" target="myFrame">淘宝</a></li>	
+			<li><a href="table.html" target="myFrame">自定义页面</a></li>	
+		</ul>
+		<button>按钮</button>
+		<iframe name="myFrame" src="https://www.baidu.com" width="50%" height="400px" scrolling="no" frameborder="1" ></iframe>
+			
+		5<sup>2</sup>    <!--上标和下标-->
+		2<sub>5</sub>
+<!--
+表单：
+action:表单数据收集完后提交的地址，只有form有
+bgcolor="red"是body标签独有的，一般不用。
+name:
+id:唯一标识某个标签，所有标签都有
+method:数据提交的方式（Get|Post）,默认get
+*只要有表单域，一定要写在form中
+autocomplete:(on|off),默认on，是否自动提示（即输入过的数据提示）
+
+-->
+		<form name="" action="默认提交地址" autocomplete="off">
+			姓名：<input name="name">
+			<button>提交</button>
+		
+		</form>
+		
+	</body>
+</html>
