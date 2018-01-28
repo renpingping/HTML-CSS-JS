@@ -1,0 +1,100 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="keywords" content="像素大战，吃豆子，游戏">
+		<meta name="description" content="像素大战-吃豆子">
+		<title>像素大战-吃豆子</title>
+		<style>
+			*{                        /* * 代表通配符选择*/
+			  margin:0;	
+			}
+			body{
+				background-color:#000;
+			}
+
+			.box{
+				position:relative;
+				width:200px;
+				height:200px;
+				background-color:#000;
+				margin-left:100px;
+				margin-top:100px;
+				border-radius:50%; /*让正方形变圆形*/
+				box-shadow:300px 0 0 -80px #fff,450px 0 0 -80px #fff,600px 0 0 -80px #fff,750px 0 0 -80px #fff;      /*阴影属性：水平位移 竖直位移 模糊半径 阴影大小 颜色*/
+				animation:go2 1s infinite linear;
+				
+			}
+			.box i{
+				position:absolute;
+				left:190px;
+				top:30px;
+				/*display:block; 有position:absolute;之后自动带有这种效果*/
+				width:30px;
+				height:30px;
+				background-color:#000;
+				border-radius:50%;
+			}
+			.box:before,.box:after{
+				content:"";    /*激活伪元素的必要条件*/
+				display:block;  /*让元素支持宽高*/
+				width:200px;
+				height:100px;
+				margin-left:100px;
+				background-color:#ff0;  /*#ffff00可以简写为#ff0，可以节约页面的字节数*/
+			}
+			.box:before{     /*伪元素 属于行内元素 没有宽高 在元素内容之前添加*/
+				
+				border-radius:100px 100px 0 0;   /*css3圆角属性，从左上按顺时针顺序调节四个角。*/  
+				animation:go 1s infinite;        /*动画的名字 动画的时间 无数次*/
+				
+			}
+			.box:after{     /*在元素内容之后添加*/
+				border-radius:0 0 100px 100px;   /*css3圆角属性，从左上按顺时针顺序调节四个角。*/  
+				animation:go1 1s infinite;
+				
+			}
+			@keyframes go{              /*@keyframes定义动画  */
+				0%{transform:rotate(0)}
+				50%{transform:rotate(-30deg)}
+				100%{transform:rotate(0)}
+			}
+			@keyframes go1{              /*@keyframes定义动画  */
+				0%{transform:rotate(0)}
+				50%{transform:rotate(30deg)}
+				100%{transform:rotate(0)}
+			}
+			@keyframes go2{
+				0%{box-shadow:300px 0 0 -80px #fff,450px 0 0 -80px #fff,600px 0 0 -80px #fff,750px 0 0 -80px #fff}
+				100%{box-shadow:150px 0 0 -80px #fff,300px 0 0 -80px #fff,450px 0 0 -80px #fff,600px 0 0 -80px #fff}
+			}
+/*######################################################################################ddd*/
+			/*.box .top{                  /*混合选择器*/
+				width:200px;
+				height:100px;
+				background-color:#ff0;  /*#ffff00可以简写为#ff0，可以节约页面的字节数*/
+				border-radius:100px 100px 0 0;   /*css3圆角属性，从左上按顺时针顺序调节四个角。*/  
+				animation:go 1s infinite;        /*动画的名字 动画的时间 无数次*/
+			}*/
+			/*.box .bottom{                  /*混合选择器*/
+				width:200px;
+				height:100px;
+				background-color:#ff0;  /*#ffff00可以简写为#ff0，可以节约页面的字节数*/
+				border-radius:0 0 100px 100px;   /*css3圆角属性，从左上按顺时针顺序调节四个角。*/  
+				animation:go1 1s infinite;
+			}*/
+/*######################################################################################*/
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<!--<div class="top">	
+				
+			</div>
+			<div class="bottom">	
+				
+			</div-->
+			<i></i>	
+		</div>
+	</body>
+</html>
