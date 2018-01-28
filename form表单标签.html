@@ -1,0 +1,77 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="keywords" content="表单">
+		<meta name="description" content="表单">
+		<title>form表单标签</title>
+	</head>
+	<body>
+		<!--form id="myForm" action="https://www.baidu.com" autocomplete="off" method="post">
+		用户名：<input name="userName" type="text"><br>
+		密码：<input name="password" type="password" maxlength="6"><br>
+		<!--button type="submot">登录</button>
+		<button type="button">注册</button>
+		<input type="submit" value="登录">
+		<input type="reset" value="重置">
+		<form-->
+		
+		<form action="http://www.dongnaoedu.com" method="post" autocomplete="off">
+		<table border="1" cellpadding="10">
+			<tr colspan="4">
+				<img src="images/logo.png">
+			</tr>
+			<tr>
+				<th>姓名</th>
+				<td><input name="name"></input></td>
+				<th>年龄</th>
+				<td>
+					<select name="age">
+						<option value="18">18</option>
+						<option value="19">19</option>
+						<option value="20">20</option>
+						<option value="21">21</option>
+						<option value="22">22</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<th>联系方式</th>
+				<td><input name="moblie"></input></td>
+				<th>证件类型</th>
+				<td>
+					<input id="type1" name="cardType"type="radio" value="1" checked="checked"><label for="type1">身份证</label>
+					<input id="type2" name="cardType"type="radio" value="2"><label for="type2">军官证</label>
+					<input id="type3" name="cardType"type="radio" value="3"><label for="type3">学生证</label>
+					<input id="type4" name="cardType"type="radio" value="4"><label for="type4">护照</label>
+				</td>
+			</tr>
+			<tr>
+				<th>证件号码</th>
+				<td><input name="cardNo"></input></td>
+				<th>收入</th>
+				<td><input name="money"></input></td>
+			</tr>	
+			<tr>
+				<th>兴趣爱好</th>
+				<td colspan="3">
+					<input id="inters1" name="inters"type="checkbox" value="1"><label for="inters1">跑步</label>
+					<input id="inters2" name="inters"type="checkbox" value="2"><label for="inters2">排球</label>
+					<input id="inters3" name="inters"type="checkbox" value="3"><label for="inters3">足球</label>
+					<input id="inters4" name="inters"type="checkbox" value="4"><label for="inters4">篮球</label>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2"><textarea name="customSign"></textarea></td>
+				
+				<td colspan="2"><textarea name="bankSign"></textarea></td>
+			</tr>	
+			<tr>
+				<td colspan="4" align="center">
+					<input type="submit" value="提交">
+					<input type="reset" value="重置">
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
