@@ -1,0 +1,74 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+		<title>tank 动态</title>
+		<style>
+			body{
+				margin:0;
+			}
+			.tank{
+				width:200px;
+				height:100px;
+				
+				margin:100px auto;
+				border:2px solid #000;/*边框：宽度 样式 颜色*/
+				border-radius:0 0 20px 20px;
+			}
+			.tank .battery{
+				width:100px;
+				height:50px;
+				background-color:blue;
+				border-radius:0 0 50px 50px;
+				margin:auto;
+			}
+			.tank .battery:before{
+				content:"";
+				display:block;
+				width:20px;
+				height:20px;
+				margin:auto;
+				background-color:#fff;
+				border-radius:50%;
+				box-shadow:0 50px 0 -7px red,
+				0 75px 0 -7px red,
+				0 100px 0 -7px red,
+				0 125px 0 -7px red;  
+				animation:go 3s infinite,go1 200ms infinite linear;/*linear 匀速*/	
+			}
+			.tank .battery:after{
+				content:"";
+				display:block;
+				width:4px;
+				height:23px;
+				margin:-3px auto 0;/*上 左右 下*/
+				background-color:#fff;
+				transform-origin:top;/*设置交换基点*/
+				animation:go 3s infinite;
+			}
+			
+			@keyframes go{
+				0%{transform:rotate(-30deg)}
+				50%{transform:rotate(30deg)}
+				100%{transform:rotate(-30deg)}
+			}
+			@keyframes go1{
+				0%{box-shadow:0 50px 0 -7px red,0 75px 0 -7px red
+				,0 100px 0 -7px red,0 125px 0 -7px red}
+				100%{box-shadow:0 75px 0 -7px red,0 100px 0 -7px red
+				,0 125px 0 -7px red,0 150px 0 -7px red}
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="tank">
+			<div class="battery">
+				<!--<div class="spiale"></div>
+				<div class="gun"></div-->
+			</div>
+		</div>
+	</body>
+</html>
