@@ -1,0 +1,41 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>table 标签</title>
+		<style>
+			*{margin:0;}
+			.love{
+				width:400px;
+				height:300px;
+				/*background-color:#390;*/
+				margin:100px auto;
+			}
+			.love:before,.love:after{
+				content:"";
+				display:block;
+				width:200px;
+				height:300px;
+				border-radius:100px 100px 0 0;
+
+				background-color:#faf9f9;
+				box-shadow:-8px -8px 9px #222 inset;
+				/*css3渐变色
+				background-image:-webkit-linear-gradient(left,#368,#669);*/
+				/*background-image:-webkit-linear-gradient(top,#29f77f 0%,#29f77f 20%,#ce8b27 20%,#ce8b27 40%,#fa11db 40%,#fa11db 60%,#1189faca 60%,#1189faca 80%,#fad711ca 80%,#fad711ca 100%); *chrome浏览器适用*/
+			}
+			.love:before{
+				box-shadow:-8px -8px 80px -8pxpx #873940 inset;
+				transform:translate(60px,0) rotate(-45deg);
+			}
+			.love:after{
+				transform:translate(130px,-300px) rotate(45deg);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="love">
+			
+		</div>
+	</body>
+</html>
