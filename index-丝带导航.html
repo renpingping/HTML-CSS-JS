@@ -1,0 +1,101 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="keywords" content="丝带、导航栏、特效">
+		<meta name="description" content="learn css">
+		<title>丝带导航栏特效</title>
+		<style>
+			*{margin:0;}
+			body{background-color:#444;}
+			ul{
+				margin:0;
+				list-style:none;
+				padding:0;
+			}
+			.nav{
+				position: relative;
+				width:450px;
+				height:50px;
+				background-color:#fff;
+				margin:40px auto;
+			}
+			.nav:before,.nav:after{
+				content:"";
+				display:block;
+				width: 36px;
+				height: 36px;
+				background-color:#444;
+				position:absolute;
+			}
+			.nav:before{
+				transform: rotate(45deg);
+				left:-18px;
+				top:7px;
+			}
+			.nav:after{
+				transform: rotate(45deg);
+				left:432px;
+				top:7px;
+			}
+			.nav ul{
+				position:relative;
+				top:-10px;
+				width:350px;
+				height:60px;
+				margin:0 auto;
+				display:flex;/* 第2*/
+				/*font-size: 0;  第1*/
+				overflow:hidden;
+			}
+			.nav ul li{
+				position:relative;/*成为参考坐标，相对自己移动*/
+				width: 70px;
+				height: 50px;
+				text-align:center;    /*文字水平居中*/
+				line-height:50px;     /*竖直居中*/
+				top:10px;
+				transition:0.4s;
+				box-shadow:0 15px 0 -5px #444; 
+				background-color:#fff;
+
+				/*float:left; 第3*/
+				/*display: inline-block; * 行内块元素 换行有一个空格
+				font-size:14px;  第1*/
+			}
+			.nav ul li:before,.nav ul li:after{
+				content: "";
+				display: block;
+				width: 10px;
+				height: 10px;
+				position: absolute;
+				top: 50px;
+				
+			}
+			.nav ul li:before{
+				background-image:linear-gradient(45deg,#fff 50%,#ccc 50%);
+			}
+			.nav ul li:after{
+				right:0;
+				background-image:linear-gradient(-45deg,#fff 50%,#ccc 50%);
+			}
+			.nav ul li:hover{
+				top: 0px;
+				border-radius: 4px;
+				background-color: #ff0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="nav">
+			<ul>
+				<li>Html5</li>
+				<li>CSS3</li>
+				<li>JS</li>
+				<li>Jq</li>
+				<li>Vue4</li>
+				
+			</ul>
+		</div>
+	</body>
+</html>
