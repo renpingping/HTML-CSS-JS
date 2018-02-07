@@ -2,24 +2,108 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>图片
-加载技术</title>
+		<title>图片加载技术</title>
 		<style>
 			*{
 				margin:0;
 				padding:0;
 			}
+			body{background-color:#434343;}
 			#box{  /*  # ：id 选择器*/
+			
 				width:930px;
-				height:500px;
-				background-color:#930;
+				/*height:500px;*/
+				background-color:#2D2D2E;
 				margin:50px auto;
+				border-radius:10px;
+				overflow:hidden;
+			}
+			#box img{
+				/*display:block;*/
+				float:left;  /*左浮动 与父元素左对齐 依次往右端显示
+						浮动元素脱离文档流 漂浮起来 									     */
+				width:288px;
+				height:175px;
+				margin:10px;
+				/*
+					水平间隙：行内元素在一行之内显示 中间的空格会解析一个出来间隙。
+					上下间隙：行内元素默认的垂直对齐方式（基线对齐）
+				*/
+				/*vertical-align:middle;*垂直对齐方式  基线对齐 : baseline 上边对齐 top 下边对齐 bottom */
+				border:1px solid #fff;
+				border-radius:10px;
+			}
+			#box img:hover{
+				opacity:0.5;  /*透明度*/
 			}
 		</style>
 	</head>
 	<body>
 		<div id="box">
-			<img src="">
+			<img src="images/1.png">
+			<img src="images/2.png">
+			<img src="images/3.png">
+			<img src="images/1.png">
+			<img src="images/2.png">
+			<img src="images/3.png">
+			<img src="images/1.png">
+			<img src="images/2.png">
+			<img src="images/3.png">
+			<img src="images/1.png">
+			<img src="images/2.png">
+			<img src="images/3.png">
+			<img src="images/1.png">
+			<img src="images/2.png">
+			<img src="images/3.png">
+			<img src="images/1.png">
+			<img src="images/2.png">
+			<img src="images/3.png">
+			<img src="images/1.png">
+			<img src="images/2.png">
+			<img src="images/3.png">
+			<img src="images/1.png">
+			<img src="images/2.png">
+			<img src="images/3.png">
+			<img src="images/1.png">
+			<img src="images/2.png">
+			<img src="images/3.png">
+			<img src="images/1.png">
+			<img src="images/2.png">
+			<img src="images/3.png">
+			<img src="images/1.png">
+			<img src="images/2.png">
+			<img src="images/3.png">
+			<img src="images/1.png">
+			<img src="images/2.png">
+			<img src="images/4.png">
 		</div>
+		<script src="js/jquery-1.11.1min.js"></script>  <!--导入插件-->
+		<script src="js/lazyload.js"></script>
+		<script>
+			//先解决插件的冲突问题   用lazyload替代$
+			var lazyload = $.noConflict();
+			lazyload(function(){
+				//替代图片
+				placeholder: "images/年货.webp"
+			})
+		</script>
 	</body>
 </html>
+<!--
+
+为什么需要标准规范？
+1、提高代码可维护性利用性
+命名规范、书写格式清晰、代码结构注释清晰
+2、提高网站的加载性能
+    a、减少文件的大小
+	懒加载、瀑布流、分页（ajax异步请求)
+        代码压缩、文件压缩、代码冗余
+    b、减少向服务器请求次数
+	精灵图（雪碧图）、懒加载、多文件打包（gulp webpack）
+    c、代码性能优化
+	能用css实现的效果就不要用js(用js实现效果 先获取dom元素节点 修改之后再重新渲染dom节点)
+	css的书写顺序（布局-定位-浮动-显示方式->宽高->文本->css3）
+	js的性能优化
+3、seo优化
+    标签语义化
+-->
