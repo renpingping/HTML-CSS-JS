@@ -1,0 +1,41 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>table 标签</title>
+	</head>
+	<body>
+		&lt;body&gt;<!-- <> 转义-->
+		<abbr title="Hyper text Markup language">HTML</abbr><!--*对HTML解释说明*-->
+		<a href="http://www.baidu.com" target="_blank">百度<img src="1.png"></a>
+		
+ <!--
+      ../ 代表上一级文件   ../../代表上上一级文件
+
+      ../1/2/3/1.jpg
+-->
+		
+		<iframe target="_blank"> </iframe>
+		<form action="XXXX.aspx" method="get">
+		<input type="text" name="txtUserName">
+		<input type="password" name="txtPwd">
+		<select name="sColor">  /*下拉菜单*/
+			<option>红色</option>
+			<option>蓝色</option>
+			<option>紫色</option>
+			<option>橙色</option>
+		</select>
+		<input type="radio" name="sex" id="dmale"><label for="dmale">男</label> 
+<!--单选按钮 label使选择文字的时候也能选中按钮-->
+		<input type="radio" name="sex" id="dfemale"><label for="dfemale">女</label> 
+		<inout type="file" name="ffile">  <!--上传文件-->
+		<input type="checkbox">苹果<input type="checkbox">橘子
+		<textarea name="ttext" cols="50" rows="20"></textarea>
+		<input type="reset"><input type="submit">  <!-- 这两个必须放在form中其他的可以单独使用-->
+		<input type="button" value="普通按钮">
+                </form>
+		<div>daoffak</div>
+		<h1>奥巴马</h1>             <!--h1权重比较高-->
+		<em><strong>                <!--强调 strong更明显-->
+	</body>
+</html>
