@@ -2,7 +2,9 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>table 标签</title>
+		<meta name="keywords" content="关键词1，关键词2，......">
+		<meta name="description" content="描述信息">
+		<title>h5新增标签</title>
 	</head>
 	<body>
 		<audio src="1.mp3" controls="controls"></audio>
@@ -13,25 +15,79 @@
 		<video src="1.mp4" controls="controls" autoplay="autoplay" loop="3"></video><!--  
 
 loop：循环播放 autoplay 自动播放-->
-		<input type="text" list="taglist">
-		<datalist id="taglist">
-		<option>苹果</option>
-		<option>橘子</option>
-		<option>樱桃</option>
-		<option>核桃</option>
+<br>
+<br>
+	     <input type="text" list="taglist">
+		<datalist id="taglist">     
+		    <option>苹果</option>
+		    <option>橘子</option>
+		    <option>樱桃</option>
+		    <option>核桃</option>
 		</datalist>
+		<select>
+		    <option>苹果</option>
+		    <option>橘子</option>
+		    <option>樱桃</option>
+		    <option>核桃</option>
+		</select>
+
+<!-- 
+ datalist和select都可以实现选择功能，datalist不仅能供用户选择，用户还可以自己输入，而且datalist还
+
+可以达到模糊匹配的效果。
+-->
+
+<br>
+<br>
+<input list="items" id="item">   
+<datalist id="items">  
+  <option value="A item"  data-xyz = "1" >  
+  <option value="aa item" data-xyz = "2" >  
+  <option value="C item"  data-xyz = "3" >  
+  <option value="D item"  data-xyz = "4" >  
+  <option value="E item"  data-xyz = "5" >  
+</datalist>    
+<input type="button" id="button" value="Get xyz" />  
+
+
+<br>
+<br>
+Pick your favorite fruit
+<datalist id="fruits">    
+  <select name="fruit_sel">    
+  <option value="Apple">Apple</option>     
+  <option value="Orange">Orange</option>     
+  <option value="Peach">Peach</option>     
+  </select>    
+</datalist>  
+  or type one.   
+<input type="text" name="fruit" value="" list="fruits" />    
+<!--
+更好兼容，不过有的服务端要同时捕捉fruits和fruit_sel两个参数了
+-->
 
 		<details>
 			<summary>感兴趣的事</summary>
-			<p>怎么学习前端</p>
-			<p>需要什么开发工具</p>
-			<p>框架需要什么</p>
+			<p>a.怎么学习前端</p>
+			<p>b.需要什么开发工具</p>
+			<p>c.框架需要什么</p>
 		</details>
-		<nav></nav>
+		<nav></nav><!-- 页面重要的菜单 一般为导航-->
 		<menu>
 		<li>aaaaaaa</li>
 		<li>bbbbbbb</li>
 		<li>ccccccc</li>
 		</menu>
+		
+		<address> address标签 存放地址信息</address>
+<br>
+<br>
+		进度条： <progress value="1" max="10"></progress> <!-- 进度条-->
+<br>
+<br>
+		这个是<mark>强调</mark>标签
+<br>
+<br>
+		<time>2018-2-8</time> <!-- 时间标签 专门放时间信息 -->
 	</body>
 </html>
