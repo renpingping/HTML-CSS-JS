@@ -1,47 +1,11 @@
-﻿<!doctype html>
+<!doctype html>
 <html>
 	<head>
 		<meta charset="utf-8">
 		<meta name="keywords" content="关键词1,关键词2,......">
 		<meta name="decription" content="网页描述。。。">
 		<title>datalist 深入</title>
-		<script>
-			// firefox浏览器下label属性值变成空字符串
-			if (document.mozHidden !== undefined) {
-    			[].slice.call(document.querySelectorAll("#mydata option")).forEach(function(eleOption) {
-        		eleOption.label = " "; });
-			}
-
-			var eleList = document.getElementById("emailList"), eleMail = document.getElementById("email"), htmlListInit = '', arrEmailList = [];
-    
-			if (eleMail && eleList && (htmlListInit = eleList.innerHTML) !== '') {    
-   				 // 得到类似["qq.com", "163.com", "gmail.com", ...]的数据
-   			arrEmailList = [].slice.call(eleList.getElementsByTagName("option")).map(function(option) {
-    		  	return option.value.replace("*@", "");    
-    			});	
-
-    			eleMail.fnListReplace = function() {
-        		var arrValue = this.value.trim().split("@");
-        		// 修复FireFox浏览器下无限input问题
-        		// 如果值不完全匹配某option值，执行动态替换 
-        		if (arrValue.length !== 2 || arrEmailList.indexOf(arrValue[1]) === -1) {
-           		 eleList.innerHTML = htmlListInit.replace(/\*/g, arrValue[0]);
-        		}        
-       			 return this;
-   			 };
-    			// 绑定输入事件侦听
-   			 eleMail.addEventListener("input", function() {
-        		this.fnListReplace.call(this);        
-   			 }, false);
-    
-    			//  载入即匹配
-    			eleMail.fnListReplace.call(eleMail).focus();
-			} else {
-   				 eleList = document.createElement("datalist");
-   				 eleList.innerHTML = '<p class=sorry>抱歉，当前浏览器不支持HTML5 datalist.</p>';    
-   				 eleMail.parentNode.appendChild(eleList);
-			}
-		</script>
+		
 	</head>
 	<body>
 		列表:<input type="text" list="mydata" placeholder="热门电影排行">
@@ -52,7 +16,7 @@
 			<option label="Top4" value="二代妖精">
 		</datalist> 
 
-		邮箱：<input type="email" id="email" list="emailList" name="off_autocomplete" />
+		邮箱：<input type="email" id="email" list="emailList" placeholder="请输入邮箱" name="off_autocomplete">
 		<datalist id="emailList">
    			 <option value="*@qq.com">
    			 <option value="*@163.com">
@@ -60,5 +24,44 @@
   			 <option value="*@yahoo.com.cn">
    			 <option value="*@126.com">
 		</datalist>
+		
+		<script type="text/javascript"> <!-- js放前面不起作用,原因???-->
+			// firefox浏览器下label属性值变成空字符串
+			if (document.mozHidden !== undefined) {
+    			[].slice.call(document.querySelectorAll("#mydata option")).forEach(function(eleOption) {
+        		eleOption.label = ""; });
+			}
+
+			var eleList = document.getElementById("emailList"), eleMail = document.getElementById("email"), htmlListInit = '', arrEmailList = [];
+    
+			if (eleMail && eleList && (htmlListInit = eleList.innerHTML) !== '') {    
+  			// 得到类似["qq.com", "163.com", "gmail.com", ...]的数据
+    			arrEmailList = [].slice.call(eleList.getElementsByTagName("option")).map(function(option) {
+        		return option.value.replace("*@", "");    
+    			});
+
+    			eleMail.fnListReplace = function() {
+        		var arrValue = this.value.trim().split("@");
+        		// 修复FireFox浏览器下无限input问题
+        		// 如果值不完全匹配某option值，执行动态替换 
+        		if (arrValue.length !== 2 || arrEmailList.indexOf(arrValue[1]) === -1) {
+            		eleList.innerHTML = htmlListInit.replace(/\*/g, arrValue[0]);
+        		}        
+        		return this;
+    			};
+   			 // 绑定输入事件侦听
+   			 eleMail.addEventListener("input", function() {
+       			 this.fnListReplace.call(this);        
+    			}, false);
+    
+    			//  载入即匹配
+    			   eleMail.fnListReplace.call(eleMail).focus();
+			} else {
+    			   eleList = document.createElement("datalist");
+    			   eleList.innerHTML = '<p class=sorry>抱歉，当前浏览器不支持HTML5 datalist.</p>';    
+    			   eleMail.parentNode.appendChild(eleList);
+			}
+
+		</script>
 	</body>
 </html>
