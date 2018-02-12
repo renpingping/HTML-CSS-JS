@@ -1,0 +1,87 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>打气球</title>
+		<style>
+			*{margin:0;}
+			html{height:100%;/*继承浏览器的高度*/}
+			body{
+				display:flex;
+				height:100%;/*继承父级(html)元素的元素*/
+				backgroud-color:#ccc;
+			}
+			.balloon{
+				width:160px;
+				height:160px;
+				background-color:#faf9f9;
+				/*margin:auto;自适应居中*/
+				/*
+				border-radius:10px 20px 30px 40px/20px 30px 40px 50px;
+				border-radius:50%;  CSS3圆角属性 左上 右上 右下 左下 border-radius:10px 20px 30px 40px; 
+				*/
+				border-radius:160px 160px 64px 160px;
+				/*css3 形变 旋转x度*/
+				transform:rotate(45deg);
+				/*css3 盒子阴影 ：x位移 y位移 羽化程度 半径 颜色 模式*/
+				box-shadow:-8px -8px 80px -5px #5DD0fc inset;
+			}
+			.balloon::after{
+				display:block;
+				content:"";
+				width:0;
+				height:0;
+				/*CSS3 位移*/
+				/*transform:translate(150px,150px);*/
+
+				/*边框线 半径 类型 颜色*/
+				border:8px solid transparent;
+				border-right-color:#62a098;
+				transform:translate(145px,145px) rotate(45deg);
+				border-radius:50%;
+				
+			}
+			@keyword gofloat{
+			100%
+			}
+		</style>
+	</head>
+	<body>
+		<div class="balloon" style="top:-1000px left:696px;"></div>
+		<div class="balloon" style="top:-500px left:300px;"></div>
+		<script>
+			/*
+				需求分析 
+				1,动态生成dom几点 初始化; 数量 创建节点对象
+				2,气球向上移动
+				3,用户点击气球 气球爆炸
+				4,爆炸动画以及项目完整
+			*/
+
+			var num = 10; //初始化 气球数量
+			var wW = window.innerWidth;
+			var wH = window.innerHeight;
+			var bZ = 160;
+			init();
+			function init(){
+				var fragment = document.creaDocumentFragment();
+			    for(var i=0;i<num;i++){
+				var randowX = ((Math.randow()*wW) | 0) - bZ;
+				randomX = Math.abs(randomX);
+				var oBalloon = document.createElement("div");
+				oBalloon.classList.add("ballon");
+				oBalloon.style.top = wH - bZ+ 'px';
+				oBalloon.style.left = randowX+ 'px';
+				document.body.appendChild(oBalloon);
+			    }
+				document.body.appendChild(fragment);
+			}
+			
+			
+		</script>
+	</body>
+</html>
+<!--
+伪类：hover active 在已有元素基础上改变样式或者状态。
+伪元素：默认行内元素，不具备宽高
+-->
