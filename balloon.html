@@ -2,11 +2,11 @@
 <html>
 	<head>
 		<meta charset="utf-8">
+		<meta name="keywords" content="balloon,气球">
 		<title>balloon game</title>
 		<style>
 			*{margin:0;padding:0;}
 			body{
-				/*display:flex;*/
 				overflow:hidden;
 				background-color:#ccc;
 			}
@@ -48,54 +48,168 @@
 						1、位置
 							a.横向	
 							    随机 0 - wW
-							    伪随机数 
-
-Math.random()
+							    伪随机数 Math.random()
 							    包括0 不包括1
 							b.纵向
 							    top window height
 				2,气球向上移动
-					获取节点对象
-					循环所有节点
+					a.获取节点对象
+					b.循环所有节点 top改变 元素top=当前top-移动量
+					c.定时器
+						setInterval setTimeout
+						requestAnimationFrame
+					d.速度差异化
+					    自定义属性
+					e.性能优化
 				3,用户点击气球 气球爆炸
+					1、点击事件
+						事件委托
+					2、删除dom
+						找到父节点删除子节点
+					3、生成新气球
+						init循环利用
+					4、清除数组对应项
+						
 				4,爆炸动画以及项目完整
+					1、speed++
+					2、width height --
+					3、减少到一定程度 节点移除
+					4、条件判断
+						清楚定时器
+						删除节点
+						终止函数
 			*/
 
 		  	var num = 10; //初始化 气球数量
 			var wW = window.innerWidth;    //获取浏览器的宽度
 			var wH = window.innerHeight;   //获取浏览器的高度
 			var bZ = 160; 
-			init();
-			/*初始化模块*/
-			function init(){
+			var timer;
+			var balloons = []; //节点缓冲池
+			init(10);  //10 气球生成数量
+			timer = setInterval(move,1000/30);
+			document.addEventListener("click",function(e){
+				if(e.target.className.toLowerCase() === "balloon"){
+					var ele = e.target;
+					ele.boom(function(){         
+						this.parentNode.removeChild(this);
+					}.bind(ele));
+
+					//删除节点
+					//ele.parentNode.removeChild(ele);
+
+					init(1);
+					balloons.splice(balloons.lastIndexOf(ele),1);
+					ele.boom();
+				};
+			},false)
+
+			/*//气球动画组件
+			Node.prototype.boom=function(){
+				var that = this;                  //词法作用域 上下文
+				that.timer = setInterval(function(){
+					that.speed++;
+					that.style.width = that.offsetWidth - 10 + "px";
+					that.style.height = that.offsetWidth - 10 + "px";
+					that.style.top = that.offsetTop - that.speed + "px";
+				},1000/30)
+			}*/
+
+			//气球动画组件
+			Node.prototype.boom=function(cb){
+				this.timer = setInterval(function(){
+					if(this.offsetwidth<10){
+						clearInterval(this.timer);
+						//个性化功能
+						cb&&cb();  //短路运算  if左边为true，返回右边； if左边为false，返回左边
+						
+						return false; 
+					}
+					this.speed++;
+					this.style.width = this.offsetWidth - 10 + "px";
+					this.style.height = this.offsetWidth - 10 + "px";
+					this.style.top = this.offsetTop - this.speed + "px";
+				}.bind(this),1000/30)    //bind 绑定window
+			}
+
+			//初始化模块
+			function init(num){
 			    var fragment = document.createDocumentFragment();
 			    for(var i=0;i< num;i++){
 				var randomX = ((Math.random() * wW) | 0) - bZ;
 				randomX = Math.abs(randomX);
-				var oBalloon = document.createElement('div'); //
-
-创建div
-				oBalloon.classList.add('balloon');             
-
-//添加类名classlist
+				var oBalloon = document.createElement('div'); //创建div
+				oBalloon.classList.add('balloon');             //添加类名classlist
 				oBalloon.style.top = wH - bZ-50 + 'px';
 				oBalloon.style.left = randomX + 'px';
-				oBalloon.speed = ~~(Math.random()*8)+1;
-				fragment.appendChild(oBalloon);
-				//document.body.appendChild(oBalloon);  //添加到
-
-body中
+				oBalloon.speed = ~~(Math.random()*8)+1;  //dom节点自定义属性 speed
+				balloons.push(oBalloon);
+				fragment.appendChild(oBalloon);         //添加到数组中
+				//document.body.appendChild(oBalloon);  //添加到body中
 			    }
 				document.body.appendChild(fragment);
 			}
-			
+
+			//移动模块
 			function move(){
-				var balloons = document.querySelectorAll(".balloon");
 				for(var i=0,len=balloons.length;i<len;i++){
-					balloons[i].style.top = balloons[i].offsetTop-oBalloon+"px";
+					balloons[i].style.top = balloons[i].offsetTop-balloons[i].speed+"px";
+					/*balloons[i].onlick=function(){
+						//事件绑定  不要在循环内进行
+					}*/
 				}
 			}
 			
 		</script>
 	</body>
 </html>
+<!--
+DOM原生方法
+getElementById
+getElementByClassName
+
+H5 扩展DOM方法集合
+querySelector  单个
+querySelectorAll  集合
+
+用法： $ css选择器用法
+兼容性：IE8+
+性能：get > query > $
+动态与静态
+     get动态选择器
+
+     query静态选择器
+
+setInterval 循环定时器
+	1、浏览器帧速率 60FPS 1000/60（最快）
+	2、准确度失焦
+	   同步下 js解释引擎 原型函数的队列
+	3、运行主体权限
+setTimeout   延迟定时器
+
+requestAnimationFrame  帧动画定时器
+
+IIFE 匿名函数立刻自执行体
+
+	/*var x = 0;
+	~~function auto(){
+	x++;
+	console.log(x);
+	setTimeout(auto,50)
+	setTimeout(arguments.callee,50)
+	}();*/
+  ()() ++() (())
+
+弱类型语言
+隐式类型转化 内置性能损耗
+
+balloons.splice(balloons.lastIndexOf(ele),1);
+arr.indexOf();  找下标
+arr.splice(n,m); 从数组第n位删除 删m位
+
+call apply 主动触发 替换内部this
+
+bind  根据词法作用域 强制性
+
+
+-->
