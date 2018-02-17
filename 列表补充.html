@@ -1,0 +1,134 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>列表补充</title>
+	</head>
+	<body>
+<!-- 有序列表 start-->
+		<p>The Days of the Week in French:</p>
+		<ol>
+			<li>lundi</li>
+			<li>Mardi</li>
+			<li>Mercredi</li>
+			<li>Jeudi</li>
+			<li>Vendredi</li>
+			<li>Samedi</li>
+			<li>Dimanche</li>
+		</ol>
+		<ol style="list-style-type:lower-roman;" start="3">    <!-- 可以设置编号类型和开始编号-->
+			<li>lundi</li>
+			<li>Mardi</li>
+			<li>Mercredi</li>
+			<li>Jeudi</li>
+			<li>Vendredi</li>
+			<li>Samedi</li>
+			<li style="list-style-type:lower-roman;">Dimanche</li>
+		</ol>
+		<ol start="3">
+			<li>lundi</li>
+			<li>Mardi</li>
+			<li>Mercredi</li>
+			<li>Jeudi</li>
+			<li value="10">Vendredi</li>     <!-- value设置可以从任意编号重新开始--> 
+			<li>Samedi</li>
+			<li>Dimanche</li>
+		</ol>
+<!-- 有序列表 end-->
+
+<!-- 无序列表 start-->
+		<p>Things I like to do in the morning:</p>
+		<ul>
+			<li>Drink a cup of coffee</li>
+			<li>Watch the sunrise</li>
+			<li>Listen to the birds sing</li>
+			<li>Hear the wind rustling through the trees</li>
+			<li>Curse the construction noises for spoiling the peaceful mood</li>
+		</ul>
+
+		<ul style="list-style-type:square">
+			<li>Drink a cup of coffee</li>
+			<li>Watch the sunrise</li>
+			<li>Listen to the birds sing</li>
+			<li>Hear the wind rustling through the trees</li>
+			<li>Curse the construction noises for spoiling the peaceful mood</li>
+		</ul>
+
+		<ul style="list-style-type:circle;list-style-position:outside;">
+			<li>Drink a cup of coffee</li>
+			<li>Watch the sunrise</li>
+			<li>Listen to the birds sing</li>
+			<li>Hear the wind rustling through the trees</li>
+			<li>Curse the construction noises for spoiling the peaceful mood Curse the construction noises for spoiling the peaceful mood and Drink a cup of coffee and Drink a cup of coffee and Drink a cup of coffee and Drink a cup of coffee and Drink a cup of coffee.</li>
+		</ul>
+
+		<ul style="list-style-type:circle;list-style-position:inside;" >
+			<li>Drink a cup of coffee</li>
+			<li>Watch the sunrise</li>
+			<li>Listen to the birds sing</li>
+			<li>Hear the wind rustling through the trees</li>
+			<li>Curse the construction noises for spoiling the peaceful mood and Drink a cup of coffee and Drink a cup of coffee and Drink a cup of coffee and Drink a cup of coffee and Drink a cup of coffee.</li>
+		</ul>
+<!-- 无序列表 end-->
+	<dl>
+		<dt>Basil</dt>
+		<dd>Annual. Can grow four feet high;the scent of its tiny white flowers is heavenly.</dd>
+		<dt>Oregano</dt>
+		<dd>Annual. Can grow four feet high;the scent of its tiny white flowers is heavenly.</dd>
+		<dt>Coriander</dt>
+		<dd>Annual. Can grow four feet high;the scent of its tiny white flowers is heavenly.</dd>
+	</dl>
+
+		
+	</body>
+</html>
+<!--
+一、有序列表特有的定制有两种：
+1、可以修改列表的编号样式
+修改编号的样式方式有两种：使用CSS属性list-style-type和使用属性type，其中后者在HTML5中已摒弃。因此，创建新的有序列表时应使用CSS属性，但有些使用的是type。
+
+list-style-type值：decimal lower-alpha upper-alpha lower-roman  upper-roman
+           type值：1       a           A           i            I
+	     描述：数字    小写字母    大写字母    小写罗马数字 大写罗马数字
+
+2、修改编号本身
+start ol中属性指定 列表起始编号
+value il中属性在有序（ol）中间重新开始编号。
+
+二、无序列表
+也使用list-style-type定制
+项目样式：
+disc:圆盘，默认样式
+square:实心正方形
+circle:生成空心圆
+也可用一个图像替换项目样式
+
+列表项横跨多行时，后续行默认与第一行左对齐，如果希望后续行与项目符号或列表编号对齐，可使用属性list-style-position.这个属性两个值，inside和outside，默认值为outside。
+
+如果要同时修改多个与列表相关的属性，可使用属性list-style，可给该属性指定三个值：列表样式类型、列表样式位置和用作项目符号的图像的URL。如：
+<ul style="list-style:circle inside URL(图像.gif)">
+	<li>Example</li>
+</ul>
+
+三、定义列表
+每个列表项都包含两部分：术语和定义
+定义标签<dl>
+术语标签<dt>
+定义标签<dd>
+
+四、镶嵌列表
+可随意镶嵌，不限制层数。
+
+
+
+
+
+
+
+
+
+
+
+
+
+-->
