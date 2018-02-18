@@ -1,0 +1,174 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="Keywords" content="">
+		<meta name="Dscription" content="">
+		<meta name="Author"content="">
+		<title>列表</title>
+	</head>
+	<body>
+		<em>这是em斜体。</em><br>
+		<i>这是i斜体。</i>
+		<p>The anteater is the <em>strangest</em> looking animal, isn't it?</p>
+		<p>Take a <strong>left turn</strong> at <strong>Dee's Hop Stop</strong></p>
+		<p><code># include "trans.h"</code></p>
+		<p>The URL for that page is <samp>http://www.cern.ch/</samp></p>
+		<p>Type the following command: <kbd>find . -name "prune" -print</kbd></p>
+		<p><code>chown </code><var>your_name the_file</var></p>
+		<p>Style that are named after how they are used are used are called <dfn>logical styles</dfn></p>
+		<p>Eggplant has been known to cause nausea in some people<cite> (Lemay, 1994)</cite></p>
+		<p>Use the standard two-letter state abbreciation (such as <abbr title="California">CA</abbr>)</p>
+		<abbr title="HTML菜单目录">目录</abbr>
+		<br>
+		<br>
+		<p>Here is some <span style="text-decoration: underline;">underlined text</span>.</p>
+		<p>Here is some <span style="text-decoration: overline;">overlined text</span>.</p>
+		<p>Here is some <span style="text-decoration: line-through;">line-through text</span>.</p>
+		<p>Here is some <span style="text-decoration: blink;">blinking text</span>.</p>
+
+	</body>
+</html>
+<!--
+
+☆  <a>标签
+
+一、相对路径：
+href="../file.html"           file.html位于当前目录的父目录中
+href="../../file/file.html"   file.html位于目录file中，file目录位于当前目录 的祖父目录中。
+
+二、绝对路径：
+绝对路径总是以斜杠打头，以便于相对路径区分开。斜杠后面是从顶级目录出发，前往链接到的文件需要经过的所有的目录。
+顶级目录：如果链接的是本地磁盘中的文件，顶级目录指的是文件系统的顶点（在UNIX中为/，在Macintosh和PC中为磁盘名）；如果使用Web服务器来发布文件，顶级目录指的是web服务器提供的所有文件所属的目录，这种目录通常被称为文档根目录（document root)。
+
+	    路径名 					含义
+href="/home/lemay/file.html"			file.html位于目录/home/lemay中（UNIX系统）
+href="/d|/files/html/file.html"			file.html位于D盘的目录files/html中（Windows系统）
+href="/Macintosh%20HD/HTML%20Files/file.html"   file.html位于磁盘Macintosh HD的目录HTML Files中（OS X系统）
+    %20表示空格
+
+如果链接的页面属于同一个集合，就使用相对链接，如果它们属于不同的集合，就使用绝对链接。
+
+三、链接到其他页面的文档部分
+给要链接的内容指定ID
+<h1 id="part4">Part Four:Grapefruit from Heaven</h1>
+指向另一个页面的一部分,注意ID大小写必须一致。
+<a href="mybigdoc.html#part4">Go to Part 4</a>
+
+四、链接到当前文档的其他元素
+直接 #id
+<a href="#section5">The Fifth Section</a>
+
+五、URL
+大多数URL都包含三部分：协议、主机名、目录或文件名
+
+协议有很多种：http、ftp、HTTPs等
+主机名部分可能包含端口号，端口号位于主机名和目录之间
+http常常使用默认端口（80），省略端口号
+http://my-public-access-unix.com:1550/pub/file
+   
+路径是文件或其他形式的信息在主机中的位置。路径并非一定指向服务器中的物理目录和文件，有些web应用程序动态的生成内容，因此只是将目录信息用作标识符。
+在有些URL中，路径后面还有查询，它通过？与URL的其他部分分开。查询由名称-值对组成，名称-值对之间用&分隔，而名称和值之间用等号=分隔
+http://www.example.com/search?q=urls&name=renping
+
+URL还有一部分是锚，见上述三、四
+
+URL中的特殊字符：
+除大小写字母、数字0-9和下述符号外的字符：美元符号$、连字符-、下划线_、和句点.，使用其他字符需要使用URL转义编码，以防被视为URL的一部分。
+编码由百分符号和两位十六进制数（0-9、A-F）组成。
+空格：%20；  问号：%3f；  斜杠：%2f；  （空格有时也被编码为+，而+被编码为%2b）；
+
+六、属性rel
+用于描述当前文档与链接到的文档之间的关系。这个属性由一组特定的可能取值，最著名的是nofollow，它让搜索引擎给链接到的文档排名时不要考虑这个链接。nofollow是一种防范搜索引擎作弊的手段。
+<a href="http://www.baidu.com" rel="nofollow">link to baidu site</a>
+其他取值可以参考文档详解meta标签
+
+七、URL分类
+
+1、HTTP URL
+http://www.example.com/home/foo/
+以斜杠结尾，最后一部分将被视为目录名，获取http服务器定义的指定目录中的默认文件-通常是文件index.html。如果网页是一个目录中的顶级文件，可将其命名为index.html。URL中也可以指定文件名，这样，将加载URL末尾指定的文件。
+以斜杠结尾可提高页面加载速度。
+
+2、匿名FTP URL
+
+允许用户将anonymous用作登录ID，将其电子邮件地址用作密码
+ftp://ftp.foo.com/home/foo
+ftp服务不会一直保持打开状态，打开连接，找到文件后再关闭ftp连接。所以FTP URL最适合用于获取特定的文件，而不适合用于浏览归档。
+使用ftp获取文件后，如果获取是HTML文件，浏览器将显示它，就像使用http。
+
+3、非匿名FTP URL
+
+指定访问FTP服务器时使用的账户
+ftp://username:password@ftp.foo.com/home/foo/homepage.html
+username为登陆了ID，而password为密码。注意这种URL中，没有采取隐藏密码的措施，因此使用这种URL时一定要小心。
+而且，请求的URL可能被缓存或记录到本地计算机或计算机与目标站点之间的代理服务。
+所以，最好不要使用非匿名FTP URL。
+
+4、mailto URL
+
+用于发送电子邮件。如果浏览器支持mailto URL，则用户单击包含这种URL的链接时，浏览器将打开默认电子邮件应用程序并新建一封邮件，并在用户编写好邮件后将其发送到链接中指定的地址。根据用户的浏览器和电子邮件客户端的配置，mailto URL可能根本不管用。
+mailto URL不同于标准URL格式，如：
+mailto:lemay@lne.com
+如果电子邮件地址包含百分符号%，用%25进行转义。
+mailto URL只在客户端发挥作用
+添加默认主题：
+mailto:lemay@lne.com?subject=Hi there!
+
+5、文件URL
+文件URL指向本地磁盘中的文件，换言之，它们指向浏览器所在系统中的文件。指向本地文件的URL不包含主机名（它们包含三个而不是两个斜杠）：
+file:///dir1/dir2/file
+根本用不着。。。
+
+<a>是字符级元素
+
+☆  语义标签
+<em>:以某种方式突出字符。大多数浏览器将<em>显示为斜体。
+<strong>:比使用<em>时更加突出，通常显示为粗体。
+<code>:指出它包含的文本是代码示例，应使用Courier等等宽字体显示。
+<samp>:指出它包含的是示例文本，通常像<code>一样使用等宽字体显示。
+<kbd>:这个标签需要用户输入的文本，也用等宽字体显示。
+<var>:这个标签标示需要用实际值替换的变量或其他实体的名称，通常显示为斜体或带下划线
+<dfn>:标示定义。用于突出要定义或刚定义的单词（通常使用斜体显示）。
+<cite>:标示引用的作品名，通常显示为斜体。
+<abbr>:标示缩略语
+
+☆  HTML5物理样式标签：
+<b>：通常显示为粗体的文本。
+<i>：通常显示为斜体的文本。
+<u>：通常显示为带下划线的文本。
+<small>：使用小字号显示的文本。
+<sub>：下标。
+<sup>：上标。
+
+通常物理样式标签不应使用，应使用CSS样式或等价的语义标签。
+
+☆  <span>标签存在就是要与样式表相关联。单独使用时，不会有任何效果，与属性style结合起来使用时，它可取代上述所有标签，而且效果要好得多。
+
+☆  text-decoration -- 定义文本是否有划线以及划线的方式
+取值:none |    [ underline || overline || line-through || blink ]    | inherit
+    
+    none: 定义正常显示的文本
+    [underline || overline || line-through || blink]: 四个值中的一个或多个
+>> underline: 定义有下划线的文本
+>> overline: 定义有上划线的文本
+>> line-through: 定义直线穿过文本
+>> blink: 定义闪烁的文本
+>> inherit: 继承
+
+初始值: none
+继承性: 否
+适用于: 所有元素
+text:文本.decoration:装饰.
+
+
+
+
+
+
+
+
+
+
+
+-->
