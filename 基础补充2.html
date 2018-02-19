@@ -1,7 +1,7 @@
-﻿<!doctype html>
+<!doctype html>
 <html>
 	<head>
-		<meta charset="UTF-8">
+		<meta charset="utf-8">
 		<meta name="Keywords" content="">
 		<meta name="Dscription" content="">
 		<meta name="Author"content="">
@@ -26,7 +26,52 @@
 		<p>Here is some <span style="text-decoration: overline;">overlined text</span>.</p>
 		<p>Here is some <span style="text-decoration: line-through;">line-through text</span>.</p>
 		<p>Here is some <span style="text-decoration: blink;">blinking text</span>.</p>
+		<p>Here's some <span style="font-style: italic;">italicized text</span>.</p>
+		<p>Here's some <span style="font-style: oblique;">oblique text</span>(which may look like regular italics in your browser).</p>
+		<span style="font-style: italic;">italicized text</span><br>
+		<span style="font-style: oblique;">oblique text</span><br>
+		<em>italicized text</em><br>
+		<i>italicized text</i>
+		<p>Here's some <span style="font-weight: bold;">bold text</span>.</p>
+		<p>Here's some <span style="font-weight: bolder;">bolder text</span>.</p>
+		<p>Here's some <span style="font-weight: lighter;">lighter text</span>.</p>
+		<p>Here's some <span style="font-weight: 700;">bolder text</span>.</p>
+		<p><span style="font-family: monospace">This is monospaced text.</span></p><!-- 等宽字体-->
+		<p><span style="font-family: fantasy">This is fantasy text.</span></p>
+		<p><span style="font-family: cursive">This is cursive text.</span></p>
+		<p><span style="font-family: serif">This is serif text.</span></p>
+		<p><span style="font-family: sans-serif">This is sans-serif text.</span></p>
+		
+		<p><span style="font-variant: small-caps;">This Text Uses small Caps.</span></p><!-- 将小写字母替换为小型大写字母-->
+		<p><span style="font-variant: normal;">This Text Uses SMALL Caps.</span></p>
+		<h2>100%,Default Size</h2>
+		<hr>
+		<h2>75%,Size 2</h2>
+		<hr width="75%" size="2" align="right">
+		<h2>50%,Size 4</h2>
+		<hr width="50%" size="4" align="left">
+		<h2>25%,Size 6</h2>
+		<hr width="25%" size="6" align="left">
+		<h2>10%,Size 8</h2>
+		<hr width="10%" size="8" align="left">
+		<address>
+			Laura Lemay <abbr title="mailto:lemay@lne.com"><a href="mailto:lemay@lne.com">lemay@lne.com</a></abbr><br>
+			A service of Laura Lemay, Incorporated <br>
+			last revised July 10,2012 <br>
+		</address>
 
+		<p>From Shakespeare's <cite>MacBeth</cite></p>
+		<blockquote>
+			Guns are't lawful,<br>
+			nooses give.<br>
+			gas smells awful.<br>
+			You might as well live.
+		</blockquote>
+		<p>-- Dorothy Parker</p>
+	
+		<p>As Albert Einstein said,
+		<q cite="https://en.wikiquote.org/wiki/Albert_Einstein">
+		I never think of the future. I19:29 2018/2/19t comes soon enough.</q></p>
 	</body>
 </html>
 <!--
@@ -160,6 +205,32 @@ file:///dir1/dir2/file
 继承性: 否
 适用于: 所有元素
 text:文本.decoration:装饰.
+
+☆  <pre>:预定义文本
+
+☆  <hr>:水平分隔线（主题分隔）
+语义表示主题变了
+没有结束标签，不包含任何文本
+自身属性size指定水平线的粗细，单位像素，默认2像素（最细）
+用CSS修改水平线的粗细，用height
+width指定水平线的水平宽度，可指定像素，也可指定屏幕宽度百分比
+
+☆  <address>用于在网页中提供联系信息，通常位于网页底部，指出网页由谁开发、要获悉详情可与谁联系、日期、版权信息或其他警告以及其他合适的信息。
+属于块级标签，有些浏览器将其中的文本显示为斜体。要想显示为常规文本，用font-style设置为normal。
+
+☆  <blockquote>：引文标签
+属于块级元素
+内嵌引文，使用标签<q>,<q>有属性cite来标识它们并提供源URL，并不影响页面的视觉效果
+
+
+
+
+
+
+
+
+
+
 
 
 
