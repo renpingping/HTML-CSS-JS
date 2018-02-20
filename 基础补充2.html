@@ -8,6 +8,11 @@
 		<title>列表</title>
 	</head>
 	<body>
+		&mdash; 表示破折号
+&ldquo; 表示左引号
+&rdquo; 表示右引号
+&lsquo; 表示左单引号
+&rsquo; 表示右单引号
 		<em>这是em斜体。</em><br>
 		<i>这是i斜体。</i>
 		<p>The anteater is the <em>strangest</em> looking animal, isn't it?</p>
@@ -27,7 +32,9 @@
 		<p>Here is some <span style="text-decoration: line-through;">line-through text</span>.</p>
 		<p>Here is some <span style="text-decoration: blink;">blinking text</span>.</p>
 		<p>Here's some <span style="font-style: italic;">italicized text</span>.</p>
-		<p>Here's some <span style="font-style: oblique;">oblique text</span>(which may look like regular italics in your browser).</p>
+		<p>Here's some <span style="font-style: oblique;">oblique text</span>(which may look like regular italics 
+
+in your browser).</p>
 		<span style="font-style: italic;">italicized text</span><br>
 		<span style="font-style: oblique;">oblique text</span><br>
 		<em>italicized text</em><br>
@@ -42,7 +49,9 @@
 		<p><span style="font-family: serif">This is serif text.</span></p>
 		<p><span style="font-family: sans-serif">This is sans-serif text.</span></p>
 		
-		<p><span style="font-variant: small-caps;">This Text Uses small Caps.</span></p><!-- 将小写字母替换为小型大写字母-->
+		<p><span style="font-variant: small-caps;">This Text Uses small Caps.</span></p><!-- 将小写字母替换为小型大
+
+写字母-->
 		<p><span style="font-variant: normal;">This Text Uses SMALL Caps.</span></p>
 		<h2>100%,Default Size</h2>
 		<hr>
@@ -55,7 +64,9 @@
 		<h2>10%,Size 8</h2>
 		<hr width="10%" size="8" align="left">
 		<address>
-			Laura Lemay <abbr title="mailto:lemay@lne.com"><a href="mailto:lemay@lne.com">lemay@lne.com</a></abbr><br>
+			Laura Lemay <abbr title="mailto:lemay@lne.com"><a 
+
+href="mailto:lemay@lne.com">lemay@lne.com</a></abbr><br>
 			A service of Laura Lemay, Incorporated <br>
 			last revised July 10,2012 <br>
 		</address>
@@ -72,6 +83,8 @@
 		<p>As Albert Einstein said,
 		<q cite="https://en.wikiquote.org/wiki/Albert_Einstein">
 		I never think of the future. I19:29 2018/2/19t comes soon enough.</q></p>
+
+
 	</body>
 </html>
 <!--
@@ -84,7 +97,9 @@ href="../../file/file.html"   file.html位于目录file中，file目录位于当
 
 二、绝对路径：
 绝对路径总是以斜杠打头，以便于相对路径区分开。斜杠后面是从顶级目录出发，前往链接到的文件需要经过的所有的目录。
-顶级目录：如果链接的是本地磁盘中的文件，顶级目录指的是文件系统的顶点（在UNIX中为/，在Macintosh和PC中为磁盘名）；如果使用Web服务器来发布文件，顶级目录指的是web服务器提供的所有文件所属的目录，这种目录通常被称为文档根目录（document root)。
+顶级目录：如果链接的是本地磁盘中的文件，顶级目录指的是文件系统的顶点（在UNIX中为/，在Macintosh和PC中为磁盘名）；如果使用Web
+
+服务器来发布文件，顶级目录指的是web服务器提供的所有文件所属的目录，这种目录通常被称为文档根目录（document root)。
 
 	    路径名 					含义
 href="/home/lemay/file.html"			file.html位于目录/home/lemay中（UNIX系统）
@@ -112,19 +127,27 @@ href="/Macintosh%20HD/HTML%20Files/file.html"   file.html位于磁盘Macintosh H
 http常常使用默认端口（80），省略端口号
 http://my-public-access-unix.com:1550/pub/file
    
-路径是文件或其他形式的信息在主机中的位置。路径并非一定指向服务器中的物理目录和文件，有些web应用程序动态的生成内容，因此只是将目录信息用作标识符。
-在有些URL中，路径后面还有查询，它通过？与URL的其他部分分开。查询由名称-值对组成，名称-值对之间用&分隔，而名称和值之间用等号=分隔
+路径是文件或其他形式的信息在主机中的位置。路径并非一定指向服务器中的物理目录和文件，有些web应用程序动态的生成内容，因此只是
+
+将目录信息用作标识符。
+在有些URL中，路径后面还有查询，它通过？与URL的其他部分分开。查询由名称-值对组成，名称-值对之间用&分隔，而名称和值之间用等号
+
+=分隔
 http://www.example.com/search?q=urls&name=renping
 
 URL还有一部分是锚，见上述三、四
 
 URL中的特殊字符：
-除大小写字母、数字0-9和下述符号外的字符：美元符号$、连字符-、下划线_、和句点.，使用其他字符需要使用URL转义编码，以防被视为URL的一部分。
+除大小写字母、数字0-9和下述符号外的字符：美元符号$、连字符-、下划线_、和句点.，使用其他字符需要使用URL转义编码，以防被视为
+
+URL的一部分。
 编码由百分符号和两位十六进制数（0-9、A-F）组成。
 空格：%20；  问号：%3f；  斜杠：%2f；  （空格有时也被编码为+，而+被编码为%2b）；
 
 六、属性rel
-用于描述当前文档与链接到的文档之间的关系。这个属性由一组特定的可能取值，最著名的是nofollow，它让搜索引擎给链接到的文档排名时不要考虑这个链接。nofollow是一种防范搜索引擎作弊的手段。
+用于描述当前文档与链接到的文档之间的关系。这个属性由一组特定的可能取值，最著名的是nofollow，它让搜索引擎给链接到的文档排名
+
+时不要考虑这个链接。nofollow是一种防范搜索引擎作弊的手段。
 <a href="http://www.baidu.com" rel="nofollow">link to baidu site</a>
 其他取值可以参考文档详解meta标签
 
@@ -132,7 +155,9 @@ URL中的特殊字符：
 
 1、HTTP URL
 http://www.example.com/home/foo/
-以斜杠结尾，最后一部分将被视为目录名，获取http服务器定义的指定目录中的默认文件-通常是文件index.html。如果网页是一个目录中的顶级文件，可将其命名为index.html。URL中也可以指定文件名，这样，将加载URL末尾指定的文件。
+以斜杠结尾，最后一部分将被视为目录名，获取http服务器定义的指定目录中的默认文件-通常是文件index.html。如果网页是一个目录中的
+
+顶级文件，可将其命名为index.html。URL中也可以指定文件名，这样，将加载URL末尾指定的文件。
 以斜杠结尾可提高页面加载速度。
 
 2、匿名FTP URL
@@ -152,7 +177,9 @@ username为登陆了ID，而password为密码。注意这种URL中，没有采�
 
 4、mailto URL
 
-用于发送电子邮件。如果浏览器支持mailto URL，则用户单击包含这种URL的链接时，浏览器将打开默认电子邮件应用程序并新建一封邮件，并在用户编写好邮件后将其发送到链接中指定的地址。根据用户的浏览器和电子邮件客户端的配置，mailto URL可能根本不管用。
+用于发送电子邮件。如果浏览器支持mailto URL，则用户单击包含这种URL的链接时，浏览器将打开默认电子邮件应用程序并新建一封邮件，
+
+并在用户编写好邮件后将其发送到链接中指定的地址。根据用户的浏览器和电子邮件客户端的配置，mailto URL可能根本不管用。
 mailto URL不同于标准URL格式，如：
 mailto:lemay@lne.com
 如果电子邮件地址包含百分符号%，用%25进行转义。
@@ -161,7 +188,9 @@ mailto URL只在客户端发挥作用
 mailto:lemay@lne.com?subject=Hi there!
 
 5、文件URL
-文件URL指向本地磁盘中的文件，换言之，它们指向浏览器所在系统中的文件。指向本地文件的URL不包含主机名（它们包含三个而不是两个斜杠）：
+文件URL指向本地磁盘中的文件，换言之，它们指向浏览器所在系统中的文件。指向本地文件的URL不包含主机名（它们包含三个而不是两个
+
+斜杠）：
 file:///dir1/dir2/file
 根本用不着。。。
 
@@ -188,7 +217,9 @@ file:///dir1/dir2/file
 
 通常物理样式标签不应使用，应使用CSS样式或等价的语义标签。
 
-☆  <span>标签存在就是要与样式表相关联。单独使用时，不会有任何效果，与属性style结合起来使用时，它可取代上述所有标签，而且效果要好得多。
+☆  <span>标签存在就是要与样式表相关联。单独使用时，不会有任何效果，与属性style结合起来使用时，它可取代上述所有标签，而且效
+
+果要好得多。
 
 ☆  text-decoration -- 定义文本是否有划线以及划线的方式
 取值:none |    [ underline || overline || line-through || blink ]    | inherit
@@ -215,31 +246,36 @@ text:文本.decoration:装饰.
 用CSS修改水平线的粗细，用height
 width指定水平线的水平宽度，可指定像素，也可指定屏幕宽度百分比
 
-☆  <address>用于在网页中提供联系信息，通常位于网页底部，指出网页由谁开发、要获悉详情可与谁联系、日期、版权信息或其他警告以及其他合适的信息。
+☆  <address>用于在网页中提供联系信息，通常位于网页底部，指出网页由谁开发、要获悉详情可与谁联系、日期、版权信息或其他警告以
+
+及其他合适的信息。
 属于块级标签，有些浏览器将其中的文本显示为斜体。要想显示为常规文本，用font-style设置为normal。
 
 ☆  <blockquote>：引文标签
 属于块级元素
 内嵌引文，使用标签<q>,<q>有属性cite来标识它们并提供源URL，并不影响页面的视觉效果
 
+☆  表示特殊字符的字符实体
+字符实体有两种形式：命名实体和编号实体。
+命名实体以字符&打头，以分号结尾，中间是字符名。字符名区分大小写。
+编号实体也是&打头，分号结尾，但中间是#和编号
 
+&lt;  表示<	&gt;  表示>	&amp; 表示&
 
+字号可以设置百分比，将字号设置为从父元素那里继承而来的字号的两倍，即为style="font-size:200%;"。
 
+&mdash; 表示破折号
+&ldquo; 表示左引号
+&rdquo; 表示右引号
+&lsquo; 表示左单引号
+&rsquo; 表示右单引号
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+&	&符号	        &amp;		&#38;
+"	双引号	        &quot;		&#34;
+©	版权	        &copy;		&#169;
+®	已注册商标	&reg;		&#174;
+™	商标（美国）	™	        &#8482;
+×	乘号	        &times;	        &#215;
+÷	除号	       	&divide;	&#247;
 
 -->
