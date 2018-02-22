@@ -125,6 +125,19 @@ float: left/right/none
 清除前面浮动设置的影响
 clear: none/left/right/both
 
+☆  其他选择器
+基本的后代选择器
+p span.important { font-weight: bold;}
+但子选择器更苛刻些，如：
+p > span.important { font-weight: bold;}
+这个选择器只与作为<p>标签的子元素的<span>标签匹配，不与下面中的<span>标签匹配，但上面的基本后代选择器与之匹配。
+<p>This is a paragraph.<em>This is an <span class="important">important</span></em></p>
+
+☆  伪类
+first-letter: 只选择指定元素的第一个字母。
+first-line: 选择指定元素中的第一行文本。
+:hover和:focus (在匹配的元素获得焦点时触发)
+:before和:after  这两个伪类必须有content属性
 
 
 
