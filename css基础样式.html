@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -6,23 +6,59 @@
 		<meta name="Dscription" content="">
 		<meta name="Author"content="">
 		<title>CSS样式基础</title>
-		<link rel="stylesheet" href="styles.css" type="text/css">
-		
+		<!--link rel="stylesheet" href="styles.css" type="text/css"-->
+		<style>
+			a:link{ color: blue}
+			a:visited { color: purple;}
+			a:hover { color : red;}
+			a:active { color : red;}
+			a.nav{				
+				font-weight:bold;
+				text-decoration: none;
+				border: solid 3px red;
+				border-top: dotted 4px green;
+			}
+			a.nav:hover{
+				color: white;
+				background-color: yellow;
+				
+			} 
+			a.nav:active{
+				background-color: red;
+				color: blank;
+			}
+			
+			a.nav:visited{
+				color: green;
+			}
+		</style>
 	</head>
 	<body>
-		
+		<a href="http://www.baidu.com" target="_blank">baidu</a>
+		<a href="http://www.sohu.com" target="_blank">sohu</a>
+		<a href="http://www.yahoo.com" target="_blank">yahoo</a>
+		<a href="http://www.sogou.com" target="_blank">sogou</a><br><hr>
+		<a href="http://www.baidu1.com" target="_blank">baidu1</a>
+		<a href="http://www.sohu1.com" target="_blank">sohu1</a>
+		<a href="http://www.yahoo1.com" target="_blank">yahoo1</a>
+		<a href="http://www.sogou1.com" target="_blank">sogou1</a>
+		<hr>
+		<p><a class="nav" href="http://www.baidu12.com" target="_blank">baidu12</a></p>
+		<a href="http://www.sohu12.com" target="_blank">sohu12</a>
+		<a href="http://www.yahoo12.com" target="_blank">yahoo12</a>
+		<a href="http://www.sogou12.com" target="_blank">sogou12</a>
 		
 	</body>
 </html>
 <!--
 
-样式表
+☆  样式表
 由一系列规则组成，每条规则都以选择器打头，后面是一系列属性及其值
 
 <link>标签有一个属性-media，能够针对不同显示介质指定不同的样式表。取值包括screen、print、projection、aural等
 可以使用title给样式表指定名称
 
-选择器：
+☆  选择器：
 1、标签名，任何标签都可用作css选择器
 如果设置属性相同可一次选择多个标用逗号分开即可。
 
@@ -38,7 +74,7 @@ ID选择器使用时前加#
 选择器可以指定多个类
 <p class="blue yellow">My green paragraph.</p>
 
-CSS长度单位：
+☆  CSS长度单位：
 em ：相对单位，指的是元素使用的字体的高度
 ex ：相对单位，指的是元素使用的字体中字符x的高度
 px ：相对单位，指的是像素，取决于查看网页的设备
@@ -46,6 +82,52 @@ rem：相对单位，指的是根元素使用的字体的高度（css3新增）
 vh ：相对单位，指的是视口高度的百分比（css3新增）
 vw ：相对单位，指的是视口宽度的百分比（css3新增）
 in、cm、mm、pt、pc ：都是绝对单位。
+
+☆  伪类：
+a:link：将样式应用于未访问的链接
+a:visited：将样式应用于用户访问过的链接
+a:hover：将样式应用于鼠标指向的链接
+a:active：与属性alink一样，将样式应用于用户正单击的链接。
+
+☆  盒子模型：
+内容（content）、内边距（padding）、边框（border）、透明的外边距（margin）
+
+☆  边框：
+border-style : 指定边框类型
+取值：none/dotted/dashed/solid/double/groove/ridge/inset/outset/inherit;
+none：不显示边框；inherit：使用从更通用的选择器那里继承的边框样式。
+border-width : 指定边框的宽度，单位通常为像素。
+border-color : 指定边框颜色。
+同时设置元素的多个边框属性，使用border，简写属性。
+用法： selector { border: style width color; }
+
+☆  外边距和内边距：margin and padding
+
+背景颜色用于内边距，但不用于外边距。
+
+☆  在CSS盒子模型中，任何情况下都不会压缩水平外边距，但垂直外边距会被压缩，将两个块元素垂直堆叠时，它们之间的间距将为元素外边距较大的那个垂直外边距。
+
+☆  盒子内文本居中，text-align: center;
+盒子居中，margin取值设置为auto（意味着将相应方位的外边距设置成与相反方位的外边距相同。若左右外边距都设置为auto，元素水平居中。）。
+
+☆  display可以修改内容盒子（块式盒子或内嵌盒子）
+取值：
+block: 改为块级元素
+inline：改为内嵌元素
+none： 把指定元素从页面删除
+
+☆  属性max-width、min-width、max-height和min-height设置元素的最大和最小高度和宽度
+
+☆  overflow: visible(默认值)/hidden(超出隐藏)/scroll(始终包含滚动条)/auto(需要时显示滚动条)/inherit
+
+☆  浮动：调节页面内容排列方式。
+float: left/right/none
+清除前面浮动设置的影响
+clear: none/left/right/both
+
+
+
+
 
 
 
