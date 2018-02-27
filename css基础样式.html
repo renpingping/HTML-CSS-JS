@@ -156,6 +156,79 @@ $=:匹配属性值以特定字符串结尾的元素.
 
 <body>设置主体页面
 
+☆☆☆☆☆
+
+图像格式：png/gif/jpeg(jpg)/svg(可缩放的矢量图形)
+GIF适合存储LOGO、图标、线条图和其他简单图像，不适合存储细节丰富的图像，因为每幅图像最多只能使用256中颜色。支持透明度，但不支持alpha透明度。
+JPEG：为存储摄影图像设计，可包含任意数量的颜色，使用有损压缩算法，不适合用于存储包含边缘清晰元素的图像，如logo、线条图和文字。处理要在web上显示的照片时，应存储为JPEG格式。
+PNG：alpha透明度效果好，不会丢失数据
+SVG：专为Web开发的一种文件格式。它是可缩放的矢量，这意味着可随便调整它们的大小，不影响质量。使用xml编写，可直接在h5中编写。
+
+<img>标签，没有配套的结束标签。
+src属性，指定图像的url
+alt属性，指示替代文字。SEO优化
+
+vertical-align:修改内嵌图像与文本的对齐方式。
+取值：
+baseline:图像的下边缘与文本的基线对齐。这是默认设置
+top:图像的上边缘与行的上边缘对齐。可能是文本的上边缘也可能是另一幅图像的上边缘。
+middle:图像的中心与父元素中小写字母的中间对齐。
+bottom:图像的下边缘与行的下边缘对齐。
+text-top:头像的上边缘与父元素中文本的上边缘对齐。不像top那样让图像与行中最高的内容对齐。
+text-bottom:头像下边缘与父元素中文本的下边缘对齐。
+sub:将图像视为下标
+sup：将图像视为上标
+length：将图像上移或下移指定的距离。可以为负值
+%：将图像上移或下移属性line-height的值与指定百分比的乘积，可以为负值
+
+可以找矢量图像用作导航图标
+
+background-image: 设置背景图片
+
+background-repeat:用于指定如何平铺背景图像
+取值：
+repeat（默认设置，表示在水平和垂直方向都平铺图像）
+repeat-x：只在水平方向平铺
+repeat-y：只在垂直方向平铺
+no-repeat：不平铺 
+最好设置背景颜色background-color
+
+background-position:设置图片位置（水平位置 垂直位置）
+右上角：100% 0%、top right、right top。
+中央：50% 50%、center center、50%。
+底部中央：50% 100%、bottom center、center bottom。
+
+background-attachment:通常使用这个属性将背景图像固定在浏览器窗口的特定位置，以免它随页面的其他部分一起滚动。
+取值：
+scroll：背景图像随着包含它的元素一起滚动。
+fixed：表示背景图像根本不滚动。
+local：表示图像在包含它的元素移动时不移动，但包含它的元素滚动时它跟着滚动
+
+可以不分别使用上述属性来设置背景图像。而使用简写属性background来同时指定所有的背景属性。使用background可指定背景颜色、背景图像、平铺设置、锚定设置（attackment）、位置。这些属性值都是可选的，但必须按特定的顺序指定。
+结构如下：background: background-color background-image background-repeat background-attackment background-position;
+
+list-style-image:能够将图像用列表项目符号
+
+图像映射：将图像的一部分区域定义为链接，使图像的不同部分链接到不同的页面。
+使用<map>元素来创建图像映射，也可使用css将链接放在图像上，并隐藏这些链接的内容。
+先链接图像的坐标
+
+图像映射中指定的形状：圆形、矩形、多边形
+定义多边形（poly）：每个顶点坐标
+定义圆形（circle）：圆心坐标、半径
+定义矩形（rect）：左上角、右上角坐标
+区域形状类型由属性shape指定，其取值可能为rect、poly、circle、default(未指定的区域即为)
+形状的坐标使用属性coords指定
+如，多边形<area shape="poly" coords="x1,y1,x2,y2,x3,y3,...,xN,yN" href="URL"> 
+在img标签中使用属性usemap，将其值设置为之前使用map标签的属性指令的映射名，在映射名前加上#。
+<!--<a href="nothing"><img src="2.jpg" ismap></a>  用于在火狐浏览器，查看图形坐标-->
+
+
+
+
+
+
+
 
 
 
