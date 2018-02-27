@@ -7,9 +7,17 @@
 		<meta name="Author"content="">
 		<title>Floated Elements</title>
 		<style>
+			*{margin:0;}
+			img{
+				vertical-align:middle;
+				//float:left;
+				//vertical-align:bottom;
+				padding:10px;
+			}
+			//.main{clear:left;}
 			.right{
-			float: right;
-			border: 3px solid black;
+			//float: right;
+			//border: 3px solid black;
 			padding: 10px;
 			margin: 10px;
 			width: 33%;
@@ -21,15 +29,55 @@
 			.bottom{
 				clear: both;
 			}
-			p:first-letter{
+			h1 + p:first-letter{
 				font-size: 300%;
 				//float: left;
 				font-family: sans-serif;
 				padding: 0.5px;
 			}
+			#t1{
+				background: #644522 url("1.jpg") no-repeat center center;
+				/*background-image:  url("1.jpg");
+				background-color: #876439;
+				background-repeat: no-repeat; 
+				background-position:center center;
+				background-repeat: repeat-x;*/
+				margin-top: 10px;
+				text-align: center;
+				vertical-align: middle;
+				color: white;
+				//height: 215px;
+				font-size: 40px;
+				padding: 80px;
+			}
+			//img.photo{border: 3px solid #1B8AE0;}
+			ul{ 
+				//clear:both;
+				//padding: 10px; 
+				list-style-image: url("图像.png");
+				list-style-position: inside;
+			}
 		</style>
 	</head>
 	<body>
+		<h1 id="t1">Bookshop</h1>
+		<a href="http://www.baidu.com" target="_blank"><img src="图像.png" alt="photo" width="50px";height="50px;" class="photo"></a>top
+		<ul>
+			<li>Up to baidu1</li>
+			<li>Up to baidu2</li>
+			<li>Up to baidu3</li>
+		</ul>
+		
+		<p class="main">
+			main-内容（CONTENT）就是盒子里装的东西；
+而填充(PADDING)就是怕盒子里装的东西（贵重的）损坏而添加的泡沫或者其它抗震的辅料；
+边框(BORDER)就是盒子本身了；至于边界(MARGIN)则说明盒子摆放的时候的不能全部堆在一起，要留一定空隙保持通风，同时也为了方便取出。在网页设计上，内容常指文字、图片等元素，但是也可以是小盒子（DIV嵌套），与现实生活中盒子不同的是，现实生活中的东西一般不能大于盒子，否则盒子会被撑坏的，而CSS盒子具有弹性，里面的东西大过盒子本身最多把它撑大，但它不会损坏的。
+填充只有宽度属性，每个HTML标记都可看作一个盒子；main-内容（CONTENT）就是盒子里装的东西；
+而填充(PADDING)就是怕盒子里装的东西（贵重的）损坏而添加的泡沫或者其它抗震的辅料；
+边框(BORDER)就是盒子本身了；至于边界(MARGIN)则说明盒子摆放的时候的不能全部堆在一起，要留一定空隙保持通风，同时也为了方便取出。在网页设计上，内容常指文字、图片等元素，但是也可以是小盒子（DIV嵌套），与现实生活中盒子不同的是，现实生活中的东西一般不能大于盒子，否则盒子会被撑坏的，而CSS盒子具有弹性，里面的东西大过盒子本身最多把它撑大，但它不会损坏的。
+填充只有宽度属性，每个HTML标记都可看作一个盒子；
+		</p>
+		
 		<p class="right">
 			right-内容（CONTENT）就是盒子里装的东西；
 而填充(PADDING)就是怕盒子里装的东西（贵重的）损坏而添加的泡沫或者其它抗震的辅料；
@@ -37,13 +85,7 @@
 填充只有宽度属性，每个HTML标记都可看作一个盒子；
 		</p>
 		<p class="right" id ="second">
-			contents-内容（CONTENT）就是盒子里装的东西；
-而填充(PADDING)就是怕盒子里装的东西（贵重的）损坏而添加的泡沫或者其它抗震的辅料；
-边框(BORDER)就是盒子本身了；至于边界(MARGIN)则说明盒子摆放的时候的不能全部堆在一起，要留一定空隙保持通风，同时也为了方便取出。在网页设计上，内容常指文字、图片等元素，但是也可以是小盒子（DIV嵌套），与现实生活中盒子不同的是，现实生活中的东西一般不能大于盒子，否则盒子会被撑坏的，而CSS盒子具有弹性，里面的东西大过盒子本身最多把它撑大，但它不会损坏的。
-填充只有宽度属性，每个HTML标记都可看作一个盒子；
-		</p>
-		<p class="main">
-			main-内容（CONTENT）就是盒子里装的东西；
+			contents-second-内容（CONTENT）就是盒子里装的东西；
 而填充(PADDING)就是怕盒子里装的东西（贵重的）损坏而添加的泡沫或者其它抗震的辅料；
 边框(BORDER)就是盒子本身了；至于边界(MARGIN)则说明盒子摆放的时候的不能全部堆在一起，要留一定空隙保持通风，同时也为了方便取出。在网页设计上，内容常指文字、图片等元素，但是也可以是小盒子（DIV嵌套），与现实生活中盒子不同的是，现实生活中的东西一般不能大于盒子，否则盒子会被撑坏的，而CSS盒子具有弹性，里面的东西大过盒子本身最多把它撑大，但它不会损坏的。
 填充只有宽度属性，每个HTML标记都可看作一个盒子；
