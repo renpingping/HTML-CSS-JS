@@ -159,10 +159,16 @@ $=:匹配属性值以特定字符串结尾的元素.
 ☆☆☆☆☆
 
 图像格式：png/gif/jpeg(jpg)/svg(可缩放的矢量图形)
-GIF适合存储LOGO、图标、线条图和其他简单图像，不适合存储细节丰富的图像，因为每幅图像最多只能使用256中颜色。支持透明度，但不支持alpha透明度。
-JPEG：为存储摄影图像设计，可包含任意数量的颜色，使用有损压缩算法，不适合用于存储包含边缘清晰元素的图像，如logo、线条图和文字。处理要在web上显示的照片时，应存储为JPEG格式。
+GIF适合存储LOGO、图标、线条图和其他简单图像，不适合存储细节丰富的图像，因为每幅图像最多只能使用256中颜色。支持透明度，
+
+但不支持alpha透明度。
+JPEG：为存储摄影图像设计，可包含任意数量的颜色，使用有损压缩算法，不适合用于存储包含边缘清晰元素的图像，如logo、线条图
+
+和文字。处理要在web上显示的照片时，应存储为JPEG格式。
 PNG：alpha透明度效果好，不会丢失数据
-SVG：专为Web开发的一种文件格式。它是可缩放的矢量，这意味着可随便调整它们的大小，不影响质量。使用xml编写，可直接在h5中编写。
+SVG：专为Web开发的一种文件格式。它是可缩放的矢量，这意味着可随便调整它们的大小，不影响质量。使用xml编写，可直接在h5中
+
+编写。
 
 <img>标签，没有配套的结束标签。
 src属性，指定图像的url
@@ -204,7 +210,9 @@ scroll：背景图像随着包含它的元素一起滚动。
 fixed：表示背景图像根本不滚动。
 local：表示图像在包含它的元素移动时不移动，但包含它的元素滚动时它跟着滚动
 
-可以不分别使用上述属性来设置背景图像。而使用简写属性background来同时指定所有的背景属性。使用background可指定背景颜色、背景图像、平铺设置、锚定设置（attackment）、位置。这些属性值都是可选的，但必须按特定的顺序指定。
+可以不分别使用上述属性来设置背景图像。而使用简写属性background来同时指定所有的背景属性。使用background可指定背景颜色、
+
+背景图像、平铺设置、锚定设置（attackment）、位置。这些属性值都是可选的，但必须按特定的顺序指定。
 结构如下：background: background-color background-image background-repeat background-attackment background-position;
 
 list-style-image:能够将图像用列表项目符号
@@ -223,11 +231,25 @@ list-style-image:能够将图像用列表项目符号
 在img标签中使用属性usemap，将其值设置为之前使用map标签的属性指令的映射名，在映射名前加上#。
 <!--<a href="nothing"><img src="2.jpg" ismap></a>  用于在火狐浏览器，查看图形坐标-->
 
+表格table
+去掉个个单元格之间缝隙属性border-collapse:collapse;其默认值是separate（有缝隙）
+padding属性设置单元格内边距
+使用text-align，设置水平对齐，left、right、center
+使用vertical-align,设置垂直对齐，top、middle、bottom或baseline
+rowspan/colspan，设置单元格跨行数或列数。向下或向右合并。
 
+使用<colgrounp>和<col>编组
+<colgrounp>只有一个属性,span:z指定列编组包含的列数，其值必须是大于零的整数，默认只包含一列
 
+定位方案：
+属性position：静态（static）、相对（relative）、绝对（absolute）、固定（fixed）
+默认静态。静态和相对定位不影响文档布局，绝对或固定定位的元素，不会再网页布局中为它们预留空间。
+设置为relation、absolute、fixed值后，可设置定位属性：top、left、bottom、right，指定其相对于其正常位置或祖先元素的距离
 
-
-
+相对定位是参照正常布局中相邻元素的方式对元素进行定位。
+绝对定位是参照祖先元素的方式定位。即包含块的边框的内边缘的距离。
+top为正值，表示元素相对下移；负值，表示元素相对上移。
+left为正值，表示元素相对右移；负值，表示元素相对左移。
 
 
 
