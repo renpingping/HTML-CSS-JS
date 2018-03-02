@@ -42,7 +42,7 @@
 				background-color: #eee;
 				color: #5d5636;
 			}
-			#navigationBar ul ul {
+			#navigationBar ul ul, #navigationBar ul ul ul {
 				margin-top: 2px;
 				display: none;
 				position: retive;
@@ -51,7 +51,11 @@
 				border: 1px #6666664f solid;
 				background-color: #ddd;
 			}
-			#navigationBar ul ul li {
+			#navigationBar ul ul ul {
+				top: 0px;
+				left:160px;
+			}
+			#navigationBar ul ul li,#navigationBar ul ul ul li{
 				position: relative;
 				float: none;
 				
@@ -61,7 +65,7 @@
 				width: 100%;
 				border: 1px solid white;
 			}
-			#navigationBar ul ul li > a {
+			#navigationBar ul ul li > a,#navigationBar ul ul ul li > a {
 				position: relative;
 				float: none;
 				padding: 0 0 0 4%;
@@ -75,45 +79,13 @@
 				font-style: normal;
 			}
 			#navigationBar li:hover > a {
-				
 				background-color: #eeeabe;
 				color: #200;
 			}
 			#navigationBar li:hover > ul {
 				display: block;
 			}
-			#navigationBar ul ul ul {
-				margin-top: 2px;
-				display: none;
-				position: rative;
-				top: 0px;
-				left:160px;
-				height: auto;
-				width: 160px;
-				border: 1px #6666664f solid;
-				background-color: #ddd;
-			}
-			#navigationBar ul ul ul li {
-				position: relative;
-				float: none;
-				display: block;
-				height: 28px;
-				width: 100%;
-				border: 1px solid white;
-			}
-			#navigationBar ul ul ul li > a {
-				position: relative;
-				float: none;
-				padding: 0 0 0 4%;
-				line-height: 28px;
-				background-color: transparent;
-				color: #000;
-				height: 100%;
-				width: 96%;
-				border: none;
-				font-size: 12px;
-				font-style: normal;
-			}
+			
 			#navigationBar ul li:hover > ul{
 				display: block;
 			}
