@@ -1,0 +1,114 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="Keywords" content="">
+		<meta name="Description" content="">
+		<meta name="Author"content="">
+		<title>Navigation Menus</title>
+		<style>
+			#navigationBar{
+				position: relative;
+				margin: 0;
+				padding: 0;
+				width: 90%;
+				height: 30px;
+			}
+			#navigationBar ul {
+				margin: 0;
+				padding: 0;
+				position: absolute;
+				height: 100%;
+				width: 100%;
+				list-style-type: none;
+				background-color: #eee;
+				overflow: visible;
+			}
+			#navigationBar ul > li {
+				display: block;
+				float: left;
+				height: auto;
+				width: 120px;
+			}
+			#navigationBar li > a {
+				display: block;
+				padding: 0 0 0 10px;
+				height: 100%;
+				width: 109px;
+				border-right: 1px black solid;
+				line-height: 30px;
+				font-size: 17px;
+				text-decoration: none;
+				background-color: #eee;
+				color: #5d5636;
+			}
+			#navigationBar ul ul {
+				margin-top: 2px;
+				display: none;
+				position: static;
+				height: auto;
+				width: 160px;
+				border: 1px #666 solid;
+				background-color: #ddd;
+			}
+			#navigationBar ul ul li {
+				position: relative;
+				float: none;
+				
+				display: block;
+				position: static;
+				height: 28px;
+				width: 100%;
+				border: none;
+			}
+			#navigationBar ul ul li > a {
+				position: relative;
+				float: none;
+				padding: 0 0 0 4%;
+				line-height: 28px;
+				background-color: transparent;
+				color: #000;
+				height: 100%;
+				width: 96%;
+				border: none;
+				font-size: 12px;
+				font-style: normal;
+			}
+			#navigationBar li:hover > a {
+				
+				background-color: #eeeabe;
+				color: #200;
+			}
+			#navigationBar li:hover > ul {
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>A Typical Web Site</h1>
+		<nav id="navigationBar">
+		<ul>
+			<li><a href="#">Home</a></li>
+			<li><a href="#">Products</a>
+				<ul>
+					<li><a href="#">Something Awesome</a></li>
+					<li><a href="#">Anothor Awesome Thing</a></li>
+					<li><a href="#">One Best Thing</a></li>
+					<li><a href="#">A Cheap Thing</a></li>
+				</ul>
+			</li>
+			<li><a href="#">About</a>
+				<ul>
+					<li><a href="#">History</a></li>
+					<li><a href="#">The Team</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Contact</a></li>
+		</ul>
+		</nav>
+		<p>Typical web site content.</p>
+	</body>
+</html>
+<!--
+
+-->
