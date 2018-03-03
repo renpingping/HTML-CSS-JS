@@ -1,12 +1,14 @@
-﻿<!doctype html>
+<!doctype html>
 <html>
 	<head>
 		<meta charset="utf-8">
 		<meta name="Keywords" content="">
-		<meta name="Dscription" content="">
+		<meta name="Description" content="">
 		<meta name="Author"content="">
 		<title>定位方案</title>
 		<style>
+			
+			body{ background-color: #blue; z-index: 1;}
 			span{
 				border: 1px solid red;
 				background-color: white;
@@ -20,8 +22,8 @@
 				position: relative;
 				top: 10px;
 			}
-			div{ border: 2px solid black;}
-			#pos{
+			div{ border: 2px solid black; background-color: white;}
+			/*#pos{
 				position: absolute;
 				left: 50px;
 				top: 50px;
@@ -30,32 +32,177 @@
 				position: absolute;
 				left: 75px;
 				top: 160px;
-				bottom: 75px;
+				//bottom: 75px;
 				right: 100px;
 				overflow: hidden;
-			}
+				//z-index: 10;
+			}*/
 			#pos2{
 				position: absolute;
 				width: 50%;
 				height: 50%;
-				bottom: 0px;
-				right: 0px;
+				//bottom: 0px;
+				//right: 0px;
+				left: 0;
+				top: 0;
 				
+			}
+			#pic{
+				position: relative;
+				background-color: #ffd;
+				width: 800px;
+				height: 310px;
+				text-align: center;
+			}
+			#pic img{
+					/*width: 445px;
+					height: 220px;
+					
+					margin-left: auto;
+					margin-right: auto;*/
+					//margin: 0 auto;
+				width: 630px;
+				height: 310px;
+				//margin: 0;
+				//padding: 0;
+			}
+			#notes{
+				position: absolute;
+				display: none;
+				top: 4px;
+				left: 300px;
+				border: 2px solid #99d;
+				width: 200px;
+				height: 50px;
+				text-align: center;
+				color:#ffc;
+				background:rgba(140,140,220,0.3); 
+			}
+			#pic:hover #notes{
+				display: block;
+			}
+			#pic a {
+				position: absolute;
+				//border: 3px double #333;
+				padding 1em;
+			}
+			#next {
+				right: 90px;
+				top: 0;
+				width: 20%;
+				height: 310px;
+			}
+			#previous {
+				left: 90px;
+				top: 0;
+				width: 20%;
+				height: 310px;
+			}
+			#bottom {
+				position: fixed;
+				top: 100px;
+				right: 0;
+				width: 5%;
+				height: 50%;
+				padding:5px;
+				text-align: center;
+				border-left: 3px solid blue;
+				background-color: #ccc;
+			}
+			#pos3{ width: 95%; background-color: #ffc;}
+			p:last-of-type{
+				padding-bottom: 2em;
 			}
 		</style>
 	</head>
 	<body>
 		<div id="pos">
-		The absence of romance in my history will, I fear, detract somewhat <span id="outer">from its <span id="inner">interset</span></span>;but if it be judged useful by those inquirers who desire an exact knowledge of the past as an aid to the interpretation of the future, which in the course of human things must resemble if it does not reflect it, I shall be content.
+		The absence of romance in my history will, I fear, detract somewhat <span id="outer">from its <span 
+
+id="inner">interset</span></span>;but if it be judged useful by those inquirers who desire an exact knowledge of the past as an 
+
+aid to the interpretation of the future, which in the course of human things must resemble if it does not reflect it, I shall be 
+
+content.
 		</div>
 		<div id="pos1">
-		The absence of romance in my history will, I fear, detract somewhat <span id="outer">from its <span id="inner">interset</span></span>;but if it be judged useful by those inquirers who desire an exact knowledge of the past as an aid to the interpretation of the future, which in the course of human things must resemble if it does not reflect it, I shall be content.
+		The absence of romance in my history will, I fear, detract somewhat <span id="outer">from its <span 
+
+id="inner">interset</span></span>;but if it be judged useful by those inquirers who desire an exact knowledge of the past as an 
+
+aid to the interpretation of the future, which in the course of human things must resemble if it does not reflect it, I shall be 
+
+content.
 		</div>
 		<div id="pos2">
-		The absence of romance in my history will, I fear, detract somewhat <span id="outer">from its <span id="inner">interset</span></span>;but if it be judged useful by those inquirers who desire an exact knowledge of the past as an aid to the interpretation of the future, which in the course of human things must resemble if it does not reflect it, I shall be content.
+		The absence of romance in my history will, I fear, detract somewhat <span id="outer">from its <span 
+
+id="inner">interset</span></span>;but if it be judged useful by those inquirers who desire an exact knowledge of the past as an 
+
+aid to the interpretation of the future, which in the course of human things must resemble if it does not reflect it, I shall be 
+
+content.
+		</div>
+		
+		<div id="pic">
+			<a href="2.jpg" id="next">Next</a>
+			<a href="2.jpg" id="previous">Previous</a>
+			<img src="1.jpg" alt="This is a image about Jackson Yi">
+			<div id="notes">
+				This is some notes about the picture. 
+			</div>	
+		</div>
+
+		<p id="pos3">
+		The absence of romance in my history will, I fear, detract somewhat <span id="outer">from its <span 
+
+id="inner">interset</span></span>;<br><br>but if it be judged useful by those inquirers who desire an exact knowledge of the past 
+
+as an aid to the interpretation of the future, which in the course of human things must resemble if it does not reflect it, I 
+
+shall be content.<br>
+The absence of romance in my history will, I fear, detract somewhat <span id="outer">from its <span 
+
+id="inner">interset</span></span>;<br><br>but if it be judged useful by those inquirers who desire an exact knowledge of the past 
+
+as an aid to the interpretation of the future, which in the course of human things must resemble if it does not reflect it, I 
+
+shall be content.<br>
+The absence of romance in my history will, I fear, detract somewhat <span id="outer">from its <span 
+
+id="inner">interset</span></span>;<br><br>but if it be judged useful by those inquirers who desire an exact knowledge of the past 
+
+as an aid to the interpretation of the future, which in the course of human things must resemble if it does not reflect it, I 
+
+shall be content.<br>
+The absence of romance in my history will, I fear, detract somewhat <span id="outer">from its <span 
+
+id="inner">interset</span></span>;<br><br>but if it be judged useful by those inquirers who desire an exact knowledge of the past 
+
+as an aid to the interpretation of the future, which in the course of human things must resemble if it does not reflect it, I 
+
+shall be content.<br>
+The absence of romance in my history will, I fear, detract somewhat <span id="outer">from its <span 
+
+id="inner">interset</span></span>;<br><br>but if it be judged useful by those inquirers who desire an exact knowledge of the past 
+
+as an aid to the interpretation of the future, which in the course of human things must resemble if it does not reflect it, I 
+
+shall be content.<br>
+The absence of romance in my history will, I fear, detract somewhat <span id="outer">from its <span 
+
+id="inner">interset</span></span>;<br><br>but if it be judged useful by those inquirers who desire an exact knowledge of the past 
+
+as an aid to the interpretation of the future, which in the course of human things must resemble if it does not reflect it, I 
+
+shall be content.
+		</p>
+		<div id="bottom">
+			<strong>The Tiny Diner</strong> | 150 Water Street, Brooklyn, NY 11201 | 718.555.1111 | 11-10 Tues - Sat
 		</div>
 	</body>
 </html>
 <!--
+
 
 -->
