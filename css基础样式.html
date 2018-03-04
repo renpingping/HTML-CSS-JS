@@ -243,13 +243,113 @@ rowspan/colspan，设置单元格跨行数或列数。向下或向右合并。
 
 定位方案：
 属性position：静态（static）、相对（relative）、绝对（absolute）、固定（fixed）
-默认静态。静态和相对定位不影响文档布局，绝对或固定定位的元素，不会再网页布局中为它们预留空间。
-设置为relation、absolute、fixed值后，可设置定位属性：top、left、bottom、right，指定其相对于其正常位置或祖先元素的距离
+默认为静态定位。
+静态和相对定位不影响文档布局；绝对或固定定位的元素，不会在网页布局中为它们预留空间（它们脱离了文档流）。
+设置为relative、absolute、fixed值后，可设置定位属性：top、left、bottom、right，指定其相对于其正常位置或祖先元素的距离
 
 相对定位是参照正常布局中相邻元素的方式对元素进行定位。
-绝对定位是参照祖先元素的方式定位。即包含块的边框的内边缘的距离。
+绝对定位是参照最近已定位的祖先元素的方式定位。即包含块的边框的内边缘的距离。
 top为正值，表示元素相对下移；负值，表示元素相对上移。
 left为正值，表示元素相对右移；负值，表示元素相对左移。
+    设置绝对定位时，其祖先元素需要先定位，可以使用相对定位，不指定位置定位祖先元素。
+
+text-align: center;可以设置div中的图片居中。
+
+固定定位也将从正常布局中删除，相对于视口定位
+视口：是当前显示在浏览器窗口中的HTML页面部分
+
+正常布局中的元素位于相对定位和绝对定位元素的下面，相对元素和绝对元素按渲染顺序由上往下渲染，若产生覆盖则下面的覆盖上面
+
+的。
+
+z-index属性控制堆叠顺序。负值在body的下面不会被看见，值越大层数越靠上
+如果要控制正常元素所属的堆叠层，可将其定位方式设置为相对定位，不指定其位置。
+
+浮动的元素位于正常布局元素的上面，但位于被定位元素的下面。
+
+line-height：行高，自适应文字。如line-height:20px;表示一行高度为20px，两行高度为40px。
+
+☆    标签<form>
+
+表单属性method取值get和post。get直接将表单数据加在URL末尾。post
+将URL和数据字符串一道发送给服务器，用户不可见数据。
+一般如果表单用于修改服务器上的数据，使用post；如果表单用于获取数据，使用方法get
+
+属性novalidate：是浏览器不对表单进行验证，这个属性为了对JavaScript和服务器端验证机制进行测试，这是个布尔属性。不需要指
+
+定值，只需添加即可
+
+属性autocomplete：取值为on和off，默认为on。让用户在表单控件中输入时是否提出建议。即是否自动填充。
+
+两个不太常用的属性：enctype和accept-charset
+仅当表单包含文件上传字段时，或用户可能输入页面的字符集中没有的字符时，才需要用到这两个属性。
+如果要上传文件，就需要将enctype设置为multipart/form-data;
+
+标签<label>：描述字段文本。使用属性for，与相应控件关联起来。属性值与相应控件的属性id或name值相同。
+如果将表单控件放在标签label中，可省略属性for
+
+标签<input>：创建表单控件。没有结束标签。
+属性type：指定控件类型。
+text控件：
+	属性size，指定文本控件的宽度，单位为字符数。指的是大致的长度，不是输入的字符数。会被css设置的元素宽度覆盖。
+	限制输入字符数：maxlength和minlength：指定输入最多或最少字符。（有些浏览器不兼容minlength）
+	在文本控件中显示文本，使用属性value，可以指定当前值或默认值，或提示用户输入什么值。使用placeholder设置默认提交
+
+数据。
+	required：指出必须填写相应字段才能提交表单；布尔属性，设置时只需包含required即可。
+	pattern：指定正则表达式。使用JavaScript regex模式。使用title对指定的模式进行描述。
+password控件：属性size和maxlength。密码控件不会对数据进行加密，因此，传输敏感信息时，这是一种不安全的方式。
+submit控件：表单可包含多个提交按钮。不指定value时，在谷歌浏览器显示“提交”，在火狐浏览器显示“提交查询”
+reset控件：重置按钮，谨慎使用
+checkbox控件：属性checked，默认选中；将复选框编组，使用name指定相同的控件名。将<input>标签放在<label>标签中，可以把标
+
+签和复选框关联起来，而不用为复选框指定id再关联for属性。
+radio控件：单选按钮，name属性编组，checked默认选中
+image控件：将图像用作提交按钮控件
+
+H5新增控件：
+datalist控件
+email
+url
+tel
+number
+range
+date、datetime、datetime-local、month、week、time
+color
+search
+
+创建常规按钮：type="button" 使用onclick，调用函数。
+隐藏表单字段type="hidden",设置属性name和value。不会出现在网页中，但通过查看源代码可以看见。
+文件上传控件：file。使用时应注意：首先，在表单的属性action中指定的程序必须能够接受要上传的文件；其次，必须将表单的属性
+
+method设置为post；第三，必须将标签<form>属性enctype设置为multipart/form-data。
+
+使用button可以创建类似于使用input创建的按钮，可创建三种不同按钮：提交按钮、重置按钮、自定义按钮。
+
+textarea控件创建多行文本输入字段。可使用属性rows和cols指定文本高度和宽度，单位字符。css样式设置width和height可覆盖。
+
+font可设置字体。
+select和option可设置下拉菜单输入。select的属性size可以滚动方式显示列表。multiple属性可选多个值。[选择时按着Ctrl键
+
+（Windows）或Cmd键（OS X）]
+option结束标签是可选的，其属性value表示发送给服务器的数据，属性selected表示默认选择。
+
+fieldset和legend将控件编组，fieldset是块级元素。可用css修改默认样式
+
+Tab键可在页面表单字段和链接中导航。
+设置让Tab键忽略链接，使用属性tabindex,设置Tab顺序。具体在标签中加入tabindex属性，该标签在按tab时不会被选中。
+
+使用快捷键，属性accesskey。
+访问时用alt+accesskey或用shift+alt+accesskey
+
+创建被禁用的控件和只读控件
+disabled：呈现灰色    readonly：和其他没区别，但不能操作。
+
+progress和meter显示更新进度
+progress显示为进度条，value定义进度值。用于跟踪带时间成分的东西
+meta显示为进度条，value设置实际值；max设置最大值；
+min定义最小值，不同于progress元素，这个属性可以是0以外的其他值，包括负数。
+还有low、high、optimum值，以及用于设置meter元素的样式的伪类，具体用法见PDF-12.7。
 
 
 
