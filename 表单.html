@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -10,15 +10,31 @@
 			form div{
 				margin-bottom: 1em;
 			}
-			.submit{ margin-left: 165px;}
-			.field{
+			div.submit{ margin-left: 165px;}
+			label.field{
 				display: block;
 				float: left;
 				margin-right: 15px;
 				width: 150px;
 				text-align: right;
 			}
-			.required { font-weight: bold;}
+			
+			input[type="text"], select, textarea {
+				width: 300px;
+				font:18px Verdana;
+				border: solid 2px #666;
+				background-color: #ada;
+			}
+			div.required label.field{ 
+				font-weight: bold;
+			}
+			div.required input, div.required select {
+				background-color: #6a6;
+				border: solid 2px #000;
+				font-weight: bold;
+			}
+
+
 			fieldset {
 				border: none;
 				background-color: #ffc;
@@ -57,16 +73,16 @@
 		<h1>Registration Form</h1>
 		<p>Please fill out the form below to register for our site. Fields with bold labels are required.</p>
 		<form action="upload" method="post" enctype="multipart/dorm-data">
-		<div>
-			<label class="required field" for="name">Name</label><input id="name">
+		<div class="required">
+			<label class="field" for="name">Name</label><input type="text" id="name">
 		</div>
-		<div>
-			<label class="required field" >Gender </label>
+		<div class="required">
+			<label class="field" >Gender </label>
 			<label><input type="radio" name="gender" value="male">male</label>
 			<label><input type="radio" name="gender" value="female">female</label>
 		</div>
-		<div>
-			<label class="required field">Operating System </label>
+		<div class="required">
+			<label class="field">Operating System </label>
 			<select id="os">
 			<option value="windows">Windows
 			<option value="macos">Mac OS
@@ -123,13 +139,17 @@
 		Progress task 3: <progress id="prog3" value="98" max="100">98%</progress>	
 	</p>
 	<p>Jetta:
-		<meter min="0" max="14.2" high="13.5" low="3" optimum="14" value="2.5">2.5 gallons</meter> is getting low
+		<meter min="0" max="14.2" high="13.5" low="3" optimum="14" value="2.5">2.5 gallons</meter> is getting 
+
+low
 	</p>
 	<p>Jetta:
 		<meter min="0" max="22" high="20" low="5" optimum="21" value="14">14 gallons</meter> is okay
 	</p>
 	<p>Jetta:
-		<meter min="0" max="5" high="4.5" low="1" optimum="4.6" value="4.7">4.7 gallons</meter> is practically full
+		<meter min="0" max="5" high="4.5" low="1" optimum="4.6" value="4.7">4.7 gallons</meter> is practically 
+
+full
 	</p>
 
 
@@ -139,7 +159,9 @@
 		<input type="text" id="petname" value="Please input your pet name.">
 		<input type="text" id="petname" placeholder="fido" required>
 		<label> Part number: 
-			<input pattern="[0-9][A-Z]{3}" name="part" title="A part number is a digit followed by three uppercase letters.">
+			<input pattern="[0-9][A-Z]{3}" name="part" title="A part number is a digit followed by three 
+
+uppercase letters.">
 		</label><br><br><hr>
 		<datalist id="game">
 			<option value="rock">
@@ -211,44 +233,7 @@
 	</body>
 </html>
 <!--
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+input[type="text"]   属性选择器，只与属性type的值为text的<input>标签匹配。
 
 
 
