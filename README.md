@@ -1,5 +1,7 @@
 # html-css-js
-This is a good start,I have a github.
+This is a good start, I have a github.
+
+######################################
 
 本资源库主要上传、记录学习前端笔记、代码。
 
