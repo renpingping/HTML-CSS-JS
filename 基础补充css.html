@@ -1,0 +1,404 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="Keywords" content="">
+		<meta name="Dscription" content="">
+		<meta name="Author"content="">
+		<title>CSS样式基础</title>
+		<!--link rel="stylesheet" href="styles.css" type="text/css"-->
+		<style>
+			a:link{ color: blue}
+			a:visited { color: purple;}
+			a:hover { color : red;}
+			a:active { color : red;}
+			a.nav{				
+				font-weight:bold;
+				text-decoration: none;
+				border: solid 3px red;
+				border-top: dotted 4px green;
+			}
+			a.nav:hover{
+				color: white;
+				background-color: yellow;
+				
+			} 
+			a.nav:active{
+				background-color: red;
+				color: blank;
+			}
+			
+			a.nav:visited{
+				color: green;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="http://www.baidu.com" target="_blank">baidu</a>
+		<a href="http://www.sohu.com" target="_blank">sohu</a>
+		<a href="http://www.yahoo.com" target="_blank">yahoo</a>
+		<a href="http://www.sogou.com" target="_blank">sogou</a><br><hr>
+		<a href="http://www.baidu1.com" target="_blank">baidu1</a>
+		<a href="http://www.sohu1.com" target="_blank">sohu1</a>
+		<a href="http://www.yahoo1.com" target="_blank">yahoo1</a>
+		<a href="http://www.sogou1.com" target="_blank">sogou1</a>
+		<hr>
+		<p><a class="nav" href="http://www.baidu12.com" target="_blank">baidu12</a></p>
+		<a href="http://www.sohu12.com" target="_blank">sohu12</a>
+		<a href="http://www.yahoo12.com" target="_blank">yahoo12</a>
+		<a href="http://www.sogou12.com" target="_blank">sogou12</a>
+		
+	</body>
+</html>
+<!--
+
+☆  样式表
+由一系列规则组成，每条规则都以选择器打头，后面是一系列属性及其值
+
+<link>标签有一个属性-media，能够针对不同显示介质指定不同的样式表。取值包括screen、print、projection、aural等
+可以使用title给样式表指定名称
+
+☆  选择器：
+1、标签名，任何标签都可用作css选择器
+如果设置属性相同可一次选择多个标用逗号分开即可。
+
+2、上下文选择器
+如：ol em { color: blue; }为选择ol下的em标签。
+
+3、类选择器、ID选择器
+class和id属性所有标签都支持
+如类选择器：<div class="imprtnt">Some text</div>
+	    .imprtnt{ color:red; }
+
+ID选择器使用时前加#
+选择器可以指定多个类
+<p class="blue yellow">My green paragraph.</p>
+
+☆  CSS长度单位：
+em ：相对单位，指的是元素使用的字体的高度
+ex ：相对单位，指的是元素使用的字体中字符x的高度
+px ：相对单位，指的是像素，取决于查看网页的设备
+rem：相对单位，指的是根元素使用的字体的高度（css3新增）
+vh ：相对单位，指的是视口高度的百分比（css3新增）
+vw ：相对单位，指的是视口宽度的百分比（css3新增）
+in、cm、mm、pt、pc ：都是绝对单位。
+
+☆  伪类：
+a:link：将样式应用于未访问的链接
+a:visited：将样式应用于用户访问过的链接
+a:hover：将样式应用于鼠标指向的链接
+a:active：与属性alink一样，将样式应用于用户正单击的链接。
+
+☆  盒子模型：
+内容（content）、内边距（padding）、边框（border）、透明的外边距（margin）
+
+☆  边框：
+border-style : 指定边框类型
+取值：none/dotted/dashed/solid/double/groove/ridge/inset/outset/inherit;
+none：不显示边框；inherit：使用从更通用的选择器那里继承的边框样式。
+border-width : 指定边框的宽度，单位通常为像素。
+border-color : 指定边框颜色。
+同时设置元素的多个边框属性，使用border，简写属性。
+用法： selector { border: style width color; }
+
+☆  外边距和内边距：margin and padding
+
+背景颜色用于内边距，但不用于外边距。
+
+☆  在CSS盒子模型中，任何情况下都不会压缩水平外边距，但垂直外边距会被压缩，将两个块元素垂直堆叠时，它们之间的间距将为元素外边距较大的那个垂直外边距。
+
+☆  盒子内文本居中，text-align: center;
+盒子居中，margin取值设置为auto（意味着将相应方位的外边距设置成与相反方位的外边距相同。若左右外边距都设置为auto，元素水平居中。）。
+
+☆  display可以修改内容盒子（块式盒子或内嵌盒子）
+取值：
+block: 改为块级元素
+inline：改为内嵌元素
+none： 把指定元素从页面删除
+
+☆  属性max-width、min-width、max-height和min-height设置元素的最大和最小高度和宽度
+
+☆  overflow: visible(默认值)/hidden(超出隐藏)/scroll(始终包含滚动条)/auto(需要时显示滚动条)/inherit
+
+☆  浮动：调节页面内容排列方式。
+float: left/right/none
+清除前面浮动设置的影响
+clear: none/left/right/both
+
+☆  其他选择器
+基本的后代选择器
+p span.important { font-weight: bold;}
+但子选择器更苛刻些，如：
+p > span.important { font-weight: bold;}
+这个选择器只与作为<p>标签的子元素的<span>标签匹配，不与下面中的<span>标签匹配，但上面的基本后代选择器与之匹配。
+<p>This is a paragraph.<em>This is an <span class="important">important</span></em></p>
+
+兄弟选择器：h1 + p{} 选择紧挨h1标签下面的p标签
+
+☆  伪类
+first-letter: 只选择指定元素的第一个字母。
+first-line: 选择指定元素中的第一行文本。
+:hover和:focus (在匹配的元素获得焦点时触发)
+:before和:after  这两个伪类必须有content属性
+target：用于匹配文档页面的URL中某个标识符的目标元素。
+nth-child(n)：用于匹配第n行。（n可以是一个数学表达式）
+
+☆  伪元素
+
+css3新增的语法使用 "::"
+
+CSS3新添加的::selection伪元素
+::selection伪元素：用来匹配突出显示的文本(用鼠标选择文本时的文本)。浏览器默认情况下，用鼠标选择网页文本是以“深蓝的背景，白色的字体”显示的。
+
+1、IE9+、Opera、Google Chrome 以及 Safari 中支持 ::selection 选择器。
+2、Firefox 支持替代的 ::-moz-selection选择器。
+
+::selection{
+  background: orange;
+  color: white;
+}
+::-moz-selection{
+  background: orange;
+  color: white;
+}
+
+☆  伪类和伪元素的特性及区别
+伪类本质上是为了弥补常规CSS选择器的不足，以便获取到更多信息；
+伪元素本质上是创建了一个有内容的虚拟容器；
+CSS3中伪类和伪元素的语法不同；
+可以同时使用多个伪类，而只能同时使用一个伪元素；
+
+☆  属性选择器
+可根据任何属性名和值来选择元素
+p[class="highlight"] {font-weught: bold;}  //效果与p.highlight一样
+=～：匹配以空格分隔的属性值列表（详见21天学通PDF文档）
+^=:与指定属性以指定值打头的元素匹配。
+*=：与指定属性包含指定值的元素匹配
+$=:匹配属性值以特定字符串结尾的元素.
+|=：匹配以连字符分隔的属性值列表。
+
+<body>设置主体页面
+
+☆☆☆☆☆
+
+图像格式：png/gif/jpeg(jpg)/svg(可缩放的矢量图形)
+GIF适合存储LOGO、图标、线条图和其他简单图像，不适合存储细节丰富的图像，因为每幅图像最多只能使用256中颜色。支持透明度，但不支持alpha透明度。
+JPEG：为存储摄影图像设计，可包含任意数量的颜色，使用有损压缩算法，不适合用于存储包含边缘清晰元素的图像，如logo、线条图和文字。处理要在web上显示的照片时，应存储为JPEG格式。
+PNG：alpha透明度效果好，不会丢失数据
+SVG：专为Web开发的一种文件格式。它是可缩放的矢量，这意味着可随便调整它们的大小，不影响质量。使用xml编写，可直接在h5中编写。
+
+<img>标签，没有配套的结束标签。
+src属性，指定图像的url
+alt属性，指示替代文字。SEO优化
+
+vertical-align:修改内嵌图像与文本的对齐方式。
+取值：
+baseline:图像的下边缘与文本的基线对齐。这是默认设置
+top:图像的上边缘与行的上边缘对齐。可能是文本的上边缘也可能是另一幅图像的上边缘。
+middle:图像的中心与父元素中小写字母的中间对齐。
+bottom:图像的下边缘与行的下边缘对齐。
+text-top:头像的上边缘与父元素中文本的上边缘对齐。不像top那样让图像与行中最高的内容对齐。
+text-bottom:头像下边缘与父元素中文本的下边缘对齐。
+sub:将图像视为下标
+sup：将图像视为上标
+length：将图像上移或下移指定的距离。可以为负值
+%：将图像上移或下移属性line-height的值与指定百分比的乘积，可以为负值
+
+可以找矢量图像用作导航图标
+
+background-image: 设置背景图片
+
+background-repeat:用于指定如何平铺背景图像
+取值：
+repeat（默认设置，表示在水平和垂直方向都平铺图像）
+repeat-x：只在水平方向平铺
+repeat-y：只在垂直方向平铺
+no-repeat：不平铺 
+最好设置背景颜色background-color
+
+background-position:设置图片位置（水平位置 垂直位置）
+右上角：100% 0%、top right、right top。
+中央：50% 50%、center center、50%。
+底部中央：50% 100%、bottom center、center bottom。
+
+background-attachment:通常使用这个属性将背景图像固定在浏览器窗口的特定位置，以免它随页面的其他部分一起滚动。
+取值：
+scroll：背景图像随着包含它的元素一起滚动。
+fixed：表示背景图像根本不滚动。
+local：表示图像在包含它的元素移动时不移动，但包含它的元素滚动时它跟着滚动
+
+可以不分别使用上述属性来设置背景图像。而使用简写属性background来同时指定所有的背景属性。使用background可指定背景颜色、背景图像、平铺设置、锚定设置（attackment）、位置。这些属性值都是可选的，但必须按特定的顺序指定。
+结构如下：background: background-color background-image background-repeat background-attackment background-position;
+
+list-style-image:能够将图像用列表项目符号
+
+图像映射：将图像的一部分区域定义为链接，使图像的不同部分链接到不同的页面。
+使用<map>元素来创建图像映射，也可使用css将链接放在图像上，并隐藏这些链接的内容。
+先链接图像的坐标
+
+图像映射中指定的形状：圆形、矩形、多边形
+定义多边形（poly）：每个顶点坐标
+定义圆形（circle）：圆心坐标、半径
+定义矩形（rect）：左上角、右上角坐标
+区域形状类型由属性shape指定，其取值可能为rect、poly、circle、default(未指定的区域即为)
+形状的坐标使用属性coords指定
+如，多边形<area shape="poly" coords="x1,y1,x2,y2,x3,y3,...,xN,yN" href="URL"> 
+在img标签中使用属性usemap，将其值设置为之前使用map标签的属性指令的映射名，在映射名前加上#。
+<!--<a href="nothing"><img src="2.jpg" ismap></a>  用于在火狐浏览器，查看图形坐标-->
+
+表格table
+去掉个个单元格之间缝隙属性border-collapse:collapse;其默认值是separate（有缝隙）
+padding属性设置单元格内边距
+使用text-align，设置水平对齐，left、right、center
+使用vertical-align,设置垂直对齐，top、middle、bottom或baseline
+rowspan/colspan，设置单元格跨行数或列数。向下或向右合并。
+
+使用<colgrounp>和<col>编组
+<colgrounp>只有一个属性,span:z指定列编组包含的列数，其值必须是大于零的整数，默认只包含一列
+
+定位方案：
+属性position：静态（static）、相对（relative）、绝对（absolute）、固定（fixed）
+默认为静态定位。
+静态和相对定位不影响文档布局；绝对或固定定位的元素，不会在网页布局中为它们预留空间（它们脱离了文档流）。
+设置为relative、absolute、fixed值后，可设置定位属性：top、left、bottom、right，指定其相对于其正常位置或祖先元素的距离
+
+相对定位是参照正常布局中相邻元素的方式对元素进行定位。
+绝对定位是参照最近已定位的祖先元素的方式定位。即包含块的边框的内边缘的距离。
+top为正值，表示元素相对下移；负值，表示元素相对上移。
+left为正值，表示元素相对右移；负值，表示元素相对左移。
+    设置绝对定位时，其祖先元素需要先定位，可以使用相对定位，不指定位置定位祖先元素。
+
+text-align: center;可以设置div中的图片居中。
+
+固定定位也将从正常布局中删除，相对于视口定位
+视口：是当前显示在浏览器窗口中的HTML页面部分
+
+正常布局中的元素位于相对定位和绝对定位元素的下面，相对元素和绝对元素按渲染顺序由上往下渲染，若产生覆盖则下面的覆盖上面的。
+
+z-index属性控制堆叠顺序。负值在body的下面不会被看见，值越大层数越靠上
+如果要控制正常元素所属的堆叠层，可将其定位方式设置为相对定位，不指定其位置。
+
+浮动的元素位于正常布局元素的上面，但位于被定位元素的下面。
+
+line-height：行高，自适应文字。如line-height:20px;表示一行高度为20px，两行高度为40px。
+
+☆    标签<form>
+表单属性method取值get和post。get直接将表单数据加在URL末尾。post
+将URL和数据字符串一道发送给服务器，用户不可见数据。
+一般如果表单用于修改服务器上的数据，使用post；如果表单用于获取数据，使用方法get
+
+属性novalidate：是浏览器不对表单进行验证，这个属性为了对JavaScript和服务器端验证机制进行测试，这是个布尔属性。不需要指定值，只需添加即可
+
+属性autocomplete：取值为on和off，默认为on。让用户在表单控件中输入时是否提出建议。即是否自动填充。
+
+两个不太常用的属性：enctype和accept-charset
+仅当表单包含文件上传字段时，或用户可能输入页面的字符集中没有的字符时，才需要用到这两个属性。
+如果要上传文件，就需要将enctype设置为multipart/form-data;
+
+标签<label>：描述字段文本。使用属性for，与相应控件关联起来。属性值与相应控件的属性id或name值相同。
+如果将表单控件放在标签label中，可省略属性for
+
+标签<input>：创建表单控件。没有结束标签。
+属性type：指定控件类型。
+text控件：
+	属性size，指定文本控件的宽度，单位为字符数。指的是大致的长度，不是输入的字符数。会被css设置的元素宽度覆盖。
+	限制输入字符数：maxlength和minlength：指定输入最多或最少字符。（有些浏览器不兼容minlength）
+	在文本控件中显示文本，使用属性value，可以指定当前值或默认值，或提示用户输入什么值。使用placeholder设置默认提交数据。
+	required：指出必须填写相应字段才能提交表单；布尔属性，设置时只需包含required即可。
+	pattern：指定正则表达式。使用JavaScript regex模式。使用title对指定的模式进行描述。
+password控件：属性size和maxlength。密码控件不会对数据进行加密，因此，传输敏感信息时，这是一种不安全的方式。
+submit控件：表单可包含多个提交按钮。不指定value时，在谷歌浏览器显示“提交”，在火狐浏览器显示“提交查询”
+reset控件：重置按钮，谨慎使用
+checkbox控件：属性checked，默认选中；将复选框编组，使用name指定相同的控件名。将<input>标签放在<label>标签中，可以把标签和复选框关联起来，而不用为复选框指定id再关联for属性。
+radio控件：单选按钮，name属性编组，checked默认选中
+image控件：将图像用作提交按钮控件
+
+H5新增控件：
+datalist控件
+email
+url
+tel
+number
+range
+date、datetime、datetime-local、month、week、time
+color
+search
+
+创建常规按钮：type="button" 使用onclick，调用函数。
+隐藏表单字段type="hidden",设置属性name和value。不会出现在网页中，但通过查看源代码可以看见。
+文件上传控件：file。使用时应注意：首先，在表单的属性action中指定的程序必须能够接受要上传的文件；其次，必须将表单的属性method设置为post；第三，必须将标签<form>属性enctype设置为multipart/form-data。
+
+使用button可以创建类似于使用input创建的按钮，可创建三种不同按钮：提交按钮、重置按钮、自定义按钮。
+
+textarea控件创建多行文本输入字段。可使用属性rows和cols指定文本高度和宽度，单位字符。css样式设置width和height可覆盖。font可设置字体。
+select和option可设置下拉菜单输入。select的属性size可以滚动方式显示列表。multiple属性可选多个值。[选择时按着Ctrl键（Windows）或Cmd键（OS X）]
+option结束标签是可选的，其属性value表示发送给服务器的数据，属性selected表示默认选择。
+
+fieldset和legend将控件编组，fieldset是块级元素。可用css修改默认样式
+
+Tab键可在页面表单字段和链接中导航。
+设置让Tab键忽略链接，使用属性tabindex,设置Tab顺序。具体在标签中加入tabindex属性，该标签在按tab时不会被选中。
+
+使用快捷键，属性accesskey。
+访问时用alt+accesskey或用shift+alt+accesskey
+
+创建被禁用的控件和只读控件
+disabled：呈现灰色    readonly：和其他没区别，但不能操作。
+
+progress和meter显示更新进度
+progress显示为进度条，value定义进度值。用于跟踪带时间成分的东西
+meta显示为进度条，value设置实际值；max设置最大值；
+min定义最小值，不同于progress元素，这个属性可以是0以外的其他值，包括负数。
+还有low、high、optimum值，以及用于设置meter元素的样式的伪类，具体用法见PDF-12.7。
+
+使用css可以修改任意表单样式
+
+input[type="text"]   属性选择器，只与属性type的值为text的<input>标签匹配。需注意指定的属性必须存在。
+
+注意： 在CSS定义中，a:hover 必须被置于 a:link 和 a:visited 之后，才是有效的。
+
+注意： 在 CSS 定义中，a:active 必须被置于 a:hover 之后，才是有效的。
+
+注意：伪类的名称不区分大小写。
+
+☆    响应式Web设计（RWD）
+：认为查看页面的每个用户、浏览器和设备都不同，但他们看到的内容都相同。
+移动优先
+在设计中只使用一栏。
+限制链接选项
+限制文件大小
+限制URL的长度，同时加长链接
+慎用框架、flash和表格
+不要限制测试
+
+配置视口
+<meta name="viewport" content="width=device-width"
+
+媒体查询：检查显示网页的设备的媒体。
+媒体类型
+媒体特征
+
+断点：将样式表分为两部分的媒体查询。
+一个断点两个设计，两个断点三个设计。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-->
