@@ -5,20 +5,25 @@
 		<meta name="Keywords" content="">
 		<meta name="Description" content="">
 		<meta name="Author"content="">
-		<title>The Dunbar project</title>
+		<!--meta name="viewport" content="width=device-width"-->
+		<title>Dunbar project-float</title>
+
+		<!--link rel="stylesheet" type="text/css" href="css/dunbar.css"-->
 		<style>
+			/*页面基本样式*/
 			body {
 				margin: 0;
 				padding: 0;
-				background-color: silver;
+				background-color: #055;
 				font-family: Optima,sans-serif;
 			}
 			a:link { color: #055; }
 			a:visited { color: #404; }
+			/* 头部样式 */
 			header {
 				position: relative;
 				background-color: #404;
-				padding: 1.25em 0 0.25em 0;
+				padding: 1.25em 0 0 0;
 				color: white;
 				text-align: center;
 			}
@@ -34,17 +39,13 @@
 				font-weight: normal;
 
 			}
+			/* 导航栏 */
 			#sitenav {
-				position: absolute;
-				top: 0;
-				right: 0;
-				margin: 0;
-				padding: 0;
-				width: 100%;
-				display: inline;
+				margin:1em 0 0em;
+				width: 100%;//display: inline;
 				color: white;
 				background-color: #055;
-				border-bottom: 1px solid #dd0;
+				border-bottom: 2px solid #ffc107a8;
 			}
 			#sitenav ol {
 				margin: 0;
@@ -57,8 +58,7 @@
 				display: inline;
 				padding-left: 1em;
 				margin-left: 1em;
-				border-left: 1px solid #dd0;
-				
+				border-left: 1px solid #ffc107a8;
 			}
 			#sitenav  li a:link,#sitenav li a:visited {
 				color: white;
@@ -76,15 +76,15 @@
 			#sitenav  li a {
 				color: white;
 			}
+			/* 页面主要内容 */
 			#main { 
-				padding: 0 12em 2em 12em;
-				position: relative;
+				padding: 0 12em 0 12em;
 				background-color: #055;
 				
 			}
 			#content {
 				background-color: white;
-				padding: 1em 5em;
+				padding: 1em;
 			}
 			#content h3{
 				margin-top: 0;
@@ -93,17 +93,33 @@
 				font-size: 90%;
 				line-height: 1.4;
 			}
-			#sidebar {
-				position: absolute;
+			/* 广告栏 */
+			#adbar {
+				position: fixed;
 				width: 10em;
-				left: 1em;
-				top: 1em;
+				line-height: 2em;
+				right:1.2%;
+				top: 17%;
 				
+			}
+			#adbar p {
+				text-align: center;
+				vertical-align: middle;
+				background-color: #fff;
+				color: #505;
+				padding: 10em 0 10em;
+			}
+			/*  侧边栏 */
+			#sidebar {
+				float: left;
+				width: 160px;
+				margin-top: -29em;
+				margin-left: -18%;
 			}
 			#sidebar h3 {
 				color: white;
 				background-color: #404;
-				font-size: 100%;
+				font-size: 98%;
 				margin: 0;
 				font-weight: normal;
 				padding: 0.125em 0.25em;
@@ -128,27 +144,23 @@
 			#sidebar li a:hover{
 				color: #404;
 			}
-			#copyriht {
-				position: absolute;
-				top: 1em;
-				right: 1em;
-				width: 10em;
-			}
-			footer p {
-				margin: 0;
-				font-size: 85%;
-				padding: 0.5em;
+			/* 页脚 */
+			footer {
+				clear:both;
 				background-color: #404;
 				color: white;
-
+				text-align: center;
+				width: 100%;
+			}
+			footer p {
+				font-size: 85%;
+				padding: 0.5em;
+				margin: 0;
 			}
 			footer p a:link, footer p a:visited {
 				color: #dd0;
 			}
-			#copyriht::selection{
-			  background: yellow;
-			  color: red;
-			}
+			
 		</style>
 	</head>
 	<body>
@@ -203,40 +215,21 @@
 					  <li>Project Proposal</li>
 					</ol>
 				</aside><!-- sidebar -->
+
+				<aside id="adbar">
+					<p>This advertisement place is for rent.</p>
+				</aside><!-- adbar -->
+
+		</div><!-- Main -->
 				<footer>
-					<p id="note501c3"> ...more content omitted... </p>
+					<p id="note501c3">more content omitted</p>
 					<p id="copyriht">Copyright &copy; 2018 by the Dunbar Project. Questions<a href="mailto:751880948@qq.com">Mail the Webmaster.</a></p>
 				</footer><!-- footer-->
-		</div><!-- Main-->
 	</body>
 </html>
 <!--
 
 1em=16px
-
-注意： 在CSS定义中，a:hover 必须被置于 a:link 和 a:visited 之后，才是有效的。
-
-注意： 在 CSS 定义中，a:active 必须被置于 a:hover 之后，才是有效的。
-
-注意：伪类的名称不区分大小写。
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 -->
