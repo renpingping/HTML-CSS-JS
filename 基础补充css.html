@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -253,6 +253,9 @@ padding属性设置单元格内边距
 使用vertical-align,设置垂直对齐，top、middle、bottom或baseline
 rowspan/colspan，设置单元格跨行数或列数。向下或向右合并。
 
+thead, tbody tfoot
+从名字上就可以看出, 这三者 是有 明确的 "语义"的! 是从 表格 各部分的 作用上 来区分 表格的 : thead是用来表示表格的头部的, 主要用来存放 表格的表头的, 如 一些表格 的"字段名"fields. tbody 是表格的正文, 是用来存放真正的数据的; tfoot是表格的脚部, 主要是用来对表格做 总结性 的统计, 备注等.
+
 使用<colgrounp>和<col>编组
 <colgrounp>只有一个属性,span:z指定列编组包含的列数，其值必须是大于零的整数，默认只包含一列
 
@@ -283,7 +286,8 @@ z-index属性控制堆叠顺序。负值在body的下面不会被看见，值越
 line-height：行高，自适应文字。如line-height:20px;表示一行高度为20px，两行高度为40px。
 
 ☆    标签<form>
-表单属性method取值get和post。get直接将表单数据加在URL末尾。post
+
+表单属性method取值get和post。get直接将表单数据加在URL末尾。post
 将URL和数据字符串一道发送给服务器，用户不可见数据。
 一般如果表单用于修改服务器上的数据，使用post；如果表单用于获取数据，使用方法get
 
@@ -380,25 +384,39 @@ input[type="text"]   属性选择器，只与属性type的值为text的<input>�
 
 断点：将样式表分为两部分的媒体查询。
 一个断点两个设计，两个断点三个设计。
+@media (min-width: ){}
 
+/* 超小屏幕（手机，小于 768px） */
+/* 没有任何媒体查询相关的代码，因为这在 Bootstrap 中是默认的（还记得 Bootstrap 是移动设备优先的吗？） */
 
+/* 小屏幕（平板，大于等于 768px） */
+@media (min-width: @screen-sm-min) { ... }
 
+/* 中等屏幕（桌面显示器，大于等于 992px） */
+@media (min-width: @screen-md-min) { ... }
 
+/* 大屏幕（大桌面显示器，大于等于 1200px） */
+@media (min-width: @screen-lg-min) { ... }
 
+调整布局，创建响应式设计：
+设置页面分栏：
+css3新增创建分栏属性：
+column-width：指定各栏的宽度。
+column-count：指定栏数。
+columns：一个用于指定栏宽和栏数的简写属性。
+column-gap：指定栏间距。
+column-rule-color：指定分栏线的颜色。
+column-rule-style：指定分栏线的宽度。
+column-rule-width：指定分栏线的宽度。
+column-rule：一个简写属性，用于同时定义分栏线的宽度、颜色和样式。
+break-before、before-after、break-inside：分别定义盒子前、后、内分栏或分页的行为。
+column-span：指定元素应横跨多少栏。
+column-fill：指定如何在各栏中填充内容-平衡各栏（balance）或按顺序填充（auto）。
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+兼容浏览器前缀（css3风格的前缀）：
+-moz- /* Firefox 和其他使用 Mozilla 浏览器引擎的浏览器 */
+-webkit- /* Safari，Chrome 和其他使用了 Webkit 引擎的浏览器 */
+-o- /* Opera */
+-ms- /* IE 浏览器（但不总是 IE） */
 
 -->
