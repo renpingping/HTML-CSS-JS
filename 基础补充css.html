@@ -89,6 +89,10 @@ a:visited：将样式应用于用户访问过的链接
 a:hover：将样式应用于鼠标指向的链接
 a:active：与属性alink一样，将样式应用于用户正单击的链接。
 
+first-child 伪类来选择元素的第一个子元素
+lang 伪类使你有能力为不同的语言定义特殊的规则
+
+
 ☆  盒子模型：
 内容（content）、内边距（padding）、边框（border）、透明的外边距（margin）
 
@@ -105,10 +109,14 @@ border-color : 指定边框颜色。
 
 背景颜色用于内边距，但不用于外边距。
 
-☆  在CSS盒子模型中，任何情况下都不会压缩水平外边距，但垂直外边距会被压缩，将两个块元素垂直堆叠时，它们之间的间距将为元素外边距较大的那个垂直外边距。
+☆  在CSS盒子模型中，任何情况下都不会压缩水平外边距，但垂直外边距会被压缩，将两个块元素垂直堆叠时，它们之间的间距将为
+
+元素外边距较大的那个垂直外边距。
 
 ☆  盒子内文本居中，text-align: center;
-盒子居中，margin取值设置为auto（意味着将相应方位的外边距设置成与相反方位的外边距相同。若左右外边距都设置为auto，元素水平居中。）。
+盒子居中，margin取值设置为auto（意味着将相应方位的外边距设置成与相反方位的外边距相同。若左右外边距都设置为auto，元素水
+
+平居中。）。
 
 ☆  display可以修改内容盒子（块式盒子或内嵌盒子）
 取值：
@@ -130,7 +138,9 @@ clear: none/left/right/both
 p span.important { font-weight: bold;}
 但子选择器更苛刻些，如：
 p > span.important { font-weight: bold;}
-这个选择器只与作为<p>标签的子元素的<span>标签匹配，不与下面中的<span>标签匹配，但上面的基本后代选择器与之匹配。
+这个选择器只与作为<p>标签的子元素的<span>标签匹配，不与下面中的<span>标签匹配（即不与嵌套在其子元素中的子元素<span>标
+
+签匹配），但上面的基本后代选择器与之匹配。
 <p>This is a paragraph.<em>This is an <span class="important">important</span></em></p>
 
 兄弟选择器：h1 + p{} 选择紧挨h1标签下面的p标签
@@ -148,7 +158,9 @@ nth-child(n)：用于匹配第n行。（n可以是一个数学表达式）
 css3新增的语法使用 "::"
 
 CSS3新添加的::selection伪元素
-::selection伪元素：用来匹配突出显示的文本(用鼠标选择文本时的文本)。浏览器默认情况下，用鼠标选择网页文本是以“深蓝的背景，白色的字体”显示的。
+::selection伪元素：用来匹配突出显示的文本(用鼠标选择文本时的文本)。浏览器默认情况下，用鼠标选择网页文本是以“深蓝的背
+
+景，白色的字体”显示的。
 
 1、IE9+、Opera、Google Chrome 以及 Safari 中支持 ::selection 选择器。
 2、Firefox 支持替代的 ::-moz-selection选择器。
@@ -182,10 +194,16 @@ $=:匹配属性值以特定字符串结尾的元素.
 ☆☆☆☆☆
 
 图像格式：png/gif/jpeg(jpg)/svg(可缩放的矢量图形)
-GIF适合存储LOGO、图标、线条图和其他简单图像，不适合存储细节丰富的图像，因为每幅图像最多只能使用256中颜色。支持透明度，但不支持alpha透明度。
-JPEG：为存储摄影图像设计，可包含任意数量的颜色，使用有损压缩算法，不适合用于存储包含边缘清晰元素的图像，如logo、线条图和文字。处理要在web上显示的照片时，应存储为JPEG格式。
+GIF适合存储LOGO、图标、线条图和其他简单图像，不适合存储细节丰富的图像，因为每幅图像最多只能使用256中颜色。支持透明度，
+
+但不支持alpha透明度。
+JPEG：为存储摄影图像设计，可包含任意数量的颜色，使用有损压缩算法，不适合用于存储包含边缘清晰元素的图像，如logo、线条图
+
+和文字。处理要在web上显示的照片时，应存储为JPEG格式。
 PNG：alpha透明度效果好，不会丢失数据
-SVG：专为Web开发的一种文件格式。它是可缩放的矢量，这意味着可随便调整它们的大小，不影响质量。使用xml编写，可直接在h5中编写。
+SVG：专为Web开发的一种文件格式。它是可缩放的矢量，这意味着可随便调整它们的大小，不影响质量。使用xml编写，可直接在h5中
+
+编写。
 
 <img>标签，没有配套的结束标签。
 src属性，指定图像的url
@@ -227,7 +245,9 @@ scroll：背景图像随着包含它的元素一起滚动。
 fixed：表示背景图像根本不滚动。
 local：表示图像在包含它的元素移动时不移动，但包含它的元素滚动时它跟着滚动
 
-可以不分别使用上述属性来设置背景图像。而使用简写属性background来同时指定所有的背景属性。使用background可指定背景颜色、背景图像、平铺设置、锚定设置（attackment）、位置。这些属性值都是可选的，但必须按特定的顺序指定。
+可以不分别使用上述属性来设置背景图像。而使用简写属性background来同时指定所有的背景属性。使用background可指定背景颜色、
+
+背景图像、平铺设置、锚定设置（attackment）、位置。这些属性值都是可选的，但必须按特定的顺序指定。
 结构如下：background: background-color background-image background-repeat background-attackment background-position;
 
 list-style-image:能够将图像用列表项目符号
@@ -254,7 +274,11 @@ padding属性设置单元格内边距
 rowspan/colspan，设置单元格跨行数或列数。向下或向右合并。
 
 thead, tbody tfoot
-从名字上就可以看出, 这三者 是有 明确的 "语义"的! 是从 表格 各部分的 作用上 来区分 表格的 : thead是用来表示表格的头部的, 主要用来存放 表格的表头的, 如 一些表格 的"字段名"fields. tbody 是表格的正文, 是用来存放真正的数据的; tfoot是表格的脚部, 主要是用来对表格做 总结性 的统计, 备注等.
+从名字上就可以看出, 这三者 是有 明确的 "语义"的! 是从 表格 各部分的 作用上 来区分 表格的 : thead是用来表示表格的头部的
+
+, 主要用来存放 表格的表头的, 如 一些表格 的"字段名"fields. tbody 是表格的正文, 是用来存放真正的数据的; tfoot是表格的脚
+
+部, 主要是用来对表格做 总结性 的统计, 备注等.
 
 使用<colgrounp>和<col>编组
 <colgrounp>只有一个属性,span:z指定列编组包含的列数，其值必须是大于零的整数，默认只包含一列
@@ -276,7 +300,9 @@ text-align: center;可以设置div中的图片居中。
 固定定位也将从正常布局中删除，相对于视口定位
 视口：是当前显示在浏览器窗口中的HTML页面部分
 
-正常布局中的元素位于相对定位和绝对定位元素的下面，相对元素和绝对元素按渲染顺序由上往下渲染，若产生覆盖则下面的覆盖上面的。
+正常布局中的元素位于相对定位和绝对定位元素的下面，相对元素和绝对元素按渲染顺序由上往下渲染，若产生覆盖则下面的覆盖上面
+
+的。
 
 z-index属性控制堆叠顺序。负值在body的下面不会被看见，值越大层数越靠上
 如果要控制正常元素所属的堆叠层，可将其定位方式设置为相对定位，不指定其位置。
@@ -285,13 +311,15 @@ z-index属性控制堆叠顺序。负值在body的下面不会被看见，值越
 
 line-height：行高，自适应文字。如line-height:20px;表示一行高度为20px，两行高度为40px。
 
-☆    标签<form>
+☆    表单<form>
 
 表单属性method取值get和post。get直接将表单数据加在URL末尾。post
 将URL和数据字符串一道发送给服务器，用户不可见数据。
 一般如果表单用于修改服务器上的数据，使用post；如果表单用于获取数据，使用方法get
 
-属性novalidate：是浏览器不对表单进行验证，这个属性为了对JavaScript和服务器端验证机制进行测试，这是个布尔属性。不需要指定值，只需添加即可
+属性novalidate：是浏览器不对表单进行验证，这个属性为了对JavaScript和服务器端验证机制进行测试，这是个布尔属性。不需要指
+
+定值，只需添加即可
 
 属性autocomplete：取值为on和off，默认为on。让用户在表单控件中输入时是否提出建议。即是否自动填充。
 
@@ -299,21 +327,28 @@ line-height：行高，自适应文字。如line-height:20px;表示一行高度�
 仅当表单包含文件上传字段时，或用户可能输入页面的字符集中没有的字符时，才需要用到这两个属性。
 如果要上传文件，就需要将enctype设置为multipart/form-data;
 
-标签<label>：描述字段文本。使用属性for，与相应控件关联起来。属性值与相应控件的属性id或name值相同。
+☆    标签<label>：描述字段文本。使用属性for，与相应控件关联起来。属性值与相应控件的属性id或name值相同。
 如果将表单控件放在标签label中，可省略属性for
 
-标签<input>：创建表单控件。没有结束标签。
+☆    标签<input>：创建表单控件。没有结束标签。
 属性type：指定控件类型。
+
+☆ 控件   
 text控件：
 	属性size，指定文本控件的宽度，单位为字符数。指的是大致的长度，不是输入的字符数。会被css设置的元素宽度覆盖。
 	限制输入字符数：maxlength和minlength：指定输入最多或最少字符。（有些浏览器不兼容minlength）
-	在文本控件中显示文本，使用属性value，可以指定当前值或默认值，或提示用户输入什么值。使用placeholder设置默认提交数据。
+	在文本控件中显示文本，使用属性value，可以指定当前值或默认值，或提示用户输入什么值。使用placeholder设置默认提交
+
+数据。
 	required：指出必须填写相应字段才能提交表单；布尔属性，设置时只需包含required即可。
 	pattern：指定正则表达式。使用JavaScript regex模式。使用title对指定的模式进行描述。
+
 password控件：属性size和maxlength。密码控件不会对数据进行加密，因此，传输敏感信息时，这是一种不安全的方式。
 submit控件：表单可包含多个提交按钮。不指定value时，在谷歌浏览器显示“提交”，在火狐浏览器显示“提交查询”
 reset控件：重置按钮，谨慎使用
-checkbox控件：属性checked，默认选中；将复选框编组，使用name指定相同的控件名。将<input>标签放在<label>标签中，可以把标签和复选框关联起来，而不用为复选框指定id再关联for属性。
+checkbox控件：属性checked，默认选中；将复选框编组，使用name指定相同的控件名。将<input>标签放在<label>标签中，可以把标
+
+签和复选框关联起来，而不用为复选框指定id再关联for属性。
 radio控件：单选按钮，name属性编组，checked默认选中
 image控件：将图像用作提交按钮控件
 
@@ -330,12 +365,18 @@ search
 
 创建常规按钮：type="button" 使用onclick，调用函数。
 隐藏表单字段type="hidden",设置属性name和value。不会出现在网页中，但通过查看源代码可以看见。
-文件上传控件：file。使用时应注意：首先，在表单的属性action中指定的程序必须能够接受要上传的文件；其次，必须将表单的属性method设置为post；第三，必须将标签<form>属性enctype设置为multipart/form-data。
+文件上传控件：file。使用时应注意：首先，在表单的属性action中指定的程序必须能够接受要上传的文件；其次，必须将表单的属性
+
+method设置为post；第三，必须将标签<form>属性enctype设置为multipart/form-data。
 
 使用button可以创建类似于使用input创建的按钮，可创建三种不同按钮：提交按钮、重置按钮、自定义按钮。
 
-textarea控件创建多行文本输入字段。可使用属性rows和cols指定文本高度和宽度，单位字符。css样式设置width和height可覆盖。font可设置字体。
-select和option可设置下拉菜单输入。select的属性size可以滚动方式显示列表。multiple属性可选多个值。[选择时按着Ctrl键（Windows）或Cmd键（OS X）]
+textarea控件创建多行文本输入字段。可使用属性rows和cols指定文本高度和宽度，单位字符。css样式设置width和height可覆盖。
+
+font可设置字体。
+select和option可设置下拉菜单输入。select的属性size可以滚动方式显示列表。multiple属性可选多个值。[选择时按着Ctrl键
+
+（Windows）或Cmd键（OS X）]
 option结束标签是可选的，其属性value表示发送给服务器的数据，属性selected表示默认选择。
 
 fieldset和legend将控件编组，fieldset是块级元素。可用css修改默认样式
@@ -357,7 +398,7 @@ min定义最小值，不同于progress元素，这个属性可以是0以外的�
 
 使用css可以修改任意表单样式
 
-input[type="text"]   属性选择器，只与属性type的值为text的<input>标签匹配。需注意指定的属性必须存在。
+☆    input[type="text"]   属性选择器，只与属性type的值为text的<input>标签匹配。需注意指定的属性必须存在。
 
 注意： 在CSS定义中，a:hover 必须被置于 a:link 和 a:visited 之后，才是有效的。
 
@@ -398,7 +439,7 @@ input[type="text"]   属性选择器，只与属性type的值为text的<input>�
 /* 大屏幕（大桌面显示器，大于等于 1200px） */
 @media (min-width: @screen-lg-min) { ... }
 
-调整布局，创建响应式设计：
+☆    调整布局，创建响应式设计：
 设置页面分栏：
 css3新增创建分栏属性：
 column-width：指定各栏的宽度。
@@ -406,17 +447,27 @@ column-count：指定栏数。
 columns：一个用于指定栏宽和栏数的简写属性。
 column-gap：指定栏间距。
 column-rule-color：指定分栏线的颜色。
-column-rule-style：指定分栏线的宽度。
+column-rule-style：指定分栏线的样式。
 column-rule-width：指定分栏线的宽度。
 column-rule：一个简写属性，用于同时定义分栏线的宽度、颜色和样式。
 break-before、before-after、break-inside：分别定义盒子前、后、内分栏或分页的行为。
 column-span：指定元素应横跨多少栏。
 column-fill：指定如何在各栏中填充内容-平衡各栏（balance）或按顺序填充（auto）。
 
-兼容浏览器前缀（css3风格的前缀）：
+☆    兼容浏览器前缀（css3风格的前缀）：
 -moz- /* Firefox 和其他使用 Mozilla 浏览器引擎的浏览器 */
--webkit- /* Safari，Chrome 和其他使用了 Webkit 引擎的浏览器 */
+-webkit- /* Safari（苹果浏览器），Chrome，傲游3,猎豹浏览器,百度浏览器 和其他使用了 Webkit 引擎的浏览器 */
 -o- /* Opera */
 -ms- /* IE 浏览器（但不总是 IE） */
+
+☆    white-space属性：指定元素内的空白怎样处理。
+值		描述
+normal		默认。空白会被浏览器忽略。
+pre		空白会被浏览器保留。其行为方式类似 HTML 中的 <pre> 标签。
+nowrap		文本不会换行，文本会在在同一行上继续，直到遇到 <br> 标签为止。
+pre-wrap	保留空白符序列，但是正常地进行换行。
+pre-line	合并空白符序列，但是保留换行符。
+inherit		规定应该从父元素继承 white-space 属性的值。
+
 
 -->
