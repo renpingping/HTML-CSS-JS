@@ -1,0 +1,57 @@
+﻿
+☆	出于性能考虑，<script>标签放在页面末尾最佳（即它后面紧跟着结束标签</body>）。可最大限度的提高页面的加载速度。
+注释："//" 或 "/*  */"
+属性type：指定script标签包含内容类型，对于JS，应设置为text/javascript。默认为JS，可省略。
+属性src：使得将要包含在网页中的JavaScript脚本存储在独立的文件中，这种功能能让整个网站共享JavaScript代码。
+如：<script src="http://www.example.com/script.js">
+
+JavaScript文件的扩展名指定为.js。
+每个语句最好以；结束。
+
+javascript严格区分大小写。
+
+NaN;       // NaN表示Not a Number，当无法计算结果时用NaN表示
+Infinity;  // Infinity表示无限大，当数值超过了JavaScript的Number所能表示的最大值时，就表示为Infinity
+
+☆	要特别注意相等运算符==。JavaScript在设计时，有两种比较运算符：
+
+第一种是==比较，它会自动转换数据类型再比较，很多时候，会得到非常诡异的结果；
+
+第二种是===比较，它不会自动转换数据类型，如果数据类型不一致，返回false，如果一致，再比较。
+
+由于JavaScript这个设计缺陷，不要使用==比较，始终坚持使用===比较。
+
+另一个例外是NaN这个特殊的Number与所有其他值都不相等，包括它自己：
+NaN === NaN; // false
+
+唯一能判断NaN的方法是通过isNaN()函数：
+isNaN(NaN); // true
+
+最后要注意浮点数的相等比较：
+1 / 3 === (1 - 2 / 3); // false
+这不是JavaScript的设计缺陷。浮点数在运算过程中会产生误差，因为计算机无法精确表示无限循环小数。要比较两个浮点数是否相等，只能计算它们之差的绝对值，看是否小于某个阈值：
+
+Math.abs(1 / 3 - (1 - 2 / 3)) < 0.0000001; // true
+
+avaScript把null、undefined、0、NaN和空字符串''视为false，其他值一概视为true。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-->
