@@ -1,4 +1,81 @@
 ﻿
+ /*
+var arr = [0,1,2,3.14,'Hello',null,true];
+console.log(arr.length);
+console.log(arr);
+console.log(arr.unshift("A","B"))
+console.log(arr);
+console.log(arr.shift());
+console.log(arr.sort());
+console.log(arr.reverse());
+console.log(arr);
+console.log("删除的元素："+arr.splice(2,3,"Goole","Facebook"));
+console.log(arr);
+console.log(arr.splice(2,2));
+console.log(arr.splice(2,0,"Goole","Facebook"));
+console.log(arr);
+var add = arr.concat([1,2,[3,7,8]])
+console.log(add);
+console.log(arr);
+console.log(arr.join("-"))
+console.log(add.join("~"))
+var xiaoming = {
+  name:'小明',
+  birth:1993,
+  school:'No.1 middle School',
+  height:1.70,
+  weight:64,
+  score: null
+};
+console.log(xiaoming.name);
+console.log(xiaoming.height);
+var xiaohong = {
+  name:'小红',
+  'middle-school':'No.1 Middle School'
+};
+console.log(xiaohong['middle-school'])
+console.log(xiaohong['name']);
+console.log(xiaohong.name);
+console.log(xiaoming.age);
+xiaoming.age = 25;
+console.log(xiaoming.age);
+delete xiaoming.age;
+console.log(xiaoming.age);
+delete xiaoming.school1;
+console.log('name' in xiaoming);
+console.log('grade' in xiaoming);
+console.log('toString' in xiaoming);//继承的
+hasna = xiaoming.hasOwnProperty('name');
+console.log(hasna);
+console.log(xiaoming.hasOwnProperty('toSting'));
+var age = 3;
+if(age >= 18){
+  alert('adult');
+}else if(age>=5){
+  alert('teenager');
+}else{
+  alert('kid')
+}
+*/
+var height = parseFloat(prompt('请输入身高(m):'));
+var weight = parseFloat(prompt('请输入体重(kg):'));
+var bmi = weight/(height*height);
+if (bmi>32){
+  console.log("严重肥胖");
+}else if(bmi>28){
+  console.log("肥胖");
+}else if(bmi>25){
+  console.log("过重");
+}else if(bmi>18.5){
+  console.log("正常")
+}else{
+  console.log("过轻")
+}
+
+
+
+
+
 ☆	出于性能考虑，<script>标签放在页面末尾最佳（即它后面紧跟着结束标签</body>）。可最大限度的提高页面的加载速度。
 注释："//" 或 "/*  */"
 属性type：指定script标签包含内容类型，对于JS，应设置为text/javascript。默认为JS，可省略。
