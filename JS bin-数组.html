@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2018 by anonymous (http://jsbin.com/fapixeliwe/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS 数组，</title>
+</head>
+<body>
+
+<script id="jsbin-javascript">
+//数组
+//JS中内置了一个对象Array
+//创建数组，并初始化
+/*
+var myArray = [1,23,4,45,5,6];
+console.log(myArray);
+
+//遍历数组
+console.log(myArray.length);
+for(var i=0;i<myArray.length;i++){
+  console.log(myArray[i]);
+}
+
+//动态初始化(JS bin网站上报错，手写代码生成undefined)
+myArray = new Array(5);//动态分配5个空间，没有手动赋值，系统默认值undefined
+for(var i=0;i<myArrray.length;i++){
+  //console.log(myArray[i]);  
+  alert("ert:"+myArray[i]);
+}
+
+//数组中数据类型不一定统一
+myArray[0]=false;
+myArray[1]="abc";
+myArray[2]=1.0;
+myArray[3]=new Object();
+for(var i=0; i<myArray.length; i++){
+  console.log("数组元素："+myArray[i])
+}
+*/
+
+//数组中常用的方法
+var a =[1,'abc',false,3.0]
+//join方法的作用，以特殊符号连接数组中的每一个元素，最后生成一个长字符串
+var str= a.join("-")
+console.log("join方法："+str)
+
+//反转数组中的元素
+a.reverse();
+for(var i=0;i<a.length;i++){
+  console.log("反转："+a[i]);
+}
+
+//pop
+var elt=a.pop();//将数组中最右边的元素删除
+console.log("pop删除的元素："+elt);
+console.log(a.length); //3
+
+//push
+a.push('XXX');
+console.log(a.length);
+for(var i=0;i<a.length;i++){
+  console.log("push方法加入元素："+a[i]);
+}
+
+//数组的push和pop方法模拟了栈的数据结构
+
+//toString()
+console.log("tostring方法："+a.toString());
+
+
+</script>
+</body>
+</html>

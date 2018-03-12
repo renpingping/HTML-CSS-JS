@@ -1,0 +1,109 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="Keywords" content="地图">
+		<meta namea="Description" content="简单地图路径规划">
+		<title>LBS移动地图定位导航</title>
+		<style>	
+			*{margin:8,0;}/*解决浏览器兼容性问题 
+				      块级元素：特征 不给宽度 默认占据一行
+				      margin:上下 左右；auto 自动填充 */
+			body{
+				overflow:hidden;
+			}
+			.head{
+				height:60px;
+				background:#fff;
+			}
+			.head .h-center{
+				width:90%;
+				height:60px;
+				margin:0 auto;
+			}
+			.head .search{
+				width:418px;
+				height:50px;
+				float:right;
+				margin-top:10px;
+			}
+			.head .search span{
+				font-size:18px;
+				font-weight:700;
+				color:#000;
+			}
+			.head .search .txt{
+				width:100px;
+				height:28px;
+			}
+			.head .search .btn{
+				position:absolute;
+				width:70px;
+				height:34px;
+				background:#0f9add;
+				color:#fff;
+				border:none;
+				outline:none;
+				font-size:16px;
+				float:right;	
+				border-radius:4px;
+				transition:0.3s;
+			}
+			.head .search .btn:hover{
+				transform:rotate(360deg);
+				transition:0.3s;
+			}
+			.map{
+				height:94vh;
+				background:#ccc;
+				width:100%;
+			}
+
+		</style>
+	</head>
+	<body>
+		<!--div盒子容器层-->
+		<!--以class="自定义名称"的样式称之为类样式-->
+		<div class="head">
+			<div class="h-center">
+			    <img src="images/logo.png" alt="">
+			    <div class="search">
+				<span>出发地：</span><input type="text" class="txt" id="start">
+				<span>目的地：</span><input type="text" class="txt" id="end">
+				<input type="button" value="搜索" class="btn" onclick="tz_search(this)">
+			    </div>
+			</div>
+		</div>
+
+
+		<div class="map" id="mapContainer"></div>
+
+		<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.3&key=ac47595a82a0f1643800eebf821b5eb4&plugin=AMap.Driving"></script>
+		<script>
+			//实例化地图
+			var map= new AMap.Map("mapContainer",{
+			  zoom:10,//缩放级别
+			  center:[114.85,34.85]//地图中心点经纬度
+			});
+
+			//实例化导航对象
+			var driving = new AMap.Driving({
+			  map:map
+			});
+			//获取输入框里面的值
+			function tz_search(){
+				var start = document.getElementById("start").value;
+				var end = document.getElementById("end").value;
+				driving.search([
+					{keyword:start},
+					{keyword:end}
+				]);
+			}
+		</script>
+	</body>
+</html>
+<!--
+img图标四要素 src路径 width height alt 
+浏览器加载机制 搜索引擎没有办法识别图片的ajax flash seo优化 
+用户体验三要素  
+-->

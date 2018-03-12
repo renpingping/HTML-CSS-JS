@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2018 by anonymous (http://jsbin.com/veyimiyine/2/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+<input type="text" id="username"/>
+<input type ="button" value ="提交" onclick="getUsername();"/>
+<script id="jsbin-javascript">
+//获取文本框中的value
+function getUsername(){
+  
+  //console.log("sdfhaih")
+  //alert("this is a test")
+  //思路：第一步先获取整个文本框节点，第二步获取文本框节点的value
+  //通过元素的id获得该节点
+  //document内置对象，属于DOM对象，以下编程属于DOM编程
+  //document有一个方法可以通过id获得元素：getElementById(eltId)
+  
+  var usernameInput = document.getElementById("username");
+  
+  //alert(usernameInput);
+  //input文本框中有value属性，所以可以用：元素对象.value
+  
+  var username = usernameInput.value;
+  alert(username); 
+  //usernameInput.value="Jackon";
+  usernameInput.type="checkbox";
+  
+  //获取所有复选框的value
+  
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+﻿<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="Keywords" content="css">
+		<meta name="Description" content="">
+ 		<title>CSS旋转信息</title>
+		<style>/*元素的属性 样式CSS*/
+			body,p{
+				margin:0;                          /*maargin是一个值时，外边距：上下左右都是0*/
+			}
+			.message{
+				display:flex;                      /*弹性盒模型*/
+				justify-content:space-between;     /*有弹性盒模型的时候才能使用*/
+				width:940px;                       /*属性名称:属性值（单位）*/
+				height:300px;
+				/*background-color:#ff3300;*/      /*背景颜色*/
+				margin:60px auto;                  /*margin是两个值时，外边距：第一个值是上下，第二个值是左右边距*/
+				
+			}
+			.messagelist{
+				
+				width:300px;
+				height:300px;
+				/*background-color:#cc9900;*/
+				perspective:1000px;                 /*3D坐标系的z轴值 */
+			}
+			.messagelist:hover .listtext{               /*当鼠标放上去时的装饰*/
+				transform:rotateY(0deg);  
+			}
+			.messagelist:hover .listpic{
+				transform:rotateY(-90deg);  
+			}
+			.listpic,.listtext{                         /*并列选择器：同时选中多个元素，并设置相同的属性*/
+				position:absolute;                  /*绝对定位*/
+				width:300px;
+				height:300px;
+				transition:0.5s;                    /*过渡：当前元素发生变化的时候转的慢一点 */
+			}
+			.listpic{
+				background-color:#339900;
+				/*background-image:url("images/1.png");*/
+				
+
+			}
+			.listtext{
+				display:flex;                        /*1*/
+				align-items:center;                  /*2  同上，必须有1才使用2，使子元素垂直居中*/
+				background-color:rgba(0,0,0,0.7);    /*透光：透30%的光是（1-0.3）*/
+				color:#ffffff;
+				text-align:center;
+				/*transform:rotateY(90deg);*/        /*变化：角度轴（角度值）*/
+			}
+			p{
+				background-color:#000000;	
+			}
+		</style>
+	</head>
+	<body>
+		<div class="message">
+			<div class="messagelist">
+				<div class="listpic">
+					<img src="images/1.png" alt="Frozen" width="300px" height="300px">
+				</div>
+				<div class="listtext">
+					<p>
+				Welcome to the official site for Disney Frozen. Watch videos, play games, listen to music, browse photos, and buy the movie on Digital HD, Blu-ray and DVD.
+					</p>
+					
+				</div>
+			</div>
+			<div class="messagelist">
+				<div class="listpic">
+					<img src="images/2.png" alt="Frozen" width="300px" height="300px">
+				</div>
+				<div class="listtext">
+					<p>
+				Welcome to the official site for Disney Frozen. Watch videos, play games, listen to music, browse photos, and buy the movie on Digital HD, Blu-ray and DVD.
+					</p>
+					
+				</div>
+			</div>
+			<div class="messagelist">
+				<div class="listpic">
+					<img src="images/3.png" alt="Frozen" width="300px" height="300px">
+				</div>
+				<div class="listtext">
+					<p>
+						Welcome to the official site for Disney Frozen. Watch videos, play games, listen to music, browse photos, and buy the movie on Digital HD, Blu-ray and DVD.
+					</p>
+					
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<!--
+	网页：
+	class：给元素起名字 有意义的英文单词或可辨别的缩写
+	外边距：margin 描述一个元素与其他元素之间的间距，以及一个元素与浏览器边缘的间距
+	左右：940px 上下：300px 图片：300，300
+	外边距：上：60px 左右：居中
+	普通流：
+	一个块元素在父元素里怎么排列？
+	1、从下往上排
+	2、从左开始排
+	3、一个块元素占一行
+	弹性盒模型：子元素沿着父元素的主轴排列 display：flex 使主轴横着
+	img标签 and background :
+		1、加载速度:img先加载。
+		2、SEO：搜索引擎优化：内容和用户搜索的越匹配越放的前
+			img优于background
+		3、用户体验：img展示的图片可以下载 background不行
+		4、搜索引擎渲染
+			img优于background
+		5、语义化上
+			内容上：img
+			background：装饰上
+-->

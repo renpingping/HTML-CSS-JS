@@ -1,0 +1,81 @@
+﻿
+知识点：
+	html的概念以及扩展名
+		超文本标记语言
+		*.doc，*.ppt，*.xls，*.txt，*.exe，*.*...
+		扩展名的不同其实意味着打开（运行）它的应用程序不一样
+		*.java，*.cs，*.dll，*.jar
+		*.html，*.htm
+		html扩展名结尾的文件能够被浏览器所打开（运行）
+		
+	浏览器的概念以及和html的关系
+		浏览器就是一个应用程序
+
+	html标记(标签)的概念
+		a.标签是"<>"一堆尖括号为语法实现，大多数情况下标签都是成对出现，前面那个标签叫做标签头，后面的标签叫做标签尾
+		b.标签里是标签的名字，标签的名字理论上是不能够自己随便变更，因为每个标记对于浏览器说来说，都有不同的含义
+		c.一对标签里面有可能嵌套0个或者多个子标签，根据立场不同标签之间的关系大致可以区分为父标签、子标签、兄弟标签
+		d.一对标签（大部分标签）里面除了可以嵌套子标签以外，还可以嵌套文本
+		e.一对标签的标签头中有可能出现0个或者多个标签属性
+			attrName="attrValue"
+			例子：<html language="en"></html>
+
+	HTML代码书写的规则
+		a.html不区分大小写，但是我们通常都会统一用小写
+		b.html文件的第一行代码一定是定义doctype（文档类型），不能省略
+			old html doctype
+				<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+			过渡版的 html doctype
+				<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+			html5 doctype
+				<!DOCTYPE html>
+		c.注意代码的缩进，子节点一定是根据父节点进行缩进的
+	html文档的根标签html
+	head标签
+		通常都是用来和浏览器进行交流，设置浏览器页面的一些元数据
+		<meta charset="utf-8">用来设置浏览器用什么字符集读取HTML文档内容
+		*GBK(中国),GB2313(中国台湾),ISO-8859-1(英文),UTF-8(通用)
+		读和写是两个动作，文档写完之后保存的时候是写，浏览器运行的时候是读
+	body标签
+		body标签里面的内容，包括body本身都是中间页面的可视化的元素
+	可视化标签和非可视化标签
+		head标签里面100%的都是非可视化标签
+		body标签里面99%的都是可视化标签
+	常用标签（w3school帮助文档）
+		标题：h1-h6
+			一个页面只允许有一个h1标签
+		段落：p
+			用来表达一个文本段落
+		加粗：b strong
+			它们的作用是一样的，但是它们语义不一样，strong代表的是强调
+		倾斜：i em
+			它们的作用是一样的，但是它们语义不一样，em代表的是强调
+		超链接标签：a
+			href属性非常重要，用来设置超链接的目标地址或锚标记地址(#开头，后面跟上锚标记的id)
+			target属性设置打开页面的方式(_self|_blank)
+			第一种作用:对内容进行跳转解释
+			第二种作用:跳转界面
+			第三种作用:锚标记的作用，当前页面跳转
+		图片标签：img
+			*img标签是一个单标签
+			*src写路径的时候一定要用“/”，最好不要用“\”
+			*width和height属性可以设置百分比，相对于父标签的宽度和高度
+			src属性用来设置img标签所显示的图片路径
+				绝对路径 不提倡
+				相对路径 相对于当前img所在的文件，去寻找src的位置
+			width属性设置图片的宽度 
+			height属性设置图片的高度
+			alt属性用来设置图片未加载成功时显示的提示信息
+	列表
+		ol > li* 有序列表
+		ul > li* 无序列表
+		dl > dt? | dd* 数据列表
+		data list > data title | data data
+
+	表格
+		table > tr > th|td
+
+英文单词：
+	head[头、头部]、body[身体]、metaData[元数据]、title[标题]、language[语言]、english[英语]、charset[字符集]、target[目标]、blank[空白的]、self[自己]
+作业：
+	请查看作业目录中的“作业.doc”
