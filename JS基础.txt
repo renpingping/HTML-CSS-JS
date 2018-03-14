@@ -1,4 +1,5 @@
 /*
+/*
 var arr = [0,1,2,3.14,'Hello',null,true];
 console.log(arr.length);
 console.log(arr);
@@ -206,17 +207,346 @@ a.forEach(function(element){
 */
 ////////////////////////////////////////////////////
 //如果没有return语句，函数执行完毕后也会返回结果，只是结果为undefined
+/*
 function abs(x){
-  if(x>0){
+  if(typeof x !=='number'){
+    throw 'Not a number';
+  }
+  if(x>=0){
     return x;
   }else{
     return -x;
   }
 }
-alert(abs(-10));
+console.log(abs(32));
+
+var abs = function(x){  //匿名函数
+  if(x>0){
+    return x;
+  }else{
+    return -x;
+  }
+};
 
 
+//关键字arguments，它只在函数内部起作用，并且永远指向当前函数的调用者传入的所有参数。
+//arguments类似Array但它不是一个Array
+function foo(x){
+  console.log('x='+x);
+  for(var i=0;i<arguments.length;i++){
+    console.log('arg ' + i+ '='+arguments[i]);
+  }
+}
+foo(10,20,30);
 
+function abs(){
+  if (arguments.length===0){
+    return 0;
+  }
+  var x = arguments[0];
+  return x >= 0 ? x : -x;
+}
+console.log(abs(-12));
+
+//foo(a[,b],c)
+//接收2~3个参数，b是可选参数，如果只传2个参数，b默认为null。
+//要把中间的参数变为可选参数，只能用arguments判断，然后重新调整参数并赋值。
+function foo(a,b,c){
+  console.log('foo: ');
+  if(arguments.length === 3){
+    //实际拿到的参数是a和b,c为undefined
+    c = b;  //把b赋给c,b变为默认值
+    b = null;
+  }
+  console.log('rest');
+  console.log("a:"+arguments[0]+' b:'+arguments[1]+' c:'+arguments[2]);
+}
+foo(7,8,9);
+console.log('rest 参数：');
+//获得的额外的参数赋给rest参数。rest参数只能写在最后。以数组形式显示。
+function foo(a,b,...rest){
+  console.log(a);
+  console.log(b);
+  console.log(rest);
+}
+foo(1,2,3,4,5,6);
+*/
+/*
+//求和，测试1
+function sum(...rest) {
+   var sum_rest = 0;
+   for (var i = 0; i < rest.length; i++){
+     sum_rest = sum_rest + rest[i];
+   }
+   return sum_rest;
+}
+var i, args = [];
+for (i=1; i<=100; i++) {
+    args.push(i);
+}
+if (sum() !== 0) {
+    console.log('测试失败: sum() = ' + sum());
+} else if (sum(1) !== 1) {
+    console.log('测试失败: sum(1) = ' + sum(1));
+} else if (sum(2, 3) !== 5) {
+    console.log('测试失败: sum(2, 3) = ' + sum(2, 3));
+} else if (sum.apply(null, args) !== 5050) {
+    console.log('测试失败: sum(1, 2, 3, ..., 100) = ' + sum.apply(null, args));
+} else {
+    console.log('测试通过!');
+}
+
+//求和，测试2
+function sum(...rest) {
+   var sum = 0;
+   rest.forEach(function(ele, index, arr){
+       sum += ele;
+   });
+   return sum;
+}
+
+*/
+
+//JavaScript引擎有一个在行末自动添加分号的机制,小心return语句后加“;”。
+/*
+定义一个计算圆面积的函数area_of_circle()，它有两个参数：
+
+r: 表示圆的半径；
+pi: 表示π的值，如果不传，则默认3.14
+
+'use strict';
+function area_of_circle(r, pi) {
+//第一种
+if(arguments.length<2){
+      pi=3.14;
+    }
+      var area = pi*r*r;
+      return area;
+//第二种
+  if(typeof pi != 'number'){
+     pi = 3.14;
+    }    
+  return pi * r * r;
+  }
+// 测试:
+if (area_of_circle(2) === 12.56 && area_of_circle(2, 3.1416) === 12.5664) {
+    console.log('测试通过');
+} else {
+    console.log('测试失败');
+}
+*/
+/*
+//找出最大的数，虽然第一想法用if语句，但条件运算符更简洁
+function max(a, b) {
+  return a>b?a:b;
+}
+console.log(max(15, 20));
+*/
+//js函数嵌套时，内部函数可以访问外部函数定义的变量，反之不行。
+//JavaScript的函数在查找变量时从自身函数定义开始，从“内”向“外”查找。
+//如果内部函数定义了与外部函数重名的变量，则内部函数的变量将“屏蔽”外部函数的变量。
+
+//变量提升
+//JavaScript的函数定义有个特点，它会先扫描整个函数体的语句，把所有申明的变量“提升”到函数顶部：
+/*
+'use strict';
+
+function foo() {
+    var x = 'Hello, ' + y;
+    console.log(x);
+    var y = 'Bob';
+}
+foo();
+
+//虽然是strict模式，但语句var x = 'Hello, ' + y;并不报错，原因是变量y在稍后申明了。
+//但是console.log显示Hello, undefined，说明变量y的值为undefined。
+//这正是因为JavaScript引擎自动提升了变量y的声明，但不会提升变量y的赋值。
+//由于JavaScript的这一怪异的“特性”，我们在函数内部定义变量时，请严格遵守“在函数内部首先申明所有变量”这一规则。最常见的做法是用一个var申明函数内部用到的所有变量：
+
+function foo1() {
+    var
+        x = 1, // x初始化为1
+        y = x + 1, // y初始化为2
+        z, i; // z和i为undefined
+    // 其他语句:
+    for (i=0; i<100; i++) {
+        z = x + i;
+        y = x + z;
+    }
+    return console.log('z:'+z+' y:'+y);
+}
+foo1();
+//不在任何函数内定义的变量就具有全局作用域。实际上，JavaScript默认有一个全局对象window，
+//全局作用域的变量实际上被绑定到window的一个属性
+//顶层函数的定义也被视为一个全局变量，并绑定到window对象
+//直接调用的alert()函数其实也是window的一个变量
+
+window.alert('调用window.alert()');
+// 把alert保存到另一个变量:
+var old_alert = window.alert;
+// 给alert赋一个新函数:
+window.alert = function () {}
+alert('无法用alert()显示了!');
+// 恢复alert:
+window.alert = old_alert;
+alert('又可以用alert()了!');
+*/
+//匿名函数自调用
+(function(x,y){
+  return console.log(x*y);
+}(3,9));
+
+var myvar = {};
+myvar.name = 'myvar';
+myvar.version = 1.0;
+(function(x,y){
+  return console.log(x*y);
+}(3,9));
+
+//const 定义常量
+//const和let都具有块级作用域
+const PI = 3.14;
+console.log(PI);
+
+/*let [x,[y,z]] = ['Hello',['JavaScript','ES6']];
+console.log(x,y,z);
+let [,,q]= ['Hello','JavaScript','ES6'];
+console.log('q: '+q);
+
+var person = { 
+  name:'小明',
+  age:20,
+  gender:'male',
+  passport:'G-12345678',
+  school: 'No.4 middle school'
+};
+var {name, age, passport}=person;   //解构赋值
+console.log('name= '+name+', age = '+age+', passport ='+passport);
+
+var person = {
+  name:'小明',
+  age:20,
+  gender:'male',
+  passport:'G-12345678',
+  school: 'No.4 middle school',
+  address:{                     //address不是变量，而是为了让city和zipcode 获得嵌套的address对象的属性；
+    city: 'Beijing',
+    street: 'No.1 Road',
+    zipcode: '100001'
+  }
+};
+var {name,address:{city,zipcode}} = person;
+console.log(name+': address: '+city+'; zipcode: '+ zipcode)
+*/
+
+var person = {
+  name:'小明',
+  age:20,
+  gender:'male',
+  passport:'G-12345678',
+  school: 'No.4 middle school',
+  address:{                     //address不是变量，而是为了让city和zipcode 获得嵌套的address对象的属性；
+    city: 'Beijing',
+    street: 'No.1 Road',
+    zipcode: '100001'
+  }
+};
+/*
+//把passport属性赋值给变量id,passport变为了不具备属性，它也不是变量。
+let {name,passport:id} = person;
+console.log(`name: ${name}; id: ${id}; `);
+
+var {name, single=true} = person;  //解构赋值为single赋予默认值true。
+console.log(`name: ${name}; single: ${single}`)；
+*/
+var x,y;
+{x,y} = {name:'小明', x: 100,y: 200};
+
+var person = {
+  name: 'xiaoming',
+  age: 20,
+  gender: 'male',
+  passport: 'G-123456'
+};
+var x,y;
+({x, y} = { name: '小明', x:100, y: 200});
+console.log(x,y);
+
+
+//解构赋值可以大大简化代码，如，交换x,y的值
+var x=1, y=2;
+[x,y]=[y,x];
+console.log(x,y);
+var {hostname:domain, pathname:path} = location;
+console.log(location);
+
+function buildDate({year, month, day, hour=0, minute=0,second=0}){
+  return new Date(year+'-'+month+'-'+day+' '+hour+':'+minute+':'+second);
+}
+alert(buildDate({year:2018, month: 3, day: 14}));
+alert(buildDate({year:2018, month: 3, day: 14, hour: 20, minute: 15 }));
+*/
+/*
+//在一个对象中绑定函数，称为这个对象的方法
+var xiaoming = {
+  name:'小明',
+  birth: 1994,
+  age: function(){
+    var y = new Date().getFullYear();
+    return y - this.birth;           //this始终指向当前对象，即xiaoming这个变量
+  }
+};
+console.log(xiaoming.age);
+console.log(xiaoming.age());
+
+
+var xiaoming = {
+  name:'小明',
+  birth: 1994,
+  age: getAge
+};
+function getAge() {
+   var y = new Date().getFullYear();
+    return y - this.birth;           //this始终指向当前对象，即xiaoming这个变量
+}
+console.log(xiaoming.age());
+console.log(getAge());
+
+
+var xiaoming = {
+  name:'小明',
+  birth: 1994,
+  age: function(){
+    var that = this;
+    function getAgeFromBirth(){
+       var y = new Date().getFullYear();
+       return y - that.birth;
+    }
+    return getAgeFromBirth();
+  }
+};
+console.log(xiaoming.age);
+console.log(xiaoming.age());
+*/
+//要指定函数的this指向那个对象，可以用函数本身的apply方法，它接收两个参数，
+//第一个参数就是需要绑定的this变量，第二个参数是Array，表示函数本身的参数。
+
+function getAge() {
+  var y = new Date().getFullYear();
+  return y - this.birth;
+}
+var xiaoming = {
+  name:'小明',
+  birth:1994,
+  age: getAge
+};
+console.log(xiaoming.age());
+console.log(getAge.apply(xiaoming,[]));
+
+//apply()把参数打包成Array再传入；
+//call()把参数按顺序传入。
+console.log(Math.max.apply(null, [3,5,4]));
+console.log(Math.max.call(null, 3,5,6));
 
 
 
@@ -260,28 +590,11 @@ isNaN(NaN); // true
 
 最后要注意浮点数的相等比较：
 1 / 3 === (1 - 2 / 3); // false
-这不是JavaScript的设计缺陷。浮点数在运算过程中会产生误差，因为计算机无法精确表示无限循环小数。要比较两个浮点数是否相等
-
-，只能计算它们之差的绝对值，看是否小于某个阈值：
+这不是JavaScript的设计缺陷。浮点数在运算过程中会产生误差，因为计算机无法精确表示无限循环小数。要比较两个浮点数是否相等，只能计算它们之差的绝对值，看是否小于某个阈值：
 
 Math.abs(1 / 3 - (1 - 2 / 3)) < 0.0000001; // true
 
 avaScript把null、undefined、0、NaN和空字符串''视为false，其他值一概视为true。
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
