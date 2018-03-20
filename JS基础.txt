@@ -361,7 +361,9 @@ foo();
 //虽然是strict模式，但语句var x = 'Hello, ' + y;并不报错，原因是变量y在稍后申明了。
 //但是console.log显示Hello, undefined，说明变量y的值为undefined。
 //这正是因为JavaScript引擎自动提升了变量y的声明，但不会提升变量y的赋值。
-//由于JavaScript的这一怪异的“特性”，我们在函数内部定义变量时，请严格遵守“在函数内部首先申明所有变量”这一规则。最常见的做法是用一个var申明函数内部用到的所有变量：
+//由于JavaScript的这一怪异的“特性”，我们在函数内部定义变量时，请严格遵守“在函数内部首先申明所有变量”这一规则。最常
+
+见的做法是用一个var申明函数内部用到的所有变量：
 
 function foo1() {
     var
@@ -545,46 +547,13 @@ console.log(getAge.apply(xiaoming,[]));
 
 //apply()把参数打包成Array再传入；
 //call()把参数按顺序传入。
-//对普通函数调用，通常把this绑定为null
 console.log(Math.max.apply(null, [3,5,4]));
 console.log(Math.max.call(null, 3,5,6));
 
-var count = 0;
-var oldparseInt = parseInt;
-window.parseInt = function () {
-  count += 1;
-  return oldparseInt.apply(null, arguments);
-}
 
-parseInt('10');
-parseInt('20');
-console.log('count = '+count);
-*/
 
-//reduce实现数组的连乘
-function product(arr) {
- return arr.reduce(function (x,y){
-  return x * y;
-});   
-}
-// 测试:
-if (product([1, 2, 3, 4]) === 24 && product([0, 1, 2]) === 0 && product([99, 88, 77, 66]) === 44274384) {
-    console.log('测试通过!');
-}
-else {
-    console.log('测试失败!');
-}
 
-/*
-//
 
-实现数组的连加
-var arr1 = [1, 3, 5, 7, 9];
-console.log(arr1.reduce(function (x, y) {
-    console.log('x+y',x+y)
-  return x+y;
-}));
-*/
 
 
 
@@ -623,13 +592,43 @@ isNaN(NaN); // true
 
 最后要注意浮点数的相等比较：
 1 / 3 === (1 - 2 / 3); // false
-这不是JavaScript的设计缺陷。浮点数在运算过程中会产生误差，因为计算机无法精确表示无限循环小数。要比较两个浮点数是否相等，只能计算它们之差的绝对值，看是否小于某个阈值：
+这不是JavaScript的设计缺陷。浮点数在运算过程中会产生误差，因为计算机无法精确表示无限循环小数。要比较两个浮点数是否相等
+
+，只能计算它们之差的绝对值，看是否小于某个阈值：
 
 Math.abs(1 / 3 - (1 - 2 / 3)) < 0.0000001; // true
 
-avaScript把null、undefined、0、NaN和空字符串''视为false，其他值一概视为true。
+JavaScript把null、undefined、0、NaN和空字符串''视为false，其他值一概视为true。
+
+split()方法，用于把一个字符串分割成字符串数组。
+提示： 如果把空字符串 ("") 用作 separator，那么 stringObject 中的每个字符之间都会被分割。
+注意： split() 方法不改变原始字符串。
+语法：string.split(separator,limit)
+separator：可选。字符串或正则表达式，从该参数指定的地方分割string Object.
+limit：可选。该参数可指定返回的数组的最大长度，如果设置了该参数，返回的子串不会多于这个参数指定的数组。如果没有设置该
+
+参数，整个字符串都会被分割，不考虑他的长度。
+返回值：类型为Array:一个字符串数组，该数组通过在separator指定的边界处将字符串string Object分割成子串创建的。返回的数组
+
+中的子串不包含separator自身。
 
 
+String s = str.substring(0,5);	是获取到该字符串下标0到下标4的字符串。
+String s1 = str.substring(1);	是获取到该字符串从下标1开始到之后的所有字符。
+ 
+for循环适合执行一组次数特定的语句；
+while循环适合在条件满足的情况下不断执行的一组语句。
+
+控制台输入代码需要换行时用shift和回车键换行。
+
+document.write("<p>"+mystring+"</p>"); //向页面中写入标签或文字。
+
+被视为false的值包括：0、空字符串、null、undefined、NaN（not a number）；其他值都为true。
+
+访问对象的属性：1、可使用句点表示法。2、使用数组索引
+如：car-对象，color-属性。car.color = 'blue'; car["color"] = 'red';
+car.numberOfDoors = 4; //给对象添加属性
+var car = { color: "blue", numberOfDoors: 4, interior: "leather" };  //定义一个包含3个属性的对象
 
 
 
