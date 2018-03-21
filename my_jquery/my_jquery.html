@@ -1,0 +1,73 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="Keywords" content="">
+		<meta name="Description" content="">
+		<meta name="Author"content="">
+		<title>JQuery Example</title>
+		<style>
+			#open,#closed{
+				padding:1em;
+				border:3px solid black;
+				font-size: 150%;
+				width:400px;
+			}
+			p {
+				padding:5em;
+				width:200px;
+				border: 3px solid #ffc;
+			}
+			p.highlighted{
+				background-color: #fcf;
+			}
+			li.highlighted{
+				background-color: #666;
+			}
+			input[name="email"]{
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<a href = "1.html">A link</a><br>
+		<a href = "http://www.baidu.com">baidu</a><hr>
+		<form>
+		<label>Email address: <input name="email" value="person@example.com" size="40">
+		</label>
+		<input id="emailFormSubmit" type="submit" disabled>
+		</form>
+		<ul>
+			<li>One</li>
+			<li>Two</li>
+			<li>Three</li>
+			<li>Four</li>
+		</ul>
+		<div id = "open">
+			We are open!
+		</div>
+		<div id = "closed">
+			We are closed!
+		</div>
+		<p>This is the first paragraph on the page.</p>
+		<p>This is the second paragraph on the page.</p>
+  		<script src = "jQuery.js"></script>
+		<script src = "my_jquery.js"></script>
+	</body>
+</html>
+<!--
+
+$是JQuery声明函数的名称，document是传递给这个函数的参数，通常，该选择器为css选择器。
+	onload事件是在页面加载完毕后才触发。
+	document.ready事件在页面创建完毕后触发。
+
+加载网页时，浏览器创建页面结构的可编程表示-文档对象模型（DOM）
+
+内置对象document是操作dom的入口，
+它提供了getElementById、getElementByName和getElementByTagName等方法。
+它可以提供查询dom，还提供在dom中添加、删除和修改元素的方法。
+
+
+
+
+-->
