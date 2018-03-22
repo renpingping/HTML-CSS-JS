@@ -1,0 +1,70 @@
+			form div{
+				margin-bottom: 1em;
+			}
+			div.submit{ margin-left: 165px;}
+			label.field{
+				display: block;
+				float: left;
+				margin-right: 15px;
+				width: 150px;
+				text-align: right;
+			}
+			
+			input[type="text"], select, textarea {
+				width: 300px;
+				font:18px Verdana;
+				border: solid 2px #666;
+				background-color: #ada;
+			}
+			div.required label.field{ 
+				font-weight: bold;
+			}
+			div.required input, div.required select {
+				background-color: #6a6;
+				border: solid 2px #000;
+				font-weight: bold;
+			}
+
+
+			fieldset {
+				border: none;
+				background-color: #ffc;
+				width: 400px;
+			}
+			progress {
+				-webkit-appearance: none;
+				-moz-appearance: none;	
+				appearance: none;
+			}
+			/* Chrome and Safari*/
+			progress::-webkit-progress-bar {
+				height: 10px;
+				background-color: #dfdfdf;
+				box-shadow: 0 2px 3px rgba(0,0,0,0.2) inset;
+				border-radius: 5px;
+			}
+			progress{
+				height: 10px;
+				background-color: #dfdfdf;
+				box-shadow: 0 2px 3px rgba(0,0,0,0.2) inset;
+				border-radius: 5px;
+			}
+			/* Mozilla Firefox */
+			progress::-webkit-progress-value {
+				background-color: #026105;
+				border-radius: 5px;
+			}
+			progress::-moz-progress-bar{
+				background-color: #026105;
+				border-radius: 5px;
+			}
+
+div.error label {
+	color: red;
+}
+div.errors {
+	border:2px solid red;
+	color: red;
+	width: 50%;
+	padding: 10px;
+}

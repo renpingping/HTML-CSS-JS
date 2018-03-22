@@ -1,0 +1,138 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="Keywords" content="">
+		<meta name="Description" content="">
+		<meta name="Author"content="">
+		<title>表单</title>
+		<link rel="stylesheet" href="form.css">
+	</head>
+	<body>
+		<h1>Registration Form</h1>
+		<p>Please fill out the form below to register for our site. Fields with bold labels are required.</p>
+		<form id="registrationForm" method="post">
+		<div class="required">
+			<label class="field" for="name">Name</label><input type="text" id="name">
+		</div>
+		<div class="required">
+			<label class="field" >Gender </label>
+			<label><input type="radio" name="gender" value="male">male</label>
+			<label><input type="radio" name="gender" value="female">female</label>
+		</div>
+		<div class="required">
+			<label class="field">Operating System </label>
+			<select id="os">
+			<option value="windows">Windows
+			<option value="macos">Mac OS
+			<option value="linux">Linux
+			<option value="other">Other ...
+			</select>
+		</div>
+		<div>
+			<label class="field">Toys</label>
+			<label><input type="checkbox" name="toy" value="digicam">Digital Camera</label>
+			<label><input type="checkbox" name="toy" value="phone">Smartphone</label>
+			<label><input type="checkbox" name="toy" value="tablet">Tablet</label>
+		</div>
+		<div>
+			<label class="field" for="portrait">Portrait</label>
+			<input type="file" id="portrait"> 
+		</div>
+		<div>
+			<label class="field" for="bio">Mini Biography</label>
+			<textarea id="bio" rows="6" cols="40" disabled> Enter your answer here.</textarea>
+		</div>
+		<div class="submit">
+		<input type="submit" value="register">
+		</div>
+		</from>
+
+		<fieldset>
+			<legend>Oatmeal Varieties</legend>
+			<label><input type="radio" name="applecinnamon" accesskey= "a">Apple Cinnamon</label>
+			<label><input type="radio" name="buttycrunch" accesskey="b">Butty Crunch</label>
+			<label><input type="radio" name="brownsuger" accesskey="c">Brown Suger</label>
+		</fieldset>
+		
+	<p>
+		<label>Enter your <a href="#" tabindex="1">name</a>
+			<input type="text" name="username" accesskey="S" readonly>	
+		</label>
+	</p>
+	<p>
+		<label>Enter your <a href="#" tabindex="2" >age</a>
+			<input type="text" name="age" accesskey="M">	
+		</label>
+	</p>
+	<p>
+		<input type="submit">	
+	</p>
+	<p>
+		Progress task 1: <progress id="prog1" value="0" max="100">0%</progress>	
+	</p>
+	<p>
+		Progress task 2: <progress id="prog2" value="45" max="100">45%</progress>	
+	</p>
+	<p>
+		Progress task 3: <progress id="prog3" value="98" max="100">98%</progress>	
+	</p>
+	<p>Jetta:
+		<meter min="0" max="14.2" high="13.5" low="3" optimum="14" value="2.5">2.5 gallons</meter> is getting low
+	</p>
+	<p>Jetta:
+		<meter min="0" max="22" high="20" low="5" optimum="21" value="14">14 gallons</meter> is okay
+	</p>
+	<p>Jetta:
+		<meter min="0" max="5" high="4.5" low="1" optimum="4.6" value="4.7">4.7 gallons</meter> is practically full
+	</p>
+	<a href="751880948@qq.com">email</a><br><br>
+
+	<script src="scripts/jQuery.js"></script>
+	<script src="scripts/formJS.js"></script>
+	</body>
+</html>
+<!--
+input[type="text"]   属性选择器，只与属性type的值为text的<input>标签匹配。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-->
