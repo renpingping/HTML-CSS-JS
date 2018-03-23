@@ -1,0 +1,87 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<meta name="Keywords" content="">
+		<meta name="Description" content="">
+		<meta name="Author"content="">
+		<title>Frequently asked question</title>
+		<link rel="stylesheet" href="asked.css">
+	</head>
+	<body>
+		<h1>热门问答</h1>
+		<dl id="faq">
+			<dt>为什么要用原生 JavaScript 代替 jQuery？</dt>
+			<dd>随着 JavaScript 本身的完善，越来越多的人开始喜欢使用原生 JavaScript 开发代替各种库，其中不少人发出了用原生 JavaScript 代替 jQuery 的声音。这并不是什么坏事，但也不见得就是好事。如果你真的想把 jQuery 从前端依赖库中移除掉，我建议你慎重考虑。首先 jQuery 是一个第三方库。库存在的价值之一在于它能极大地简化开发。一般情况下，第三方库都是由原生语言特性和基础 API 库实现的。最常用的功能包括
+
+			在 DOM 树中进行查询;
+			修改 DOM 树及 DOM 相关操作;
+			事件处理;
+			Ajax;
+			Deferred 和 Promise;
+			对象和数组处理;
+			还有一个一直在用却很难在列清单时想到的——跨浏览器</dd>
+
+			<dt>有时候需要用 jQuery，有时候不需要用，该如何分辨？</dt>
+			<dd>
+			jQuery 的优势在于它的 DOM 处理、Ajax，以及跨浏览器。如果在项目中引入 jQuery，多半是因为对这些功能的需求。而对于不操作 DOM，也不需要考虑跨浏览器(比如用于转译工具)的部分，则考虑尽可能的用原生 JavaScript 实现。
+
+			如此以来，一定会存在 jQuery 和原生 JavaScript 的交集，那么，就不得不说说需要注意的地方
+			</dd>
+
+			<dt>注意 each()/map() 中的 this</dt>
+			<dd>
+			$.fn.each() 和 $.fn.map() 回调中经常会使用 this，这个 this 指向的就是当前数组元素。正是因为有这个便利，所以 jQuery 在定义回请贩时候没有把元素本身作为第一个参数，而是把序号作为第一个参数。
+			不过 ES6 带来了箭头函数。箭头函数最常见的作用就是用于回调。箭头函数中的 this 与箭头函数定义的上下文相关，而不像普通函数中的 this 是与调用者相关。
+			现在问题来了，如果把箭头函数作为 $.fn.each() 或 $.fn.map() 的回调，需要特别注意 this 的使用——箭头函数中的 this 不再是元素本身。鉴于这个问题，建议若非必要，仍然使用函数表达式作为 $.fn.each() 和 $.fn.map() 的回调，以保持原有的 jQuery 编程习惯。实在需要使用箭头函数来引用上下文 this 的情况下，千万记得用其回调定义的第二个参数作为元素引用，而不是 this。
+			</dd>
+		</dl>
+		<script src="scripts/jQuery.js"></script>
+		<script src="scripts/askedJS.js"></script>
+	</body>
+</html>
+<!--
+input[type="text"]   属性选择器，只与属性type的值为text的<input>标签匹配。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-->
