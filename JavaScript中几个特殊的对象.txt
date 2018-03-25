@@ -1,0 +1,382 @@
+JavaScript中几个特殊的对象：  
+  
+    1）window对象：  
+        在全局作用域中声明的变量、函数都是window对象的属性和方法。  
+          
+    2）this对象：  
+        this对象是在运行时基于函数的执行环境绑定的：在全局函数中，this等于window；当函数被作为某个对象的方法调用时，this等于那个对象。  
+        特别注意：匿名函数的执行环境具有全局性，因此匿名函数中的this对象通常指向window对象!!!  
+  
+        例子1：  
+            var name = "the window";  
+            var obj = {  
+                name : "my object",  
+                getName : function(){  
+                    return function(){  
+                        return this.name;  
+                    }  
+                }  
+            };  
+            var nameValue = obj.getName()();  
+            alert(nameValue);       // the window  
+          
+            解析：  
+                var nameValue = obj.getName()();     即：  
+                var nameValue = function(){  
+                                    return this.name;  
+                                }();  
+                注意：匿名函数function(){return this.name;}的执行环境具有全局性，故匿名函数中的this对象指向window对象  
+          
+        例子2：  
+            var name = "the window";  
+            var obj = {  
+                name : "my object",  
+                getName : function(){   
+                    // 把匿名函数的外部(函数)作用域中的this对象保存在一个闭包能够访问到的变量里。  
+                    var that = this;  
+                    return function(){  
+                        return that.name;  
+                    }  
+                }  
+            };  
+            var nameValue = obj.getName()();  
+            alert(nameValue);       // my object  
+          
+            解析：  
+                var nameValue = obj.getName()();     即：  
+                var nameValue = function(){  
+                                    return that.name;  
+                                }();  
+            说明：that不是关键字，只是一个普通的变量。闭包访问变量的顺序：闭包中的局部变量、外部函数的局部变量、全局变量！！！  
+  
+              
+    3）Global对象：  
+        1)所有在全局作用域内定义的属性和方法，都是Global对象的属性。  
+        2)Global对象不能直接使用，也不能用new运算符创建。  
+        3)Global对象在JavaScript引擎被初始化时创建，并初始化其方法和属性。  
+        4)浏览器把Global对象作为window对象的一部分实现了，因此，所有的全局属性和函数都是window对象的属性和方法。  
+  
+        Global对象的属性；  
+            Object      构造函数Object  
+            Function    构造函数Function  
+            Date        构造函数Date  
+            Array       构造函数Array  
+            RegExp      构造函数RegExp  
+            Error       构造函数Error  
+            String      构造函数String  
+            Boolean     构造函数Boolean  
+            Number      构造函数Number  
+              
+            undefined   特殊值undefined  
+            NaN         特殊值NaN  
+              
+        Global对象的方法：  
+  
+            encodeURI()：  
+                1)对整个URI进行编码。  
+                2)只对空格进行编码，不会对冒号、正斜杠、问号、井号等进行编码。  
+                3)编码后的结果：除了空格被替换成了%20之外，其它的都没有发生变化。  
+                4)对应的解码方法：decodeURI()  
+              
+            encodeURIComponent()：  
+                1)对部分URI(指除去协议、主机地址、端口后的部分)进行编码。  
+                2)对任何非标准字符进行编码。  
+                3)对应的解码方法：decodeURIComponent()        
+              
+            URI编码方法说明：  
+                1)有效的URI中不能包含某些字符(例如：空格等)。  
+                2)用特殊的UTF-8编码替换所有无效的字符，从而让浏览器能够接受和理解。  
+                  
+            eval()：当解析器发现代码中调用eval()方法时，它会将传入的参数当作实际的JavaScript语句来解析。 
+
+eval() 函数会将传入的字符串当做 JavaScript 代码进行执行。
+ 
+语法：
+eval(string)
+参数：
+string
+表示JavaScript表达式，语句或一系列语句的字符串。表达式可以包含变量以及已存在对象的属性。
+返回值：
+执行指定代码之后的返回值。如果返回值为空，返回undefined
+
+描述：
+eval() 是全局对象的一个函数属性。
+
+eval() 的参数是一个字符串。如果字符串表示的是表达式，eval() 会对表达式进行求值。如果参数表示一个或多个 JavaScript 语句， 那么 eval() 就会执行这些语句。注意不要用 eval() 来执行一个算术表达式；因为 JavaScript 可以自动为算术表达式求值。
+
+如果你以字符串的形式构造算术表达式，则可以用 eval() 在随后对其求值。例如，假设你有一个变量 x ，您可以通过将表达式的字符串值（例如 3 * x + 2 ）赋值给一个变量，然后在你的代码后面的其他地方调用 eval() ，来推迟涉及 x 的表达式的求值。
+
+如果 eval() 的参数不是字符串， eval() 将会将参数原封不动的返回。在下面的例子中，String 构造器被指定， 而 eval() 返回了 String 对象而不是执行字符串。
+
+eval(new String("2 + 2")); // 返回了包含"2 + 2"的字符串对象
+eval("2 + 2");             // returns 4
+你可以使用通用的的方法来绕过这个限制，如使用toString()
+
+var expression = new String("2 + 2");
+eval(expression.toString());
+如果你间接的使用 eval()，比如通过一个引用来调用它，而不是直接的调用 eval 。 从 ECMAScript 5 起，它工作在全局作用域下，而不是局部作用域中。这就意味着，例如，下面的代码的作用声明创建一个全局函数，并且geval中的这些代码在执行期间不能在被调用的作用域中访问局部变量。
+
+function test() {
+  var x = 2, y = 4;
+  console.log(eval("x + y"));  // 直接调用，使用本地作用域，结果是 6
+  var geval = eval; // 等价于在全局作用域调用
+  console.log(geval("x + y")); // 间接调用，使用全局作用域，throws ReferenceError 因为`x`未定义
+  (0, eval)('x + y'); // 另一间接调用的例子
+?}
+避免在不必要的情况下使用 eval
+eval() 是一个危险的函数， 他执行的代码拥有着执行者的权利。如果你用 eval() 运行的字符串代码被恶意方（不怀好意的人）操控修改，您最终可能会在您的网页/扩展程序的权限下，在用户计算机上运行恶意代码。更重要的是，第三方代码可以看到某一个eval()被调用时的作用域，这也有可能导致一些不同方式的攻击。相似的 Function 就不容易被攻击。
+
+eval() 通常比替代方法慢，因为它必须调用 JS 解释器，而许多其他结构则由现代 JS 引擎进行优化。
+
+在常见的案例中我们都会找更安全或者更快的方案去替换 eval()
+
+访问成员属性
+你不应该去使用 eval() 来将属性名字转化为属性。考虑下面的这个例子，被访问对象的属性在它被执行之前都会未知的。这里可以用 eval 处理：
+
+var obj = { a: 20, b: 30 };
+var propName = getPropName(); // 返回 "a" 或 "b"
+
+eval( 'var result = obj.' + propsName )
+但是，这里并不是必须得使用 eval() 。事实上，这里并不建议这样使用。可以使用 属性访问器 进行代替，它更快而且更安全：
+
+var obj = { a: 20, b: 30 }
+var propName = getPropName(); // 返回 "a" 或 "b"
+var result = obj[ propName ]; //  obj[ "a" ] 与 obj.a 等价
+你还可以使用这个方法去访问子代的属性。如下：
+
+var obj = {a: {b: {c: 0}}};
+var propPath = getPropPath(); // 例如返回 "a.b.c"
+
+eval( 'var result = obj.' + propPath )
+在这里避免 eval() 可以通过分割属性路径和循环遍历不同的属性来完成：
+
+function getDescendantantProp(obj, desc) {
+    var arr = desc.split('.');
+    while(arr.length) {
+        obj = obj[arr.shift()];
+    }
+    return obj;
+}
+
+var obj = {a: {b: {c: 0}}};
+var propPath = getPropPath(); // 例如返回 "a.b.c"
+var result = getDescendantantProp(obj, propPath);
+同样的方法也可实现设置子代的属性值:
+
+function setDescendantProp(obj, desc, value) {
+  var arr = desc.split('.');
+  while (arr.length > 1) {
+    obj = obj[arr.shift()];
+  }
+  obj[arr[0]] = value;
+}
+
+var obj = {a: {b: {c: 0}}};
+var propPath = getPropPath();  // 例如返回 "a.b.c"
+var result = setDescendantProp(obj, propPath, 1);  // test.a.b.c 值为 1
+使用函数而非代码段
+JavaScript拥有 first-class functions，这意味着你可以将函数直接作为参数传递给其他接口，将他们保存在变量中或者对象的属性中，等等。很多DOM的API都用这种思路进行设计，你也可以（或者应该）这样子设计你的代码：
+
+// 代替 setTimeout(" ... ", 1000) 写法:
+setTimeout(function() { ... }, 1000); 
+
+// 代替 elt.setAttribute("onclick", "...") 写法:
+elt.addEventListener('click', function() { ... } , false);
+闭包 也有助于创建参数化函数而不用连接字符串。 
+
+*********************************************************************************************************************
+
+window对象和document对象：
+
+1、window：代表浏览器中一个打开的窗口。
+
+（1）对象属性
+
+①　window.self 引用本窗口window==window.self
+
+②　window.name 为窗口名字
+
+③　window.defaultStatus 窗户状态栏信息
+
+④　window.location URL地址，设置该属性可打开新的页面
+
+（2）对象方法
+
+①　window.alert("text") 提示信息会话框
+
+②　window.confirm("text") 确认会话框
+
+③　window.prompt("text") 键盘输入会话框
+
+④　window.setIntervel(func, time) 每隔指定时间(毫秒)执行一次操作
+
+⑤　window.clearInterval() 清除时间间隔
+
+⑥　window.setTimeout(action,time) 等待指定时间(毫秒)后再执行操作
+
+⑦　window.open() 打开新的窗口
+
+⑧　window.close() 关闭窗口
+
+（3）成员对象
+
+①　window.event
+
+②　window.document
+
+③　Window.history
+
+a. window.history.length 浏览过的页面数
+
+b. window.history.back() 后退
+
+c. window.history.forward() 前进
+
+d. window.history.go(i) 前进或后退i个页面（i>0前进，i<0后退）
+
+④　Window.screen
+
+a. window.screen.width 屏幕宽度
+
+b. window.screen.height 屏幕高度
+
+c. window.screen.colorDepth 屏幕色深
+
+d. window.screen.availWidth 屏幕可用宽度
+
+e. window.screen.availHeight 屏幕可用高度（除去任务栏的高度）
+
+⑤　Window.navigator
+
+a. window.navigator.appCodeName 浏览器代码名
+
+b. window.navigator.appName 浏览器名
+
+c. window.navigator.platform 运行浏览器的操作系统平台
+
+d. window.navigator.appVersion 浏览器的平台和版本
+
+e. window.navigator.userAgent 由客户机发送服务器的user-agent 头部的值
+
+f. window.navigator.cookieEnabled 浏览器是否启用cookie
+
+g. window.navigator.appMinorVersion 浏览器补丁版本
+
+h. window.navigator.cpuClass cpu类型
+
+i. Window.navigator.plugins 插件标识
+
+j. window.navigator.userProfile 用户的个人信息
+
+k. window.navigator.systemLanguage 客户体系语言
+
+l. window.navigator.userLanguage 用户语言
+
+m. window.navigator.onLine 用户是否在线
+
+n. window.navigator.mimeTypes MIME类型（数组）
+
+ 
+
+2、document对象：代表整个HTML 文档，可用来访问页面中的所有元素。
+
+（1）对象属性
+
+①　document.title                 文档标题，等价于HTML的<title>标签
+
+②　document.bgColor            页面背景色
+
+③　document.fgColor              前景色(文本颜色)
+
+④　document.linkColor           未点击过的链接颜色
+
+⑤　document.alinkColor            激活链接(焦点在此链接上)的颜色
+
+⑥　document.vlinkColor            已点击过的链接颜色
+
+⑦　document.URL                   在同一窗口打开另一网页
+
+⑧　document.fileCreatedDate       文件建立日期，只读属性
+
+⑨　document.fileModifiedDate      文件修改日期，只读属性
+
+⑩　document.fileSize              大小，只读属性
+
+?　document.cookie                设置和读出cookie
+
+?　document.charset               字符集
+
+（2）对象方法
+
+①　document.write()                      动态向页面写入内容
+
+②　document.createElement(tag) 创建指定标签的元素
+
+③　document.getElementById(id)  获得指定id值的元素
+
+④　document.getElementsByName(name)      获得指定Name值的元素
+
+（3）body对象
+
+①　document.body                 文档主体开始和结束，等价于<body></body>
+
+②　document.body.bgColor          背景颜色
+
+③　document.body.link             未点击过的链接颜色
+
+④　document.body.alink          激活链接(焦点在此链接上)的颜色
+
+⑤　document.body.vlink      已点击过的链接颜色
+
+⑥　document.body.text        文本色
+
+⑦　document.body.innerText      <body>...</body>之间的文本
+
+⑧　document.body.innerHTML  <body>...</body>之间的HTML代码
+
+⑨　document.body.topMargin 页面上边距
+
+⑩　document.body.leftMargin      页面左边距
+
+?　document.body.rightMargin   页面右边距
+
+?　document.body.bottomMargin  页面下边距
+
+?　document.body.background    背景
+
+?　document.body.appendChild(oTag) 添加DOM对象
+
+?　document.body.onclick="func()"              鼠标指针单击对象是触发
+
+?　document.body.onmouseover="func()"    鼠标指针移到对象时触发
+
+?　document.body.onmouseout="func()"        鼠标指针移出对象时触发
+
+（4）location-位置子对象
+
+①　document.location.hash  #号后的部分
+
+②　document.location.host        域名+端口号
+
+③　document.location.hostname     域名
+
+④　document.location.href          完整URL
+
+⑤　document.location.pathname 目录部分
+
+⑥　document.location.port     端口号
+
+⑦　document.location.protocol    网络协议
+
+⑧　document.location.search      ?号后的部分
+
+（5）通过集合引用（以images集合为例，forms集合等类似）
+
+①　document.images                <img>标签
+
+②　document.images.length          <img>标签的个数
+
+③　document.images[0]             第1个<img>标签           
+
+④　document.images[i]          第i-1个<img>标签
+  
