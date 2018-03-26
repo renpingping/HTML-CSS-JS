@@ -1,0 +1,93 @@
+一、CSS3 :default伪类选择器简介
+CSS3 :default伪类选择器只能作用在表单元素上，表示默认状态的表单元素。
+
+举个例子，一个下拉框，可能有多个选项，我们默认会让某个<option>处于selected状态，此时这个<option>可以看成是处于默认状态的表单元素（例如下面示意代码的“选项4”），理论上可以应用:default伪类选择器。
+
+<select multiple>
+    <option>选项1</option>
+    <option>选项2</option>
+    <option>选项3</option>
+    <option selected>选项4</option>
+    <option>选项5</option>
+    <option>选项6</option>
+</select>
+假设CSS如下：
+
+option:default {
+    color: red;
+}
+则在Chrome浏览器下，当我们选择其他选项，此时就可以看到选项4是红色了，效果如下图：
+
+下拉默认选项红色
+
+Firefox浏览器下效果也是类似：
+
+Firefox下默认选项4红色
+
+IE浏览器则不支持。
+
+因此，移动端可以放心使用，桌面端不用管IE的项目也可以用起来。
+
+二、CSS3 :default伪类选择器作用
+CSS3 :default伪类选择器作用设计的作用是让用户在选择一组数据的时候，依然知道默认选项是什么，否则其他选项一多，选着选着就不知道默认提供的是哪个了，算是一种体验增强策略。作用不是很强烈，但是关键时刻却很有用。
+
+三、CSS3 :default伪类选择器一些特性研究
+1. 研究1：JS快速修改会不会有影响？
+测试代码如下：
+
+:default {
+  transform: sclae(1.5);
+}
+<input type="radio" name="city" value="0">
+<input type="radio" name="city" value="1" checked>
+<input type="radio" name="city" value="2">
+<script>
+document.querySelectorAll('[type="radio"]')[2].checked = true;
+</script>
+也就是HTML设置的是第2个单选框放大1.5倍，JS立即瞬间设置第3个单选框选中，结果发现就算很快，哪怕是几乎无延迟的JS修改，:default伪类选择器的渲染依然不受影响。
+
+单选按钮选中和放大效果
+
+因此，本题答案是无影响。
+
+2. 研究2：<option>如果没有设置selected属性，浏览器会默认呈现第1个<option>，此时第1个<option>响应:default伪类选择器吗？
+例如：
+
+option:default {
+    color: red;
+}
+<select name="city">
+    <option value="-1">请选择</option>
+    <option value="1">北京</option>
+    <option value="2">上海</option>
+    <option value="3">深圳</option>
+    <option value="4">广州</option>
+    <option value="5">厦门</option>
+</select>
+结果第一个<option>没有红色，如下图，因此，:default选择器要想有作用，必须要selected为true。同样的，对于单复选框，checked值也要是true。
+
+请选择没有变红
+
+因此，本题答案是不会响应。
+
+四、CSS3 :default伪类选择器实际应用
+虽然说:default选择器是用来标记默认状态的，避免选择混淆。但是实际上，在我看来，更有实用价值的应该是“推荐标记”。
+
+现代web应用越来越智能，有时候有些操作会智能给用户push一些选择，其中默认将推荐的设置设为checked状态，以前我们的做法是另外输出文字“（推荐）”，现在有了:default选择器，我们的实现可以变得更加简洁，也更容易维护。
+
+您可以狠狠地的点击这里：:default选择器与自动添加推荐字样demo
+
+效果如下图：
+
+增加“推荐”字样显示截图
+
+点击其他选项，“推荐”二字依然稳固。以后，如果要更换推荐选项了，直接修改input的checked属性就可以，维护更简单了。
+
+相关CSS和HTML代码如下：
+
+input:default + label::after {
+    content: '（推荐）';
+}
+<p><input type="radio" name="pay" id="pay0"> <label for="pay0">支付宝</label></p>
+<p><input type="radio" name="pay" id="pay1" checked> <label for="pay1">微信</label></p>
+<p><input type="radio" name="pay" id="pay2"> <label for="pay2">银行卡</label></p>
