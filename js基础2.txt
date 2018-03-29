@@ -167,3 +167,16 @@ items.sort(function(a, b) {
 var arr = [10, 20, 1, 2];
 arr.sort((x, y) => y-x);
 console.log(arr); // [1, 2, 10, 20]
+
+
+generator（生成器）：可以返回多次。
+
+函数在执行过程中，如果没有遇到return语句（函数末尾如果没有return，就是隐含的return undefined;），控制权无法交回被调用的代码
+
+function foo(x) {
+	return x+x;
+}
+var r = foo(1);
+
+generator由function*定义。并且，除了return语句，还可以用yield返回多次。
+函数只能返回一次，所以必须返回一个Array。但是，如果换成generator，就可以一次返回一个数，不断返回多次。
