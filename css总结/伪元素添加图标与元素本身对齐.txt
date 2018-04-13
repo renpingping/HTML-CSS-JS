@@ -1,0 +1,42 @@
+第一种：把伪元素变为块元素
+	用绝对定位法控制伪元素的位置。
+.annText {
+    display: block;
+    color: red;
+    vertical-align: middle;
+    padding: 10px;
+    width: 100px;
+    background-color: #ccc;
+    margin-left: 30px;
+}
+.annText:before {
+    content: "";
+    display: block;
+    position: absolute;
+    background-image: url(../images/laba.gif);
+    height: 15px;
+    width: 15px;
+    background-repeat: no-repeat;
+    top: 15px;
+    left: 14px;
+}
+
+第二种：把伪元素变为行内块元素
+	用vertical-align: middle居中即可。
+.annText{
+	display: block;
+    color: red;
+    vertical-align: middle;
+    padding: 10px;
+    width: 100px;
+    background-color: #ccc;
+}
+.annText:before{
+	content: "";
+    display: inline-block;
+    background-image: url(../images/laba.gif);
+    height: 15px;
+    width: 15px;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+}
