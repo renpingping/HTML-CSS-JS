@@ -1,0 +1,24 @@
+用一个div元素直接添加作为背景图片的图标和文字
+
+.weiloushu{
+	float: left;
+	background-image: url(../img/p1_20.jpg);
+    	border-right: 1px solid #ccc;
+}
+.whole{
+	margin-left: 50%;
+	background-image: url(../img/p1_23.jpg);
+}
+.weiloushu,.whole{
+	width: 50%;
+	height: 100px;
+	line-height: 100px;
+	text-indent: 26%;                  
+	background-repeat: no-repeat;
+    	background-position: 24% 49%;
+    	background-size: 28% 48%;
+}
+
+text-indent: 26%;              改变文字在div中的位置水平方向上
+background-position: 24% 49%;  设置背景图片的在div中的位置。
+background-size: 28% 48%;      设置背景图片的大小。
