@@ -1,0 +1,243 @@
+/*
+	基本样式按iPhoneX像素制作
+*/
+*{
+	margin:0;
+	padding: 0;
+}
+html{
+	background-color: #eee;
+}
+body{
+	width: 100%;
+    margin: 0 auto;
+}
+.header{
+	width: 100%;
+	}
+.header img{
+	width: 100%;
+	height: auto;
+	padding: 0;
+}
+.main{
+    background-color: white;
+    width: 100%;
+    padding: 2%;
+    margin: -1% auto;
+}
+.main ul{
+    display: block;
+    margin: -1% auto;
+    text-align: center;
+    padding: 1%;
+}
+.main .list1 li,.main .list2 li{
+	float: left;
+    margin: 3% 5%;
+    display: block;
+    text-align: center;
+    width: 22%;
+}
+.main img{
+	display: inline-block;
+	width: 60%;
+}
+.list1:after, .list2:after{
+	content: "";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility:hidden;  
+}
+.jieshao{
+	display: inline-block;
+    width: 100%;
+}
+ul li{
+	list-style: none;
+}
+.main li:first-child{
+	margin-left: 5%;
+} 
+.invitebox{
+	margin-top: 3%;
+    background-color: white;
+    width: 100%;
+}
+.invitebox a{
+	display: inline-block;
+    margin: 4% 22%;
+    width: 50%;
+    padding: 4%;
+    text-decoration: none;
+    background-color: #47379A;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+}
+.panoramic{
+	width: 100%;
+	margin-top: 2%;
+	background-color: white;
+}
+.weiloushu{
+	float: left;
+	background-image: url(../img/p1_20.jpg);
+    border-right: 1px solid #ccc;
+}
+.whole{
+	margin-left: 50%;
+	background-image: url(../img/p1_23.jpg);
+}
+.weiloushu,.whole{
+	width: 50%;
+	line-height: 100px;
+	text-indent: 26%; 
+	background-repeat: no-repeat;
+    background-position: 24% 49%;
+    background-size: 28% 48%;
+}
+.nav{
+    width: 100%;
+    background-color: #1d1a2b;
+    position: fixed;
+    bottom: 0;
+}
+.nav li{
+	float: left;
+    display: block;
+    width: 25%;
+    line-height: 209%;
+    margin-top: 3%;
+}
+.nav a {
+	display: block;
+    color: white;
+    text-indent: 50%;
+    text-decoration: none;
+    margin-bottom: 10%;
+}
+.nav .bottom1{
+	background: url(../img/p1_28.jpg);
+    background-size: 29% 80%;
+    background-position: 25% 38%;
+    background-repeat: no-repeat;
+}
+.nav .bottom2{
+	background: url(../img/p1_28-11.jpg);
+    background-size: 29% 80%;
+    background-position: 25% 38%;
+    background-repeat: no-repeat;
+}
+.nav .bottom3{
+	background: url(../img/p1_28-12.jpg);
+    background-size: 29% 80%;
+    background-position: 25% 38%;
+    background-repeat: no-repeat;
+}
+.nav .bottom4{
+	background: url(../img/p1_28-13.jpg);
+    background-size: 29% 80%;
+    background-position: 25% 38%;
+    background-repeat: no-repeat;
+}
+/* 
+	iPhone6/7/8 plus
+*/
+
+@media screen and (min-width:376px) and (max-width: 414px){
+	body {
+		width:100%;
+		font-size: 17px;
+	}
+	.nav .bottom1,.nav .bottom2,.nav .bottom3,.nav .bottom4 {
+    	background-size: 29% 88%;
+	}
+}
+/* 
+	iPhone6/7/8
+
+@media screen and (min-width:374px) and (max-width: 414px){
+	body {
+		width:100%;
+		font-size: 16px;
+	}
+	.header{
+		height:22%;
+	}
+	.main{
+		height:28%;
+	}
+	.invitebox a {
+		margin: 3% 25%;
+	}
+	.nav .bottom1,.nav .bottom2,.nav .bottom3,.nav .bottom4 {
+    	background-size: 29% 88%;
+	}
+}
+*/
+/* 
+	iPhone5/SE
+*/
+@media screen and (min-width:320px) and (max-width: 374px){
+	body {
+		font-size: 13px;
+	}
+	.main li:first-child {
+    	margin-left: 5%;
+	}
+	.nav .bottom1,.nav .bottom2,.nav .bottom3,.nav .bottom4 {
+    	background-size: 29% 88%;
+	}
+}
+/*
+	iPad
+*/
+@media screen and (min-width: 750px) and (max-width: 799px){ 
+	html{ 
+	font-size: 30.72px; 
+	} 
+	.main ul {
+	    padding: 0%;
+	}
+	.invitebox a {
+	    margin: 3% 28%;
+	    width: 40%;
+	    padding: 3%;
+	}
+	.main .list1 li, .main .list2 li {
+	    margin: 1% 5%;
+	}
+	.weiloushu, .whole {
+	    background-position: 33% 44%;
+	    background-size: 21% 65%;
+	}
+} 
+/*
+	iPad Pro
+*/
+@media screen and (min-width: 800px) and (max-width: 1024px){ 
+	html{ 
+	font-size: 32px; 
+	} 
+	.main ul {
+	    padding: 0%;
+	}
+	.invitebox a {
+	    margin: 3% 28%;
+	    width: 40%;
+	    padding: 3%;
+	}
+	.main .list1 li, .main .list2 li {
+	    margin: 1% 5%;
+	}
+	.weiloushu, .whole {
+	    background-position: 33% 44%;
+	    background-size: 21% 65%;
+	    line-height: 130px;
+	}
+	.nav .bottom1,.nav .bottom2,.nav .bottom3,.nav .bottom4 {
+	    background-size: 30% 100%;
+	}
+} 
