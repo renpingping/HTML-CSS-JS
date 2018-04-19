@@ -1,0 +1,60 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Examplar在线考试</title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="stylesheet" type="text/css" href="/css/MasterPage.css"/>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <header>
+        <img src="/image/logo.png" alt="logo" class="logo"/>
+        <asp:LinkButton ID="btnLogin" runat="server" CssClass="btnLogin" PostBackUrl="~/login.aspx">登录</asp:LinkButton>
+
+    </header>
+    
+    <div>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+        <footer class="site-footer">
+            <div class="col-ul">
+                <ul class="nav-group">
+                    <li>产品</li>
+                    <li>功能</li>
+                    <li>案例</li>
+                    <li>价格</li>
+                </ul>
+                <ul class="nav-group">
+                    <li>Examplar exam</li>
+                    <li>关于我们</li>
+                    <li>加入我们</li>
+                    <li>更新日志</li>
+                </ul>
+                <ul class="nav-group">
+                    <li>客服信息</li>
+                    <li>电话及微信：18788883741</li>
+                    <li>QQ：751880999</li>
+                    <li>地址：河南财经政法大学新校区</li>
+                </ul>
+                <div class="nav-qrcode">
+                    <img title="扫码关注微信公众号" src="image/Examplar-QR code.png"/>
+                </div>
+
+                
+            </div> 
+            <div class="copyright">
+                友情链接： <a>河南财经政法大学</a><a>中国知网</a><a>万方数据库</a>
+                <div>©2018-2020 河南财经政法大学计算机与信息工程学院 豫ICP1330000000 服务热线：400-828-8888 技术支持：任苹苹</div>
+            </div>
+        </footer>
+
+    </form>
+</body>
+</html>

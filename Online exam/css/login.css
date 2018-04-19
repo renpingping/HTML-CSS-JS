@@ -1,0 +1,141 @@
+﻿html{
+    height:100%;
+    width:100%;
+}
+body {
+    width: 100%;
+    height: 100%;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+.img-bg{
+    width: 100%;
+    height: 100%;
+    overflow:hidden;
+    object-fit: cover;
+    
+}
+.login-content-wrap{
+    position: absolute;
+    width: 450px;
+    height: 100%;
+    min-height: 600px;
+    background-color: rgba(255,255,255,.4);
+    top: 0;
+    right: 0;
+}
+.login-content{
+    position:absolute;
+    width:360px;
+    height:580px;
+    margin:auto;
+    background-color:white;
+    left:0;
+    right:0;
+    transform:translateY(5%);
+}
+.logo{
+    max-width : 80%;
+    display :block;
+    margin : 50px auto 35px;
+    max-height: 80px;
+}
+.login-form{
+    width:80%;
+    margin:0 auto ;
+    margin-top: 80px;
+}
+/*用户名、密码外框*/
+.username,.password{
+    margin:15px auto 5px;
+    border-bottom:1px solid #999;
+    width:75%;
+}
+.username:hover,.password:hover{
+    border-bottom-color:#1a8dff;
+}
+/*用户名、密码框*/
+.userNameInput,.passwordInput{
+    margin-bottom:10px;
+    border:none;
+    width:70%;
+    height:30px;
+    outline:none;
+}
+#usernameicon, #passwordicon{
+    margin-bottom:10px;
+    color:#DEDEDE;
+    padding:0 5px;
+    height:30px;
+}
+#usernameicon:before, #passwordicon:before{
+    content :'';
+    display:inline-block ;
+    width: 30px;
+    height:30px;
+    margin-bottom:-8px;
+}
+#usernameicon:before{
+    background: url(/image/我的账号.png) no-repeat bottom left /25px 25px;
+}
+#passwordicon:before{
+    background: url(/image/密码.png) no-repeat bottom left /25px 25px;
+}
+.btnLogin{
+    display :block;
+    margin:50px auto 10px;
+    width:75%;
+    line-height:40px;
+    color:white;
+    background-color:#1a8dff;
+    text-align:center;
+    text-decoration:none;
+    -webkit-border-radius:8px 8px 8px 8px;
+    -moz-border-radius:8px 8px 8px 8px;
+    -ms-border-radius:8px 8px 8px 8px;
+    -o-border-radius:8px 8px 8px 8px;
+}
+.btnLogin:hover{
+    background-color:#0026ff;
+}
+.forgetPassword{
+    display:block;
+    font-size:13px;
+    text-align:right;
+    margin-right:44px;
+    margin-top: -40px;
+    color:#8e8e8e;
+    text-decoration:none;
+}
+.btnRegist{
+    display:block;
+    font-size:15px;
+    text-align:right;
+    margin-right:44px;
+    color:#1A8DFF;
+    text-decoration:none;
+}
+.VerifyCode{
+    height:30px;
+   
+    margin:15px 10px 20px 30px;
+}
+.Verification{
+    width:48%;
+    margin: 20px 10px 20px 15px;
+    height: 26px;
+}
+.Verify{
+    float:right;
+    margin-top:21px;
+    margin-right:35px;
+    width:30%;
+    height:28px;
+}
+.radiobtn1 {
+    color:rgba(26, 141, 255, 0.80);
+    margin-top: 24px;
+    margin-left: 20px;
+}

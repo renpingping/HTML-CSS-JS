@@ -1,0 +1,67 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="ManagerMasterPage.master.cs" Inherits="ManagerMasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Examplar在线考试</title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="stylesheet" type="text/css" href="/css/ManagerMasterPage.css"/>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <header>
+        <div class="logo">   
+            <img src="/image/logo.png" alt="logo" class="imgLogo" />
+        </div>
+       
+        <div class="upNav"> 
+            <div class="searchText">
+                <asp:TextBox ID="TextBox1" runat="server" CssClass="searchtextbox"></asp:TextBox>
+            </div>
+            <div class="upAdd">
+                <ul>
+                    <li class="showadd">
+                        <div class="imgadd"></div>
+                        <div class="add none">
+                            <a>添加考生</a>
+                            <a>添加题目</a>
+                            <a>添加试卷</a>
+                            <a>添加考试</a>
+                        </div>
+                    </li>
+                    <li class="showhelp">
+                        <div class="imguser"> </div>
+                        <div class="none help">   
+                            <a>帮助</a>
+                            <a>退出</a>
+                        </div>
+                    </li>
+                </ul>
+          </div>
+       </div> 
+    </header>
+    
+    <div class="clearFLoat">
+        <div class="sidebar">
+            <ul>
+                <li><a href="ManagerIndex.aspx">首页</a></li>
+                <li><a href="userManage.aspx">用户管理</a></li>
+                <li><a href="#">题库管理</a></li>
+                <li><a href="#">考试管理</a></li>
+                <li><a href="#">系统管理</a></li>
+            </ul>
+        </div> 
+        <asp:Panel ID="Panel1" runat="server" CssClass="contentPanel">
+            <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server"  >
+        
+            </asp:ContentPlaceHolder>
+        </asp:Panel>
+    </div>
+        
+
+    </form>
+</body>
+</html>

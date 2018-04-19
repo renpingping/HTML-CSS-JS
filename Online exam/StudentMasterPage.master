@@ -1,0 +1,53 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="StudentMasterPage.master.cs" Inherits="StudentMasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Examplar在线考试</title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="stylesheet" type="text/css" href="/css/studentMasterPage.css"/>
+    <style type="text/css">
+        .auto-style1 {
+            max-width : 30%;
+            display : block;
+            margin-top : 20px;
+            margin-left: 20px;
+            max-height: 60px;
+            width: 140px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <header>
+        <a href="#"><img src="/image/logo.png" alt="logo" class="auto-style1"/></a>
+        
+        <asp:LinkButton ID="exitBtn" runat="server" CssClass="exitBtn" PostBackUrl="~/login.aspx">退出</asp:LinkButton>
+
+    </header>
+    
+    <div class="clearFLoat">
+        <div class="sidebar">
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">用户管理</a></li>
+                <li><a href="#">题库管理</a></li>
+                <li><a href="#">考试管理</a></li>
+                <li><a href="#">系统管理</a></li>
+            </ul>
+        </div> 
+        <asp:Panel ID="Panel1" runat="server" CssClass="contentPanel">
+            <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server"  >
+        
+            </asp:ContentPlaceHolder>
+        </asp:Panel>
+    </div>
+        
+
+    </form>
+</body>
+</html>

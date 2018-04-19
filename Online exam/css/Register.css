@@ -1,0 +1,74 @@
+﻿body {
+    height:100%;
+}
+.content_body{
+    margin:0 auto;
+    width:100%;
+    height:50%;
+}
+/* “注册” */
+.registertext{
+    margin:0px auto;
+    line-height:100px;
+    text-align:center;
+    vertical-align:middle;
+    font-size:200%;
+    background-color:#1A8Dff;
+    color:#fff;
+}
+.content_body ul {
+    display: block;
+    margin-left: 485px;
+}
+/* div标签 */
+.registerInput{
+    display: block;
+    margin-bottom: 40px;
+    margin-left: 60px;
+}
+
+
+/* label标签 */
+.registerLabel{
+    width: 100px;
+    color: rgba(0, 0, 0, 0.70);
+    font-size: 140%;
+}
+/* 输入文本框 */
+.textBoxInput,.sexRadio{
+    display: block;
+    margin-top: -25px;
+    height: 25px;
+    margin-left: 170px;
+}
+.sexRadio{
+    color:rgba(0, 0, 0, 0.70);
+}
+.registerBtn,.resetBtn{
+    display: block;
+    border-radius: 12px;
+    line-height: 42px;
+    text-decoration: none;
+    color: #fff;
+    text-align: center;
+    font-size: 130%;
+}
+.registerBtn{
+    background-color: #1a8dff;
+    margin-top:20px;
+    margin-right:150px;
+    width:150px;
+}
+.resetBtn{
+    background-color: rgba(26, 141, 255, 0.70);
+    margin-top:-42px;
+    margin-left:30%;
+    width: 80px;
+
+}
+.validator{
+    display: block;
+    color: red;
+    margin-top: -26px;
+    margin-left: 350px;
+}

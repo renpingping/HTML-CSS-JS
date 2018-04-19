@@ -1,0 +1,31 @@
+﻿body {
+}
+.studentlist {
+    margin-top: 14px;
+}
+.GridView_SelectedItem{
+    background-color: Silver;
+    color: Blue;
+    font-family: Tahoma, Arial, Helvetica;
+    font-size: 10px;
+    font-weight: normal;
+}
+.studentlist input[type="text"] {
+    width: 90px;
+}
+.studentlist a:nth-child(3) {
+    margin-top: -34px;
+    margin-left: 80px;
+}
+.studentlist a:nth-child(2) {
+    margin-top: -34px;
+    margin-left: -2px;
+}
+.studentlist td a:first-child {
+    margin-left: -95px;
+}
+.studentlist td a {
+    display: block;
+    width: 30px;
+}
+

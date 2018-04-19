@@ -1,0 +1,205 @@
+﻿*{
+    margin:0;
+    padding:0;
+}
+html{
+    background-color:#eff3f7;
+}
+body {
+    /*width:1349px;*/
+    height:401px;
+    position:relative;
+}
+a{
+    text-decoration:none;
+}
+ ul li {
+    list-style:none;
+}
+/* 导航头部 */
+header{
+    height:100px;
+    width:100%;
+}
+
+.logo{
+    width:160px;
+    height:100px;
+    text-decoration:none;
+    color:white;
+}
+.imgLogo{
+    margin:22px auto;
+    width:160px;
+    height:56px;
+}
+
+.upNav{
+    position: absolute;
+    z-index: 1;
+    margin-left: 845px;
+    margin-top: -104px;
+    width: 500px;
+    height: 100px;
+}
+.searchText{
+    float:left;
+    width:200px;
+    line-height:50px;
+    margin:25px auto;
+    text-align:center;
+}
+/*
+.searchText::after{
+    content:"";
+    clear:both;
+    display:block;
+    height:0;
+    visibility:hidden;
+}*/
+.searchtextbox{
+    margin-top: 15px;
+    margin-left: 90px;
+    height:30px;
+    background-color: rgba(230, 237, 245, 0.6);
+    width:220px;
+    border: 1px solid rgba(133, 208, 244, 0.6);
+}
+.searchText::after{
+    content:"";
+    display:block;
+    width:30px;
+    height:30px;
+    background:url(../image/search.png) no-repeat center center /30px 30px;
+    margin-top: -38px;
+    margin-left: 281px;
+}
+
+.upAdd {
+    float: left;
+    margin-top: 50px;
+    margin-left: 140px;
+}
+.upadd ul li{
+    float:right;
+    zoom:1;
+}
+.none{
+    position: absolute;
+	display: none;
+    width:60px;
+    line-height:30px;
+    position: absolute;
+    display: none;
+    width: 80px;
+    line-height: 30px;
+    margin-left: -50px;
+    background-color: #0094ff;
+    text-align: center;
+    border-radius: 5px;
+}
+.none a{
+    display:block;
+    color: white;
+    border-bottom: 1px solid #cccccc70;
+}
+/*
+.showadd:before{
+    content:"";
+    display:block;
+    width:5px;
+    height:5px;
+    border-radius:50% 50% 50% 50%;
+}*/
+.showadd,.showhelp{
+    position:relative;
+}
+li.showadd {
+    float: left;
+}
+.showadd {
+    width: 42px;
+    height: 50px;
+}
+.showhelp{
+    width: 120px;
+    margin-left: 40px;
+    margin-top: -18px;
+}
+/*
+.showadd .add,.showhelp .help{
+    display:block;
+}*/
+li.showadd:hover .add {
+    display: block;
+}
+li.showhelp:hover .help{
+    display:block;
+}
+.imgadd{
+    display: inline-block;
+    background: url(../image/添加1.png) no-repeat center center /38px 36px;
+    width: 40px;
+    height: 40px;
+}
+.imgadd:hover{
+    background:url(../image/添加.png) no-repeat center center /40px 40px;
+}
+.imguser{
+    display: inline-block;
+    background: url(../image/用户1.png) no-repeat center center /39px 41px;
+    width: 39px;
+    height: 40px;
+    margin-left: 10px;
+}
+.imguser:hover{
+    background:url(../image/用户.png) no-repeat center center /40px 41px;
+}
+
+/* 侧边栏 */
+.clearFloat{
+    zoom:1;
+}
+.clearFloat::after{
+    content:"";
+    clear:both;
+    display:block;
+    height:0;
+    visibility:hidden;
+}
+.sidebar{
+    float:left;
+    width:160px;
+    height:537px;
+    background-color:#6b6969;
+}
+.sidebar ul li{
+    float: left;
+    width: 160px;
+    background-color: #3a3e51;
+    line-height: 70px;
+    text-decoration:none;
+    text-align:center;
+}
+.sidebar ul li:hover{
+    background-color:#0094ff;
+    border-left:5px solid #0026ff;   
+}
+.sidebar ul li a{
+    color:white;
+}
+
+/* 主要内容面板 */
+.contentPanel{
+    position:absolute;
+    width: 1189px;
+    height:537px;
+    min-height:332px;
+    background-color:#cddbee40;
+    top:0px;
+    margin-left:160px;
+}
+
+
+
+
